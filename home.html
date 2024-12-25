@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title></title>
+<link rel="stylesheet" type="text/css" href="common.css">
+<script src="common.js"></script>
+</head>
+<body>
+	<h1>前言</h1>
+	<p>JSLib是我们根据以往的开发工作，总结出来的一套JavaScript工具集。本意是规范内部开发接口，后来觉得这个项目可以单独出来尝试进行一些共享或开源的工作。所以我们正在重新整理JSLib代码，并逐步释放一些相对通用的功能，并会先把相应的调用方式、接口、示例等共享出来，供大家参考、学习使用。</p>
+	<p>JSLib的基本架构和使用方式类似JQuery，可以简单的理解为JSLib的基础是一个简版的JQuery。但也不要过于简单的理解成就是一个简版JQuery，因为我们后面会慢慢放出一些相对大一些的应用扩展，例如刚开发的tableCells，以及未来加入的tree、ctree、inputSelect、ajax、post等多个插件。</p>
+	<p>因为在调用JSLib时，默认使用$js进行调用，所以我们内部也把JSLib称为$js。也就是说，在本项目内JSLib与$js两个名称都是指本项目的JSLib库。</p>
+	<p>如果在学习过程中遇到任何问题或有什么想法，请发到 <a href="https://github.com/shanmin/jslib/issues" target="_blank">https://github.com/shanmin/jslib/issues</a> 进行交流。如果提交issue不方便，也可以直接给我们发送邮件进行交流 Email: <a href="mailto:0123@163.com">0123@163.com</a> 。</p>
+
+	<h1>引用文件</h1>
+	<p>在使用$js时，一定要引用jslib.js文件。</p>
+	<fieldset>
+		<legend>HTML引用示例</legend>
+		<pre>&lt;script src="jslib.js">&lt;/script></pre>
+	</fieldset>
+
+	<h1>调用示例</h1>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre>&lt;script src="jslib.js">&lt;/script>
+&lt;script>
+	let js=$js('div');
+&lt;/script></pre>
+	</fieldset>
+	<fieldset>
+		<legend>JavaScript链式调用示例</legend>
+		<pre>$js('div').find('.a1').html('&lt;div>abc&lt;/div>');</pre>
+	</fieldset>
+</body>
+</html>

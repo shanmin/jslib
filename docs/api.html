@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title></title>
+<link rel="stylesheet" type="text/css" href="../common.css">
+<script src="../common.js"></script>
+<script src="../dist/jslib-min.js"></script>
+</head>
+<body>
+	<a name="add"></a>
+	<h1>$js().add</h1>
+	<h2>定义</h2>
+	<p>$js().add(selector) : JSLib</p>
+	<p>$js().add(HtmlString) : JSLib</p>
+	<p>$js().add(HtmlElement) : JSLib</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>selector</td>
+			<td>[可选]指定选择器字符串。</td>
+		</tr>
+		<tr>
+			<td>HtmlString</td>
+			<td>[可选]指定的HTML字符串。</td>
+		</tr>
+		<tr>
+			<td>HtmlElement</td>
+			<td>[可选]指定HTML节点。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>向当前匹配节点中添加新的节点。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre>&lt;div id="a1">
+	&lt;div id="a2">a2 text&lt;/div>
+	&lt;div id="a3">a3 text&lt;/div>
+&lt;/div></pre>
+	</fieldset>
+	<fieldset>
+		<legend>JavaScript</legend>
+		<pre>$js('#a2').add('#a3').addClass('newclass');</pre>
+	</fieldset>
+	<p>当执行$js('#a2')时，此对象会匹配a2节点。再执行add后，此对象会增加a3节点到匹配列表中。</p>
+	<fieldset>
+		<legend>执行后原HTML信息变为</legend>
+		<pre>&lt;div id="a1">
+	&lt;div id="a2" class="newclass">a2 text&lt;/div>
+	&lt;div id="a3" class="newclass">a3 text&lt;/div>
+&lt;/div></pre>
+	</fieldset>
+	<h2>版本</h2>
+	<p>本方法自0.0.0版本开始支持。</p>
+
+
+	<a name="addClass"></a>
+	<h1>$js().addClass</h1>
+	<h2>定义</h2>
+	<p>$js().addClass(classname) : JSLib</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>classname</td>
+			<td>[必须]指定的CSS类名。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>向当前匹配节点添加指定的CSS类。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre>&lt;div id="a1">
+	&lt;div id="a2">a2 text&lt;/div>
+	&lt;div id="a3">a3 text&lt;/div>
+&lt;/div></pre>
+	</fieldset>
+	<fieldset>
+		<legend>JavaScript</legend>
+		<pre>$js('#a2').addClass('newclass');</pre>
+	</fieldset>
+	<fieldset>
+		<legend>执行后原HTML信息变为</legend>
+		<pre>&lt;div id="a1">
+	&lt;div id="a2" class="newclass">a2 text&lt;/div>
+	&lt;div id="a3">a3 text&lt;/div>
+&lt;/div></pre>
+	</fieldset>
+	<h2>关联</h2>
+	<p><a href="api.html#removeClass">removeClass</a><br></p>
+	<h2>版本</h2>
+	<p>本方法自0.0.0版本开始支持。</p>
+
+
+	<a name="appendTo"></a>
+	<h1>$js().appendTo</h1>
+	<h2>定义</h2>
+	<p>$js().appendTo(HtmlElements) : JSLib</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>HtmlElements</td>
+			<td>[必须]指定的节点列表。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>当前匹配节点添加到指定的节点下。</p>
+	<p>当HtmlElements中存在多个节点时，则最终只会添加到第一个节点下。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre>&lt;div id="a2">a2 text&lt;/div>
+&lt;div id="a1">
+	&lt;div id="a3">a3 text&lt;/div>
+&lt;/div></pre>
+	</fieldset>
+	<fieldset>
+		<legend>JavaScript</legend>
+		<pre>$js('#a2').appendTo($js('#a1'));</pre>
+	</fieldset>
+	<fieldset>
+		<legend>执行后原HTML信息变为</legend>
+		<pre>&lt;div id="a1">
+	&lt;div id="a2">a2 text&lt;/div>
+	&lt;div id="a3">a3 text&lt;/div>
+&lt;/div></pre>
+	</fieldset>
+	<h2>版本</h2>
+	<p>本方法自0.0.0版本开始支持。</p>
+
+
+	<a name="bind"></a>
+	<h1>$js().bind</h1>
+	<h2>定义</h2>
+	<p>$js().bind(eventName,func) : JSLib</p>
+	<h2>说明</h2>
+	<p>本方法与.on方法功能相同，请参阅.on方法说明。</p>
+	<h2>关联</h2>
+	<p><a href="api.html#on">on</a><br></p>
+	<h2>版本</h2>
+	<p>本方法自0.0.0版本开始支持。</p>
+
+
+	<a name="closest"></a>
+	<h1>$js().closest</h1>
+	<h2>定义</h2>
+	<p>$js().closest(selector) : JSLib</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>selector</td>
+			<td>[可选]选择器字符串。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>向上查找包含当前元素的节点，如果设置了selector则需要符合。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre>&lt;div id="a1">
+	&lt;div id="a2">a2 text&lt;/div>
+	&lt;div id="a3">a3 text&lt;/div>
+&lt;/div></pre>
+	</fieldset>
+	<fieldset>
+		<legend>JavaScript</legend>
+		<pre>console.log($js('#a2').closest('#a1').html());</pre>
+	</fieldset>
+	<fieldset>
+		<legend>输出示例</legend>
+		<pre>&lt;div id="a1">
+	&lt;div id="a2">a2 text&lt;/div>
+	&lt;div id="a3">a3 text&lt;/div>
+&lt;/div></pre>
+	</fieldset>
+	<h2>版本</h2>
+	<p>本方法自0.0.0版本开始支持。</p>
+
+
+	<a name="css"></a>
+	<h1>$js().css</h1>
+	<h2>定义</h2>
+	<p>$js().css(name) : String</p>
+	<p>$js().css(name,value) : JSLib</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>name</td>
+			<td>[必须]css名称。</td>
+		</tr>
+		<tr>
+			<td>value</td>
+			<td>[可选]css值。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>如果未传递value，则返回对象中第一个节点的css属性值</p>
+	<p>如果传递value，则设置对象中所有节点的css属性</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre>&lt;div id="a1">
+	&lt;div id="a2">a2 text&lt;/div>
+	&lt;div id="a3">a3 text&lt;/div>
+&lt;/div></pre>
+	</fieldset>
+	<fieldset>
+		<legend>JavaScript</legend>
+		<pre>$js('#a2').css('color','#f00');</pre>
+	</fieldset>
+	<fieldset>
+		<legend>运行后原HTML变为</legend>
+		<pre>&lt;div id="a1">
+	&lt;div id="a2" style="color:#f00;">a2 text&lt;/div>
+	&lt;div id="a3">a3 text&lt;/div>
+&lt;/div></pre>
+	</fieldset>
+	<h2>版本</h2>
+	<p>本方法自0.0.0版本开始支持。</p>
+
+
+	<a name="each"></a>
+	<h1>$js().each</h1>
+	<h2>定义</h2>
+	<p>$js().each(func) : JSLib</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>func</td>
+			<td>[必须]回调函数function(index,element)，参数index为节点的编号，element为节点。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>遍历当前对象中的所有节点。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre>&lt;div id="a1">a1 text&lt;/div>
+&lt;div id="a2">a2 text&lt;/div>
+&lt;div id="a3">a3 text&lt;/div></pre>
+	</fieldset>
+	<fieldset>
+		<legend>JavaScript</legend>
+		<pre>$js('div').each(function(index,element){console.log(index,element.innerHTML)});</pre>
+	</fieldset>
+	<fieldset>
+		<legend>输出示例</legend>
+		<pre>0	&lt;div id="a1">a1 text&lt;/div>
+1	&lt;div id="a2">a2 text&lt;/div>
+2	&lt;div id="a3">a3 text&lt;/div></pre>
+	</fieldset>
+	<h2>版本</h2>
+	<p>本方法自0.0.0版本开始支持。</p>
+
+
+	<a name="eq"></a>
+	<h1>$js().eq</h1>
+	<h2>定义</h2>
+	<p>$js().eq(index) : JSLib</p>
+	<h2>说明</h2>
+	<p>返回当前对象中指定的节点。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre>&lt;div id="a1">a1 text&lt;/div>
+&lt;div id="a2">a2 text&lt;/div>
+&lt;div id="a3">a3 text&lt;/div></pre>
+	</fieldset>
+	<fieldset>
+		<legend>JavaScript</legend>
+		<pre>console.log($js('div').eq(2).html());</pre>
+	</fieldset>
+	<fieldset>
+		<legend>输出示例</legend>
+		<pre>&lt;div id="a2">a2 text&lt;/div></pre>
+	</fieldset>
+	<h2>版本</h2>
+	<p>本方法自0.0.0版本开始支持。</p>
+
+
+	<a name="find"></a>
+	<h1>$js().find</h1>
+	<h2>定义</h2>
+	<p>$js().find(selector) : JSLib</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>selector</td>
+			<td>[必须]选择器字符串。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>在当前匹配的节点中查找符合selector的节点。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre>&lt;div id="a1">
+	&lt;div id="a2">a2 text&lt;/div>
+	&lt;div id="a3">a3 text&lt;/div>
+&lt;/div></pre>
+	</fieldset>
+	<fieldset>
+		<legend>JavaScript</legend>
+		<pre>console.log($js('#a1').find('#a2').html());</pre>
+	</fieldset>
+	<fieldset>
+		<legend>输出示例</legend>
+		<pre>&lt;div id="a2">a2 text&lt;/div></pre>
+	</fieldset>
+	<h2>版本</h2>
+	<p>本方法自0.0.0版本开始支持。</p>
+
+
+	<a name="first"></a>
+	<h1>$js().first</h1>
+	<h2>定义</h2>
+	<p>$js().first() : JSLib</p>
+	<h2>说明</h2>
+	<p>返回当前对象中第一个节点。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre>&lt;div id="a1">a1 text&lt;/div>
+&lt;div id="a2">a2 text&lt;/div>
+&lt;div id="a3">a3 text&lt;/div></pre>
+	</fieldset>
+	<fieldset>
+		<legend>JavaScript</legend>
+		<pre>console.log($js('div').first().html());</pre>
+	</fieldset>
+	<fieldset>
+		<legend>输出示例</legend>
+		<pre>&lt;div id="a1">a1 text&lt;/div></pre>
+	</fieldset>
+	<h2>版本</h2>
+	<p>本方法自0.0.0版本开始支持。</p>
+
+	<a name="html"></a>
+	<h1>$js().html</h1>
+	<h2>定义</h2>
+	<p>$js().html() : String</p>
+	<p>$js().html(HtmlString) : JSLib</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>HtmlString</td>
+			<td>[可选]指定的HTML字符串。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>当未传递HtmlString时，将返回第一个匹配节点的HTML文本。</p>
+	<p>当传递HtmlString时，会使用这个HtmlString字符串内容填充所有匹配的节点。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre>&lt;div id="a1">
+	&lt;div id="a2">a2 text&lt;/div>
+	&lt;div id="a3">a3 text&lt;/div>
+&lt;/div></pre>
+	</fieldset>
+	<fieldset>
+		<legend>JavaScript</legend>
+		<pre>console.log($js('#a1').html());</pre>
+	</fieldset>
+	<fieldset>
+		<legend>输出示例</legend>
+		<pre>&lt;div id="a2">a2 text&lt;/div>
+&lt;div id="a3">a3 text&lt;/div></pre>
+	</fieldset>
+	<fieldset>
+		<legend>JavaScript</legend>
+		<pre>$js('#a1').html('&lt;div>abc&lt;/div>');</pre>
+	</fieldset>
+	<fieldset>
+		<legend>执行后原HTML信息变为</legend>
+		<pre>&lt;div id="a1">
+	&lt;div>abc&lt;/div>
+&lt;/div></pre>
+	</fieldset>
+	<h2>关联</h2>
+	<p><a href="api.html#last">last</a><br></p>
+	<h2>版本</h2>
+	<p>本方法自0.0.0版本开始支持。</p>
+	<!-- <div id="a1">
+		<div id="a2">a2 text</div>
+		<div id="a3">a3 text</div>
+	</div> -->
+	<!-- <script>
+		console.log($js('#a1').html());
+	</script> -->
+	<!-- <script>
+		$js('#a1').html('<div>abc</div>');
+	</script> -->
+
+
+	<a name="last"></a>
+	<h1>$js().last</h1>
+	<h2>定义</h2>
+	<p>$js().last() : JSLib</p>
+	<h2>说明</h2>
+	<p>返回当前对象中最后一个节点。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre>&lt;div id="a1">a1 text&lt;/div>
+&lt;div id="a2">a2 text&lt;/div>
+&lt;div id="a3">a3 text&lt;/div></pre>
+	</fieldset>
+	<fieldset>
+		<legend>JavaScript</legend>
+		<pre>console.log($js('div').last().html());</pre>
+	</fieldset>
+	<fieldset>
+		<legend>输出示例</legend>
+		<pre>&lt;div id="a3">a3 text&lt;/div></pre>
+	</fieldset>
+	<h2>关联</h2>
+	<p><a href="api.html#first">first</a><br></p>
+	<h2>版本</h2>
+	<p>本方法自0.0.0版本开始支持。</p>
+
+
+	<a name="off"></a>
+	<h1>$js().off</h1>
+	<h2>定义</h2>
+	<p>$js().off(eventName,func) : JSLib</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>eventName</td>
+			<td>[必须]指定的事件名称。</td>
+		</tr>
+		<tr>
+			<td>func</td>
+			<td>[必须]指定的处理函数。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>当前匹配节点移除绑定事件处理函数。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre>&lt;div id="a1">
+	&lt;div id="a2" class="newclass">a2 text&lt;/div>
+	&lt;div id="a3" class="newclass">a3 text&lt;/div>
+&lt;/div></pre>
+	</fieldset>
+	<fieldset>
+		<legend>JavaScript</legend>
+		<pre>$js('#a2').off('click',function(e){console.log(e)});</pre>
+	</fieldset>
+	<h2>关联</h2>
+	<p><a href="api.html#on">on</a><br></p>
+	<h2>版本</h2>
+	<p>本方法自0.0.0版本开始支持。</p>
+
+
+	<a name="on"></a>
+	<h1>$js().on</h1>
+	<h2>定义</h2>
+	<p>$js().on(eventName,func) : JSLib</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>eventName</td>
+			<td>[必须]指定的事件名称。</td>
+		</tr>
+		<tr>
+			<td>func</td>
+			<td>[必须]指定的处理函数。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>当前匹配节点绑定事件处理函数。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre>&lt;div id="a1">
+	&lt;div id="a2" class="newclass">a2 text&lt;/div>
+	&lt;div id="a3" class="newclass">a3 text&lt;/div>
+&lt;/div></pre>
+	</fieldset>
+	<fieldset>
+		<legend>JavaScript</legend>
+		<pre>$js('#a2').on('click',function(e){console.log(e)});</pre>
+	</fieldset>
+	<h2>关联</h2>
+	<p><a href="api.html#bind">bind</a> &nbsp; <a href="api.html#off">off</a></p>
+	<h2>版本</h2>
+	<p>本方法自0.0.0版本开始支持。</p>
+
+
+	<a name="removeClass"></a>
+	<h1>$js().removeClass</h1>
+	<h2>定义</h2>
+	<p>$js().removeClass(classname) : JSLib</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>classname</td>
+			<td>[必须]指定的CSS类名。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>当前匹配节点移出指定的CSS类。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre>&lt;div id="a1">
+	&lt;div id="a2" class="newclass">a2 text&lt;/div>
+	&lt;div id="a3" class="newclass">a3 text&lt;/div>
+&lt;/div></pre>
+	</fieldset>
+	<fieldset>
+		<legend>JavaScript</legend>
+		<pre>$js('#a2').removeClass('newclass');</pre>
+	</fieldset>
+	<fieldset>
+		<legend>执行后原HTML信息变为</legend>
+		<pre>&lt;div id="a1">
+	&lt;div id="a2">a2 text&lt;/div>
+	&lt;div id="a3" class="newclass">a3 text&lt;/div>
+&lt;/div></pre>
+	</fieldset>
+	<h2>关联</h2>
+	<p><a href="api.html#addClass">addClass</a><br></p>
+	<h2>版本</h2>
+	<p>本方法自0.0.0版本开始支持。</p>
+
+
+	<a name="version"></a>
+	<h1>$js.version</h1>
+	<h2>定义</h2>
+	<p>$js.version : String</p>
+	<h2>说明</h2>
+	<p>此属性返回当前JSLib版本。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>JavaScript</legend>
+		<pre>console.log($js.version);
+console.log($js().version);</pre>
+	</fieldset>
+	<fieldset>
+		<legend>输出示例</legend>
+		<pre>0.0.0
+0.0.0</pre>
+	</fieldset>
+	<h2>版本</h2>
+	<p>本属性自0.0.0版本开始支持。</p>
+	<script>
+		// console.log($js.version);
+		// console.log($js().version);
+	</script>
+</body>
+</html>

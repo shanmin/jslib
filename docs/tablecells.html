@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title></title>
+<link rel="stylesheet" type="text/css" href="../common.css">
+<script src="../common.js"></script>
+<script src="../dist/jslib-min.js"></script>
+</head>
+<body>
+	<a name="tableCells"></a>
+	<h1>$js().tableCells</h1>
+	<h2>定义</h2>
+	<p>$js().tableCells(opts) : JSLib</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>opts</td>
+			<td>[可选]附加参数。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>对匹配的TABLE节点，增加区域选择、复制、粘贴功能。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>JavaScript</legend>
+		<pre>$js('table').tableCells();</pre>
+	</fieldset>
+	<h2>演示</h2>
+	<fieldset>
+		<legend>表格区域选择、复制、粘贴</legend>
+		<table border="1">
+			<tr>
+				<th>Head1</th>
+				<th>Head2</th>
+				<th>Head3</th>
+				<th>Head4</th>
+				<th>Head5</th>
+			</tr>
+			<tr>
+				<td>row 1 col 1</td>
+				<td contentEditable="true">row 1 col 2</td>
+				<td>row 1 col 3</td>
+				<td>row 1 col 4</td>
+				<td>row 1 col 5</td>
+			</tr>
+			<tr>
+				<td>row 2 col 1</td>
+				<td><input type="text" name="n22" value="row 2 col 2"></td>
+				<td rowspan="2">row 2 col 3</td>
+				<td><input type="text" value="row 2 col 4"></td>
+				<td rowspan="4">row 2 col 5</td>
+			</tr>
+			<tr>
+				<td>row 3 col 1</td>
+				<td>row 3 col 2</td>
+				<td><input type="text" value="row 3 col 4"></td>
+			</tr>
+			<tr>
+				<td>row 4 col 1</td>
+				<td colspan="3">row 4 col 2</td>
+			</tr>
+			<tr>
+				<td>row 5 col 1</td>
+				<td>row 5 col 2</td>
+				<td>row 5 col 3</td>
+				<td>row 5 col 4</td>
+			</tr>
+		</table>
+		<p>使用鼠标划区，可以直接选择多个单元格区域。</p>
+		<p>使用Ctrl+C可对选择的单元格内容进行复制，复制后的内容可以直接贴到其他软件，例如Excel等。</p>
+		<p>使用Ctrl+V可对选择的单元格内容进行粘贴，粘贴内容可以是其他表格内容，也可以是来自其他软件的数据，例如Excel等。</p>
+		<p>在进行粘贴操作时，只会填充单元格中的文本框或可编辑单元格。</p>
+		<p>粘贴数据的第一个单元格，默认为已选中的第一个单元格。如果当前表格没有选中，则当前光标所在单元格做为默认单元格。</p>
+	</fieldset>
+	<h2>版本</h2>
+	<p>本属性自0.0.0版本开始支持。</p>
+	<script>
+		$js('table').tableCells();
+	</script>
+</body>
+</html>
