@@ -24,6 +24,10 @@
 	<p>对匹配的TABLE节点，增加区域选择、复制、粘贴功能。</p>
 	<h2>示例</h2>
 	<fieldset>
+		<legend>HTML</legend>
+		<pre>&lt;table border=&quot;1&quot;&gt;<br>	&lt;tr&gt;<br>		&lt;th&gt;Head1&lt;/th&gt;<br>		&lt;th&gt;Head2&lt;/th&gt;<br>		&lt;th&gt;Head3&lt;/th&gt;<br>		&lt;th&gt;Head4&lt;/th&gt;<br>		&lt;th&gt;Head5&lt;/th&gt;<br>	&lt;/tr&gt;<br>	&lt;tr&gt;<br>		&lt;td&gt;row 1 col 1&lt;/td&gt;<br>		&lt;td contentEditable=&quot;true&quot;&gt;row 1 col 2&lt;/td&gt;<br>		&lt;td&gt;row 1 col 3&lt;/td&gt;<br>		&lt;td&gt;row 1 col 4&lt;/td&gt;<br>		&lt;td&gt;row 1 col 5&lt;/td&gt;<br>	&lt;/tr&gt;<br>	&lt;tr&gt;<br>		&lt;td&gt;row 2 col 1&lt;/td&gt;<br>		&lt;td&gt;&lt;input type=&quot;text&quot; value=&quot;row 2 col 2&quot;&gt;&lt;/td&gt;<br>		&lt;td rowspan=&quot;2&quot;&gt;row 2 col 3&lt;/td&gt;<br>		&lt;td&gt;&lt;input type=&quot;text&quot; value=&quot;row 2 col 4&quot;&gt;&lt;/td&gt;<br>		&lt;td rowspan=&quot;4&quot;&gt;row 2 col 5&lt;/td&gt;<br>	&lt;/tr&gt;<br>	&lt;tr&gt;<br>		&lt;td&gt;row 3 col 1&lt;/td&gt;<br>		&lt;td&gt;row 3 col 2&lt;/td&gt;<br>		&lt;td&gt;&lt;input type=&quot;text&quot; value=&quot;row 3 col 4&quot;&gt;&lt;/td&gt;<br>	&lt;/tr&gt;<br>	&lt;tr&gt;<br>		&lt;td&gt;row 4 col 1&lt;/td&gt;<br>		&lt;td colspan=&quot;3&quot;&gt;row 4 col 2&lt;/td&gt;<br>	&lt;/tr&gt;<br>	&lt;tr&gt;<br>		&lt;td&gt;row 5 col 1&lt;/td&gt;<br>		&lt;td&gt;row 5 col 2&lt;/td&gt;<br>		&lt;td&gt;row 5 col 3&lt;/td&gt;<br>		&lt;td&gt;row 5 col 4&lt;/td&gt;<br>	&lt;/tr&gt;<br>&lt;/table&gt;</pre>
+	</fieldset>
+	<fieldset>
 		<legend>JavaScript</legend>
 		<pre>$js('table').tableCells();</pre>
 	</fieldset>
@@ -47,15 +51,15 @@
 			</tr>
 			<tr>
 				<td>row 2 col 1</td>
-				<td><input type="text" name="n22" value="row 2 col 2"></td>
+				<td><input type="text" value="row 2 col 2" size="8"></td>
 				<td rowspan="2">row 2 col 3</td>
-				<td><input type="text" value="row 2 col 4"></td>
+				<td><input type="text" value="row 2 col 4" size="8"></td>
 				<td rowspan="4">row 2 col 5</td>
 			</tr>
 			<tr>
 				<td>row 3 col 1</td>
 				<td>row 3 col 2</td>
-				<td><input type="text" value="row 3 col 4"></td>
+				<td><input type="text" value="row 3 col 4" size="8"></td>
 			</tr>
 			<tr>
 				<td>row 4 col 1</td>

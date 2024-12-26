@@ -13,18 +13,20 @@
 	<p>JSLib的基本架构和使用方式类似JQuery，可以简单的理解为JSLib的基础是一个简版的JQuery。但也不要过于简单的理解成就是一个简版JQuery，因为我们后面会慢慢放出一些相对大一些的应用扩展，例如刚开发的tableCells，以及未来加入的tree、ctree、inputSelect、ajax、post等多个插件。</p>
 	<p>因为在调用JSLib时，默认使用$js进行调用，所以我们内部也把JSLib称为$js。也就是说，在本项目内JSLib与$js两个名称都是指本项目的JSLib库。</p>
 	<p>如果在学习过程中遇到任何问题或有什么想法，请发到 <a href="https://github.com/shanmin/jslib/issues" target="_blank">https://github.com/shanmin/jslib/issues</a> 进行交流。如果提交issue不方便，也可以直接给我们发送邮件进行交流 Email: <a href="mailto:0123@163.com">0123@163.com</a> 。</p>
+	<p>查看文档请前往： <a href="https://shanmin.github.io/jslib/" target="_blank">https://shanmin.github.io/jslib/</a></p>
 
 	<h1>引用文件</h1>
-	<p>在使用$js时，一定要引用jslib.js文件。</p>
+	<p>在使用$js时，一定要引用dist/jslib-min.js文件。</p>
 	<fieldset>
 		<legend>HTML引用示例</legend>
-		<pre>&lt;script src="jslib.js">&lt;/script></pre>
+		<pre>&lt;script src="jslib-min.js">&lt;/script></pre>
 	</fieldset>
+	<p>jslib-min.js文件的存放位置不做任何限定，可根据项目自身的需要把dist目录下jslib-min.js文件进行任意存放。</p>
 
 	<h1>调用示例</h1>
 	<fieldset>
 		<legend>HTML</legend>
-		<pre>&lt;script src="jslib.js">&lt;/script>
+		<pre>&lt;script src="jslib-min.js">&lt;/script>
 &lt;script>
 	let js=$js('div');
 &lt;/script></pre>
@@ -33,5 +35,8 @@
 		<legend>JavaScript链式调用示例</legend>
 		<pre>$js('div').find('.a1').html('&lt;div>abc&lt;/div>');</pre>
 	</fieldset>
+
+	<h1>发布说明</h1>
+	<p>实际使用时，仅需要部署dist/jslib-min.js文件即可。本项目中的其他文件仅做为JSLib文档及示例使用。</p>
 </body>
 </html>

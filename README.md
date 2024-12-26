@@ -10,13 +10,13 @@ JSLib的基本架构和使用方式类似JQuery，可以简单的理解为JSLib�
 查看文档请前往： https://shanmin.github.io/jslib/
 
 # 引用文件
-在使用$js时，一定要引用jslib-min.js文件。
+在使用$js时，一定要引用dist/jslib-min.js文件。
 
 HTML引用示例
 ```
 <script src="jslib-min.js"></script>
 ```
-jslib-min.js文件的存放位置不做任何限定，可根据项目自身的要求进行存放。
+jslib-min.js文件的存放位置不做任何限定，可根据项目自身的需要把dist目录下jslib-min.js文件进行任意存放。
 
 # 调用示例
 HTML
@@ -30,3 +30,6 @@ JavaScript链式调用示例
 ```
 $js('div').find('.a1').html('<div>abc</div>');
 ```
+
+# 发布说明
+实际使用时，仅需要部署dist/jslib-min.js文件即可。本项目中的其他文件仅做为JSLib文档及示例使用。
