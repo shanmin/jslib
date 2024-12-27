@@ -492,6 +492,42 @@
 	<p>本方法自0.0.0版本开始支持。</p>
 
 
+	<a name="parent"></a>
+	<h1>$js().parent()</h1>
+	<h2>定义</h2>
+	<p>$js().parent(selector) : JSLib</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>selector</td>
+			<td>[可选]选择器字符串。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>获取当前匹配节点的父节点，如果设置了selector则需要符合。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre>&lt;div id="a1">
+	&lt;div id="a2">a2 text&lt;/div>
+	&lt;div id="a3">a3 text&lt;/div>
+&lt;/div></pre>
+	</fieldset>
+	<fieldset>
+		<legend>JavaScript</legend>
+		<pre>console.log($js('#a2').parent().html());</pre>
+	</fieldset>
+	<fieldset>
+		<legend>输出示例</legend>
+		<pre>&lt;div id="a1">
+	&lt;div id="a2">a2 text&lt;/div>
+	&lt;div id="a3">a3 text&lt;/div>
+&lt;/div></pre>
+	</fieldset>
+	<h2>版本</h2>
+	<p>本方法自0.0.1版本开始支持。</p>
+
+
 	<a name="removeClass"></a>
 	<h1>$js().removeClass</h1>
 	<h2>定义</h2>
