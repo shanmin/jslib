@@ -13,6 +13,9 @@
 	<h1>$js()</h1>
 	<h2>定义</h2>
 	<p>$js(selector,context) : JSLib</p>
+	<p>$js() : JSLib</p>
+	<p>$js(HtmlString) : JSLib</p>
+	<p>$js(HtmlElement) : JSLib</p>
 	<h2>参数</h2>
 	<table>
 		<tr>
@@ -22,6 +25,14 @@
 		<tr>
 			<td>context</td>
 			<td>[可选]筛选上下文，如果不传递则默认为document。</td>
+		</tr>
+		<tr>
+			<td>HtmlString</td>
+			<td>[可选]指定的HTML字符串。</td>
+		</tr>
+		<tr>
+			<td>HtmlElement</td>
+			<td>[可选]指定HTML节点。</td>
 		</tr>
 	</table>
 	<h2>说明</h2>
@@ -75,8 +86,7 @@
 &lt;/div></pre>
 	</fieldset>
 	<h2>版本</h2>
-	<p>本属性自0.0.0版本开始支持。</p>
-
-
+	<p>本方法自0.0.0版本开始支持。</p>
+	<p>$js()在0.0.0版本时返回一个空对象，自0.0.1开始改为返回为当前脚本的父节点。</p>
 </body>
 </html>
