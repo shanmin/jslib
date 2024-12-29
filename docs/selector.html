@@ -65,7 +65,30 @@
 			<td>匹配所有name="name1"的节点</td>
 		</tr>
 	</table>
-	<p>JSLib中大部分方法返回值都是JSLib对象，只要返回的是JSLib对象的，都可以实现链式调用。</p>
+	<p>JSLib中大部分内置方法返回值都是JSLib对象，只要返回的是JSLib对象的，都可以实现链式调用。</p>
+	<p>@name选择器，与其他类型的选择器有一个使用上的区别，这个选择器不支持属性选择，因为做为input名称时有可能包括中括号。如果需要同时使用name和属性选择，则可以使用[name='name'][attr='attr']的形式来代替。例如：</p>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre>&lt;input type=&quot;text&quot; name=&quot;a[]&quot; id=&quot;a0&quot; value=&quot;a0&quot;&gt;
+&lt;input type=&quot;text&quot; name=&quot;a[]&quot; id=&quot;a1&quot; value=&quot;a1&quot;&gt;
+&lt;input type=&quot;text&quot; name=&quot;b[name]&quot; id=&quot;b0&quot; value=&quot;b0&quot;&gt;
+&lt;input type=&quot;text&quot; name=&quot;c&quot; id=&quot;c0&quot; value=&quot;c0&quot;&gt;</pre>
+	</fieldset>
+	<fieldset>
+		<legend>JavaScript</legend>
+		<pre>console.log($js('@a[]'));
+//return elements [input#a0,input#a1]
+
+console.log($js('@b[name]));
+//return elements [input#b0]
+
+console.log($js('@c[value=c0]'));
+//return elements []
+
+console.log($js('[name=&quot;c&quot;][value=c0]'));
+//return elements [input#c0]</pre>
+	</fieldset>
+	<p></p>
 	<h2>示例</h2>
 	<fieldset>
 		<legend>HTML</legend>
@@ -87,6 +110,7 @@
 	</fieldset>
 	<h2>版本</h2>
 	<p>本方法自0.0.0版本开始支持。</p>
-	<p>$js()在0.0.0版本时返回一个空对象，自0.0.1开始改为返回为当前脚本的父节点。</p>
+	<p>自0.0.1版本开始，$js()改为返回为当前脚本的父节点。之前的版本是返回一个空对象。</p>
+	<p>自0.1.0版本开始，@name选择器不再支持属性选择。</p>
 </body>
 </html>
