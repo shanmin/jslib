@@ -6,7 +6,7 @@
 <title></title>
 <link rel="stylesheet" type="text/css" href="../common.css">
 <script src="../common.js"></script>
-<script src="../dist/jslib-min.js"></script>
+<script src="../dist/jslib.min.js"></script>
 </head>
 <body>
 	<a name="add"></a>
@@ -31,7 +31,7 @@
 		</tr>
 	</table>
 	<h2>说明</h2>
-	<p>向当前匹配节点中添加新的节点。</p>
+	<p>向当前匹配节点列表中添加新的节点。</p>
 	<h2>示例</h2>
 	<fieldset>
 		<legend>HTML</legend>
@@ -94,6 +94,105 @@
 	<p>本方法自0.0.0版本开始支持。</p>
 
 
+	<a name="after"></a>
+	<h1>$js().after</h1>
+	<h2>定义</h2>
+	<p>$js().after(selector) : JSLib</p>
+	<p>$js().after(HtmlString) : JSLib</p>
+	<p>$js().after(HtmlElement) : JSLib</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>selector</td>
+			<td>[必须]选择器。</td>
+		</tr>
+		<tr>
+			<td>HtmlString</td>
+			<td>[必须]HTML字符串。</td>
+		</tr>
+		<tr>
+			<td>HtmlElement</td>
+			<td>[必须]HTML节点。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>向当前匹配节点后面添加指定的信息。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre>&lt;div id="a1">
+	&lt;div id="a2">a2 text&lt;/div>
+	&lt;div id="a3">a3 text&lt;/div>
+&lt;/div></pre>
+	</fieldset>
+	<fieldset>
+		<legend>JavaScript</legend>
+		<pre>$js('#a2').after('&lt;div>abc&lt;/div>');</pre>
+	</fieldset>
+	<fieldset>
+		<legend>执行后原HTML信息变为</legend>
+		<pre>&lt;div id="a1">
+	&lt;div id="a2">a2 text&lt;/div>
+	&lt;div>abc&lt;/div>
+	&lt;div id="a3">a3 text&lt;/div>
+&lt;/div></pre>
+	</fieldset>
+	<h2>关联</h2>
+	<p><a href="api.html#before">before</a><br></p>
+	<h2>版本</h2>
+	<p>本方法自0.1.0版本开始支持。</p>
+
+
+	<a name="ajax"></a>
+	<h1>$js.ajax</h1>
+	<h2>定义</h2>
+	<p>$js.ajax(opts) : XHR</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>opts</td>
+			<td>[必须]指定的访问参数。</td>
+		</tr>
+		<tr>
+			<td>opts.url</td>
+			<td>[可选]访问的文件路径。如果未传递此属性，则默认为当前页面。</td>
+		</tr>
+		<tr>
+			<td>opts.method</td>
+			<td>[可选]访问方式。可选参数：GET、POST、PUT，默认：GET。</td>
+		</tr>
+		<tr>
+			<td>opts.type</td>
+			<td>[可选]method参数的别名。如果同时设置了method和type则以method为准。</td>
+		</tr>
+		<tr>
+			<td>opts.dataType</td>
+			<td>[可选]返回数据类型，可选参数：json。设置了json类型，则回调函数success中的data数据类型会变为解析json后的对象，如果解析失败则会调用error回调函数。</td>
+		</tr>
+		<tr>
+			<td>opts.success</td>
+			<td>[可选]请求成功后的回调的函数。函数定义function(data,status,xhr)，data为返回的数据，status为HTTP请求状态码，xhr为访问组件。</td>
+		</tr>
+		<tr>
+			<td>opts.error</td>
+			<td>[可选]请求失败后的回调的函数。函数定义function(xhr,status,ex)，xhr为访问组件，status为HTTP请求状态码，ex报错信息。</td>
+		</tr>
+		<tr>
+			<td>opts.async</td>
+			<td>[可选]异步请求，默认：true。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>AJAX方式访问数据。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>JavaScript</legend>
+		<pre>$js.ajax({url:'test.html'});</pre>
+	</fieldset>
+	<h2>版本</h2>
+	<p>本方法自0.1.0版本开始支持。</p>
+
+
 	<a name="appendTo"></a>
 	<h1>$js().appendTo</h1>
 	<h2>定义</h2>
@@ -129,6 +228,49 @@
 	</fieldset>
 	<h2>版本</h2>
 	<p>本方法自0.0.0版本开始支持。</p>
+
+
+	<a name="attr"></a>
+	<h1>$js().attr</h1>
+	<h2>定义</h2>
+	<p>$js().attr(attributeName) : String</p>
+	<p>$js().attr(attributeName,attributeValue) : JSLib</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>attributeName</td>
+			<td>[必须]属性名称。</td>
+		</tr>
+		<tr>
+			<td>attributeValue</td>
+			<td>[可选]属性值。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>未传递attributeValue值时，返回对象中第一个匹配节点的属性；传递attributeValue时设置全部匹配节点的属性。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre>&lt;div id="a1">
+	&lt;div id="a2">a2 text&lt;/div>
+	&lt;div id="a3">a3 text&lt;/div>
+&lt;/div></pre>
+	</fieldset>
+	<fieldset>
+		<legend>JavaScript</legend>
+		<pre>$js('#a2').attr('title','test');</pre>
+	</fieldset>
+	<fieldset>
+		<legend>执行后原HTML信息变为</legend>
+		<pre>&lt;div id="a1">
+	&lt;div id="a2" title="test">a2 text&lt;/div>
+	&lt;div id="a3">a3 text&lt;/div>
+&lt;/div></pre>
+	</fieldset>
+	<h2>关联</h2>
+	<p><a href="#removeAttr">removeAttr</a></p>
+	<h2>版本</h2>
+	<p>本方法自0.1.0版本开始支持。</p>
 
 
 	<a name="bind"></a>
@@ -380,7 +522,7 @@
 &lt;/div></pre>
 	</fieldset>
 	<h2>关联</h2>
-	<p><a href="api.html#last">last</a><br></p>
+	<p><a href="api.html#text">text</a><br></p>
 	<h2>版本</h2>
 	<p>本方法自0.0.0版本开始支持。</p>
 	<!-- <div id="a1">
@@ -545,6 +687,44 @@
 	<p>本方法自0.0.1版本开始支持。</p>
 
 
+	<a name="removeAttr"></a>
+	<h1>$js().removeAttr</h1>
+	<h2>定义</h2>
+	<p>$js().removeAttr(attributeName) : JSLib</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>attributeName</td>
+			<td>[必须]属性名称。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>移除所有匹配节点中的指定属性。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre>&lt;div id="a1">
+	&lt;div id="a2" title="test">a2 text&lt;/div>
+	&lt;div id="a3">a3 text&lt;/div>
+&lt;/div></pre>
+	</fieldset>
+	<fieldset>
+		<legend>JavaScript</legend>
+		<pre>$js('div').removeAttr('title');</pre>
+	</fieldset>
+	<fieldset>
+		<legend>执行后原HTML信息变为</legend>
+		<pre>&lt;div id="a1">
+	&lt;div id="a2">a2 text&lt;/div>
+	&lt;div id="a3">a3 text&lt;/div>
+&lt;/div></pre>
+	</fieldset>
+	<h2>关联</h2>
+	<p><a href="#attr">attr</a></p>
+	<h2>版本</h2>
+	<p>本方法自0.1.0版本开始支持。</p>
+
+
 	<a name="removeClass"></a>
 	<h1>$js().removeClass</h1>
 	<h2>定义</h2>
@@ -583,23 +763,72 @@
 	<p>本方法自0.0.0版本开始支持。</p>
 
 
-	<a name="version"></a>
-	<h1>$js().version</h1>
+	<a name="text"></a>
+	<h1>$js().text</h1>
 	<h2>定义</h2>
-	<p>$js().version : String</p>
+	<p>$js().text() : String</p>
+	<p>$js().text(TextString) : JSLib</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>TextString</td>
+			<td>[可选]指定的文本字符串。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>当未传递TextString时，将返回第一个匹配节点的文本字符串。</p>
+	<p>当传递TextString时，会使用这个TextString字符串内容填充所有匹配的节点。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre>&lt;div id="a1">
+	&lt;div id="a2">a2 text&lt;/div>
+	&lt;div id="a3">a3 text&lt;/div>
+&lt;/div></pre>
+	</fieldset>
+	<fieldset>
+		<legend>JavaScript</legend>
+		<pre>console.log($js('#a1').text());</pre>
+	</fieldset>
+	<fieldset>
+		<legend>输出示例</legend>
+		<pre>a2 text
+a3 text</pre>
+	</fieldset>
+	<fieldset>
+		<legend>JavaScript</legend>
+		<pre>$js('#a1').text('abc');</pre>
+	</fieldset>
+	<fieldset>
+		<legend>执行后原HTML信息变为</legend>
+		<pre>&lt;div id="a1">
+	abc
+&lt;/div></pre>
+	</fieldset>
+	<h2>关联</h2>
+	<p><a href="api.html#html">html</a><br></p>
+	<h2>版本</h2>
+	<p>本方法自0.1.0版本开始支持。</p>
+
+
+	<a name="version"></a>
+	<h1>$js.version</h1>
+	<h2>定义</h2>
+	<p>$js.version : String</p>
 	<h2>说明</h2>
 	<p>此属性返回当前JSLib版本。</p>
 	<h2>示例</h2>
 	<fieldset>
 		<legend>JavaScript</legend>
-		<pre>console.log($js().version);</pre>
+		<pre>console.log($js.version);</pre>
 	</fieldset>
 	<fieldset>
 		<legend>输出示例</legend>
-		<pre>0.0.0</pre>
+		<pre>0.1.0</pre>
 	</fieldset>
 	<h2>版本</h2>
 	<p>本属性自0.0.0版本开始支持。</p>
+	<p>自0.1.0版本开始变更为静态属性。</p>
 	<script>
 		// console.log($js.version);
 		// console.log($js().version);

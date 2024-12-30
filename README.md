@@ -18,18 +18,18 @@ JSLib的基本架构和使用方式类似JQuery，可以简单的理解为JSLib�
 使用$js().tableCells()方法可以实现多单元格区域选择，以及单元格内容复制、粘贴功能。
 
 # 引用文件
-在使用$js时，一定要引用dist/jslib-min.js文件。
+在使用$js时，一定要引用dist/jslib.min.js文件。
 
 HTML引用示例
 ```
-<script src="jslib-min.js"></script>
+<script src="jslib.min.js"></script>
 ```
-jslib-min.js文件的存放位置不做任何限定，可根据项目自身的需要把dist目录下jslib-min.js文件进行任意存放。
+jslib.min.js文件的存放位置不做任何限定，可根据项目自身的需要把dist目录下jslib.min.js文件进行任意存放。
 
 # 调用示例
 HTML
 ```
-<script src="jslib-min.js"></script>
+<script src="jslib.min.js"></script>
 <script>
 	let js=$js('div');
 </script>
@@ -40,4 +40,4 @@ $js('div').find('.a1').html('<div>abc</div>');
 ```
 
 # 发布说明
-实际使用时，仅需要部署dist/jslib-min.js文件即可。本项目中的其他文件仅做为JSLib文档及示例使用。
+实际使用时，仅需要部署dist/jslib.min.js文件即可。本项目中的其他文件仅做为JSLib文档及示例使用。

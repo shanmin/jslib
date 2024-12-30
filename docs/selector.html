@@ -6,7 +6,7 @@
 <title></title>
 <link rel="stylesheet" type="text/css" href="../common.css">
 <script src="../common.js"></script>
-<script src="../dist/jslib-min.js"></script>
+<script src="../dist/jslib.min.js"></script>
 </head>
 <body>
 	<a name="js"></a>
@@ -111,6 +111,6 @@ console.log($js('[name=&quot;c&quot;][value=c0]'));
 	<h2>版本</h2>
 	<p>本方法自0.0.0版本开始支持。</p>
 	<p>自0.0.1版本开始，$js()改为返回为当前脚本的父节点。之前的版本是返回一个空对象。</p>
-	<p>自0.1.0版本开始，@name选择器不再支持属性选择。</p>
+	<p>自0.1.0版本开始，@name选择器不再支持属性选择。$js()从返回当前脚本的父节点，改为返回当前节点。</p>
 </body>
 </html>
