@@ -811,6 +811,52 @@ a3 text</pre>
 	<p>本方法自0.1.0版本开始支持。</p>
 
 
+	<a name="topmost"></a>
+	<h1>$js.topmost / $js().topmost</h1>
+	<h2>定义</h2>
+	<p>$js.topmost(HtmlElement) : None</p>
+	<p>$js.topmost(HtmlElements) : None</p>
+	<p>$js().topmost() : JSLib</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>HtmlElement</td>
+			<td>[必须]需要操作的HTML元素。</td>
+		</tr>
+		<tr>
+			<td>HtmlElements</td>
+			<td>[必须]需要操作的HTML元素数组。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>设置指定HTML元素的zIndex属性为当前页面最大，即HTML元素置顶显示。</p>
+	<p>此方法同时存在静态方法和实例方法，使用时请根据具体场景选择。实例方法实际相当于：$js.topmost($js(...))</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre name="show_html"></pre>
+	</fieldset>
+	<h2>演示</h2>
+	<fieldset>
+		<legend>演示区域</legend>
+		<div name="demo_html" style="display: flex;">
+			<div style="position: relative;width: 120px;height: 90px;">
+				<div id="topmost_1" style="position: absolute;left: 0px;top: 0px;width: 60px;height: 60px;background-color: #f00;">Layer1</div>
+				<div id="topmost_2" style="position: absolute;left: 30px;top: 30px;width: 60px;height: 60px;background-color: #0f0;">Layer2</div>
+			</div>
+			<div>
+				<input type="button" value="Layer1 topmost" onclick="$js('#topmost_1').topmost()"><br>
+				<input type="button" value="Layer2 topmost" onclick="$js('#topmost_2').topmost()">
+			</div>
+		</div>
+	</fieldset>
+	<h2>版本</h2>
+	<p>本方法自0.1.1版本开始支持。</p>
+	<script>
+		$js('@show_html').text($js('@demo_html').html());
+	</script>
+
+
 	<a name="version"></a>
 	<h1>$js.version</h1>
 	<h2>定义</h2>
