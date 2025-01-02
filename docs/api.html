@@ -455,6 +455,9 @@
 	<p>本方法自0.0.0版本开始支持。</p>
 
 
+
+
+                                                                                                                     
 	<a name="first"></a>
 	<h1>$js().first</h1>
 	<h2>定义</h2>
@@ -478,6 +481,8 @@
 	</fieldset>
 	<h2>版本</h2>
 	<p>本方法自0.0.0版本开始支持。</p>
+
+
 
 	<a name="html"></a>
 	<h1>$js().html</h1>
@@ -522,19 +527,13 @@
 &lt;/div></pre>
 	</fieldset>
 	<h2>关联</h2>
-	<p><a href="api.html#text">text</a><br></p>
+	<p>
+		<a href="api.html#text">text</a> &nbsp;
+		<a href="api.html#outerHTML">outerHTML</a> &nbsp;
+	</p>
 	<h2>版本</h2>
 	<p>本方法自0.0.0版本开始支持。</p>
-	<!-- <div id="a1">
-		<div id="a2">a2 text</div>
-		<div id="a3">a3 text</div>
-	</div> -->
-	<!-- <script>
-		console.log($js('#a1').html());
-	</script> -->
-	<!-- <script>
-		$js('#a1').html('<div>abc</div>');
-	</script> -->
+
 
 
 	<a name="last"></a>
@@ -649,6 +648,89 @@
 	<p><a href="api.html#bind">bind</a> &nbsp; <a href="api.html#off">off</a></p>
 	<h2>版本</h2>
 	<p>本方法自0.0.0版本开始支持。</p>
+
+
+	<a name="outerHTML"></a>
+	<h1>$js().outerHTML</h1>
+	<h2>定义</h2>
+	<p>$js().outerHTML() : String</p>
+	<p>$js().outerHTML(HtmlString) : JSLib</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>HtmlString</td>
+			<td>[可选]指定的HTML字符串。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>当未传递HtmlString时，将返回第一个匹配元素的HTML文本。</p>
+	<p>当传递HtmlString时，会使用这个HtmlString字符串内容填充所有匹配的元素。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre id="outerHTML_show_html"></pre>
+	</fieldset>
+	<h2>演示</h2>
+	<fieldset>
+		<legend>演示区域</legend>
+		<div id="outerHTML_demo_html">
+			<input type="button" value="获取当前演示代码" onclick="$js('#outerHTML_demo_html_1').text($js('#outerHTML_demo_html').outerHTML())">
+			<input type="button" value="清除" onclick="$js('#outerHTML_demo_html_1').text('')">
+			<pre id="outerHTML_demo_html_1"></pre>
+		</div>
+	</fieldset>
+	<h2>关联</h2>
+	<p>
+		<a href="api.html#html">html</a> &nbsp;
+		<a href="api.html#text">text</a> &nbsp;
+		<a href="api.html#outerText">outerText</a> &nbsp;
+	</p>
+	<h2>版本</h2>
+	<p>本方法自0.1.2版本开始支持。</p>
+	<script>$js('#outerHTML_show_html').text($js('#outerHTML_demo_html').outerHTML()).unindent({ignore:1});</script>
+
+
+
+	<a name="outerText"></a>
+	<h1>$js().outerText</h1>
+	<h2>定义</h2>
+	<p>$js().outerText() : String</p>
+	<p>$js().outerText(String) : JSLib</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>String</td>
+			<td>[可选]指定的文本字符串。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>当未传递String时，将返回第一个匹配元素的文本。</p>
+	<p>当传递String时，会使用这个String字符串内容填充所有匹配的元素。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre id="outerText_show_html"></pre>
+	</fieldset>
+	<h2>演示</h2>
+	<fieldset>
+		<legend>演示区域</legend>
+		<div id="outerText_demo_html">
+			<div id="outerText_demo_2">JSLib</div>
+			<input type="button" value="获取当前演示文本" onclick="$js('#outerText_demo_1').text($js('#outerText_demo_2').outerText())">
+			<input type="button" value="清除" onclick="$js('#outerText_demo_1').text('')">
+			<pre id="outerText_demo_1"></pre>
+		</div>
+	</fieldset>
+	<h2>关联</h2>
+	<p>
+		<a href="api.html#html">html</a> &nbsp;
+		<a href="api.html#text">text</a> &nbsp;
+		<a href="api.html#outerHTML">outerHTML</a> &nbsp;
+	</p>
+	<h2>版本</h2>
+	<p>本方法自0.1.2版本开始支持。</p>
+	<script>$js('#outerText_show_html').text($js('#outerText_demo_html').outerHTML()).unindent({ignore:1});</script>
+
 
 
 	<a name="parent"></a>
@@ -834,12 +916,12 @@ a3 text</pre>
 	<h2>示例</h2>
 	<fieldset>
 		<legend>HTML</legend>
-		<pre name="show_html"></pre>
+		<pre id="topmost_show_html"></pre>
 	</fieldset>
 	<h2>演示</h2>
 	<fieldset>
 		<legend>演示区域</legend>
-		<div name="demo_html" style="display: flex;">
+		<div id="topmost_demo_html" style="display: flex;">
 			<div style="position: relative;width: 120px;height: 90px;">
 				<div id="topmost_1" style="position: absolute;left: 0px;top: 0px;width: 60px;height: 60px;background-color: #f00;">Layer1</div>
 				<div id="topmost_2" style="position: absolute;left: 30px;top: 30px;width: 60px;height: 60px;background-color: #0f0;">Layer2</div>
@@ -853,7 +935,58 @@ a3 text</pre>
 	<h2>版本</h2>
 	<p>本方法自0.1.1版本开始支持。</p>
 	<script>
-		$js('@show_html').text($js('@demo_html').html());
+		$js('#topmost_show_html').text($js('#topmost_demo_html').outerHTML()).unindent({ignore:1});
+	</script>
+
+
+
+	<a name="unindent"></a>
+	<h1>$js.unindent / $js().unindent</h1>
+	<h2>定义</h2>
+	<p>$js.unindent(String,opts) : String</p>
+	<p>$js().unindent(opts) : JSLib</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>String</td>
+			<td>[必须]要处理的字符串。</td>
+		</tr>
+		<tr>
+			<td>opts</td>
+			<td>[可选]附加参数。</td>
+		</tr>
+		<tr>
+			<td>opts.ignore</td>
+			<td>[可选]指示忽略文本中的前opts.ignore行数据不进行处理。默认：0。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>处理指定字符串或HTML元素中的文本，使其去除每行文本中的相同空白(Tab或Space)前缀缩进。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre id="unindent_show_html"></pre>
+	</fieldset>
+	<h2>演示</h2>
+	<fieldset>
+		<legend>演示区域</legend>
+		<div id="unindent_demo_html" style="display: flex;">
+			<div style="position: relative;width: 120px;height: 90px;">
+				<div id="unindent_1" style="position: absolute;left: 0px;top: 0px;width: 60px;height: 60px;background-color: #f00;">Layer1</div>
+				<div id="unindent_2" style="position: absolute;left: 30px;top: 30px;width: 60px;height: 60px;background-color: #0f0;">Layer2</div>
+			</div>
+			<div>
+				<input type="button" value="恢复" onclick="$js('#unindent_show_html').text($js('#unindent_demo_html').outerHTML())"><br>
+				<input type="button" value="去除" onclick="$js('#unindent_show_html').unindent({ignore:1})"><br>
+				注1：左侧图层仅作为代码展示使用，无实际意义。<br>
+				注2：点击功能按钮后，效果请查看“示例”中的“HTML”代码区域。
+			</div>
+		</div>
+	</fieldset>
+	<h2>版本</h2>
+	<p>本方法自0.1.2版本开始支持。</p>
+	<script>
+		$js('#unindent_show_html').text($js('#unindent_demo_html').outerHTML()).unindent({ignore:1});
 	</script>
 
 
