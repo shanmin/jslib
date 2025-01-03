@@ -807,6 +807,287 @@
 	<p>本方法自0.1.0版本开始支持。</p>
 
 
+
+	<a name="regressionCalc"></a>
+	<h1>$js.regressionCalc</h1>
+	<h2>定义</h2>
+	<p>$js.regressionCalc(parameter,x) : number</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>parameter</td>
+			<td>[必须]$js.regressionPolynomial()计算的多项式参数。</td>
+		</tr>
+		<tr>
+			<td>x</td>
+			<td>[必须]X值。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>根据指定的多项式参数parameter及x，计算并返回Y。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre id="regressionCalc_show_html"></pre>
+	</fieldset>
+	<h2>演示</h2>
+	<fieldset>
+		<legend>运行结果</legend>
+		<pre id="regressionCalc_result"></pre>
+		<div id="regressionCalc_demo_html">
+			<script>
+				var data=[[1,1],[2,3],[3,10],[4,15],[5,26],[6,34],[7,40],[8,70],[9,80]];
+				var result=$js.regressionPolynomial(data);
+
+				$js('#regressionCalc_result').text("Y = "+$js.regressionCalc(result.parameter,3.5));
+			</script>
+		</div>
+	</fieldset>
+	<h2>关联</h2>
+	<p>
+		<a href="api.html#regressionCalcY">regressionCalcY</a> &nbsp; 
+		<a href="api.html#regressionSwap">regressionSwap</a> &nbsp; 
+		<a href="api.html#regressionPolynomial">regressionPolynomial</a> &nbsp; 
+	</p>
+	<h2>版本</h2>
+	<p>本方法自0.1.3版本开始支持。</p>
+	<script>
+		$js('#regressionCalc_show_html').text($js('#regressionCalc_demo_html').outerHTML()).unindent({ignore:1});
+	</script>
+
+
+
+	<a name="regressionCalcY"></a>
+	<h1>$js.regressionCalcY</h1>
+	<h2>定义</h2>
+	<p>$js.regressionCalcY(parameter,x) : number</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>parameter</td>
+			<td>[必须]$js.regressionPolynomial()计算的多项式参数。</td>
+		</tr>
+		<tr>
+			<td>y</td>
+			<td>[必须]y值。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>根据指定的多项式参数parameter及y，计算并返回x。</p>
+	<p>因为一元二次方程会有多于一个解的情况，所以这里返回的是一个数组。使用时，需要根据实际情况进行筛选。</p>
+	<p>注意：因为根据y计算x，需要做回归方程反函数，所以当前仅支持一元一次和一元二次回归方程的计算。如果需要进行再高阶数的计算，我们建议重组一个yx样式的回归方程进行数值预测($js.regressionSwap方法可以方便进行数据交换操作)。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre id="regressionCalcY_show_html"></pre>
+	</fieldset>
+	<h2>演示</h2>
+	<fieldset>
+		<legend>运行结果</legend>
+		<pre id="regressionCalcY_result"></pre>
+		<div id="regressionCalcY_demo_html">
+			<script>
+				var data=[[1,1],[2,3],[3,10],[4,15],[5,26],[6,34],[7,40],[8,70],[9,80]];
+				var result=$js.regressionPolynomial(data);
+
+				$js('#regressionCalcY_result').text("X = "+$js.regressionCalcY(result.parameter,10));
+			</script>
+		</div>
+	</fieldset>
+	<h2>关联</h2>
+	<p>
+		<a href="api.html#regressionCalc">regressionCalc</a> &nbsp; 
+		<a href="api.html#regressionSwap">regressionSwap</a> &nbsp; 
+		<a href="api.html#regressionPolynomial">regressionPolynomial</a> &nbsp; 
+	</p>
+	<h2>版本</h2>
+	<p>本方法自0.1.3版本开始支持。</p>
+	<script>
+		$js('#regressionCalcY_show_html').text($js('#regressionCalcY_demo_html').outerHTML()).unindent({ignore:1});
+	</script>
+
+
+
+	<a name="regressionPolynomial"></a>
+	<h1>$js.regressionPolynomial</h1>
+	<h2>定义</h2>
+	<p>$js.regressionPolynomial(data,order) : object</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>data</td>
+			<td>[必须]需要做回归计算的数据。</td>
+		</tr>
+		<tr>
+			<td>order</td>
+			<td>[可选]回归阶数，默认：2。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>对指定数据进行多项式回归。计算后返回一个固定对象：</p>
+	<pre>
+	{
+		data:[...],		//原始有效回归数据
+		parameter:[...],	//多项式参数
+		expresion:string	//显示使用的多项式字符串
+		points:[[x,y],...],	//数据节点x对应回归后的数据
+		calc:function(x){},	//相当于调用了$js.regressionCalc
+		calcY:function(y){},	//相当于调用了$js.regressionCalcY
+	}</pre>
+	<p>这个方法可以独立使用，也可以配合echarts使用。像points就是专门为echarts显示准备的。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre id="regressionPolynomial_show_html"></pre>
+	</fieldset>
+	<fieldset>
+		<legend>JavaScript</legend>
+		<pre>regressionPolynomial_showcharts();</pre>
+	</fieldset>
+	<h2>演示</h2>
+	<fieldset>
+		<legend>演示区域</legend>
+		<div id="regressionPolynomial_demo_html">
+			<div id="regressionPolynomial_charts" style="height:240px;"></div>
+			<fieldset>
+				<legend>返回结果</legend>
+				<pre id="regressionPolynomial_result"></pre>
+			</fieldset>
+			<script src="https://cdn.jsdelivr.net/npm/echarts@5.6.0/dist/echarts.min.js"></script>
+			<script>
+				function regressionPolynomial_showcharts()
+				{
+					var data=[[1,1],[2,3],[3,10],[4,15],[5,26],[6,34],[7,40],[8,70],[9,80]];
+					var result=$js.regressionPolynomial(data);
+
+					//SHOW
+					var txt='';
+					txt+="      data:"+JSON.stringify(result['data'])+"\n";
+					txt+=" parameter:"+JSON.stringify(result['parameter'])+"\n";
+					txt+="expression:"+result['expression']+"\n";
+					txt+="    points:[\n";
+					for(let p of result['points'])
+						txt+='               '+JSON.stringify(p)+"\n";
+					txt+="           ]";
+					$js('#regressionPolynomial_result').text(txt);
+
+					//CHARTS
+					var myChart = echarts.init(document.getElementById('regressionPolynomial_charts'));
+					var option={
+						grid:{left:"32px",right:"32px",top:"32px",bottom:'32px'},
+			  			xAxis:{},
+						yAxis:{},
+						series:
+						[
+							{type:"line",data:result.points,symbol:"none"},
+							{type:'scatter',data:result.data,symbol:"circle"},
+						]
+					};
+					option && myChart.setOption(option);
+				}
+			</script>
+		</div>
+	</fieldset>
+	<h2>关联</h2>
+	<p>
+		<a href="api.html#regressionCalc">regressionCalc</a> &nbsp; 
+		<a href="api.html#regressionCalcY">regressionCalcY</a> &nbsp; 
+		<a href="api.html#regressionSwap">regressionSwap</a> &nbsp; 
+	</p>
+	<h2>版本</h2>
+	<p>本方法自0.1.3版本开始支持。</p>
+	<script>
+		$js('#regressionPolynomial_show_html').text($js('#regressionPolynomial_demo_html').outerHTML()).unindent({ignore:1});
+
+		regressionPolynomial_showcharts();
+	</script>
+
+
+
+	<a name="regressionSwap"></a>
+	<h1>$js.regressionSwap</h1>
+	<h2>定义</h2>
+	<p>$js.regressionSwap(datalist) : array</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>datalist</td>
+			<td>[必须]回归数据数组。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>对回归数据中xy进行对换。</p>
+	<p>例如原数组：[[1,2],[3,4],...]，对换后数组为：[[2,1],[4,3],...]。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre id="regressionSwap_show_html"></pre>
+	</fieldset>
+	<fieldset>
+		<legend>JavaScript</legend>
+		<pre>regressionSwap_showcharts();</pre>
+	</fieldset>
+	<h2>演示</h2>
+	<fieldset>
+		<legend>演示区域</legend>
+		<div id="regressionSwap_demo_html">
+			<div id="regressionSwap_charts" style="height:240px;"></div>
+			<fieldset>
+				<legend>返回结果</legend>
+				<pre id="regressionSwap_result"></pre>
+			</fieldset>
+			<script src="https://cdn.jsdelivr.net/npm/echarts@5.6.0/dist/echarts.min.js"></script>
+			<script>
+				function regressionSwap_showcharts()
+				{
+					var data=[[1,1],[2,3],[3,10],[4,15],[5,26],[6,34],[7,40],[8,70],[9,80]];
+					data=$js.regressionSwap(data);
+					var result=$js.regressionPolynomial(data);
+
+					//SHOW
+					var txt='';
+					txt+="      data:"+JSON.stringify(result['data'])+"\n";
+					txt+=" parameter:"+JSON.stringify(result['parameter'])+"\n";
+					txt+="expression:"+result['expression']+"\n";
+					txt+="    points:[\n";
+					for(let p of result['points'])
+						txt+='               '+JSON.stringify(p)+"\n";
+					txt+="           ]";
+					$js('#regressionSwap_result').text(txt);
+
+					//CHARTS
+					var myChart = echarts.init(document.getElementById('regressionSwap_charts'));
+					var option={
+						grid:{left:"32px",right:"32px",top:"32px",bottom:'32px'},
+			  			xAxis:{},
+						yAxis:{},
+						series:
+						[
+							{type:"line",data:result.points,symbol:"none"},
+							{type:'scatter',data:result.data,symbol:"circle"},
+						]
+					};
+					option && myChart.setOption(option);
+				}
+			</script>
+		</div>
+	</fieldset>
+	<h2>关联</h2>
+	<p>
+		<a href="api.html#regressionCalc">regressionCalc</a> &nbsp; 
+		<a href="api.html#regressionCalcY">regressionCalcY</a> &nbsp; 
+		<a href="api.html#regressionPolynomial">regressionPolynomial</a>
+	</p>
+	<h2>版本</h2>
+	<p>本方法自0.1.3版本开始支持。</p>
+	<script>
+		$js('#regressionSwap_show_html').text($js('#regressionSwap_demo_html').outerHTML()).unindent({ignore:1});
+
+		regressionSwap_showcharts();
+	</script>
+
+
+
 	<a name="removeClass"></a>
 	<h1>$js().removeClass</h1>
 	<h2>定义</h2>
