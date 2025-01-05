@@ -580,6 +580,73 @@
 
 
 
+	<a name="msgbox"></a>
+	<h1>$js.msgbox</h1>
+	<h2>定义</h2>
+	<p>$js.msgbox(String) : object</p>
+	<p>$js.msgbox(opts) : object</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>String</td>
+			<td>[必须]显示的文本。</td>
+		</tr>
+		<tr>
+			<td>opts</td>
+			<td>[必须]通过对象传递的参数。</td>
+		</tr>
+		<tr>
+			<td>opts.msg</td>
+			<td>[必须]显示的HTML内容。</td>
+		</tr>
+		<tr>
+			<td>opts.clickclose</td>
+			<td>[可选]是否点击自动关闭，默认：true。</td>
+		</tr>
+		<tr>
+			<td>opts.timeout</td>
+			<td>[可选]指显示超时时间，如果>0则表示timeout之后自动关闭。单位：ms。</td>
+		</tr>
+		<tr>
+			<td>opts.onclose</td>
+			<td>[可选]当点击关闭时的回调函数。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>显示一个全屏的模式提示信息。</p>
+	<p>$js.msgbox(String)方式相当于$js.msgbox({msg:String})</p>
+	<p>本方法成功执行后返回$msgbox对象。$msgbox对象结构如下：</p>
+	<pre>
+	{
+		add(html),		//增加附加显示文字
+		clickclose=true|false,	//是否点击关窗
+		el,			//显示节点变量
+		clear(),		//清除所有显示文本
+		close(),		//关闭msgbox的方法
+		show(html),		//设置显示msgbox的内容
+	}
+	</pre>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>JavaScript</legend>
+		<pre id="msgbox_show_html"></pre>
+	</fieldset>
+	<h2>演示</h2>
+	<fieldset>
+		<legend>演示区域</legend>
+		<div id="msgbox_demo_html">
+			<input type="button" value="msgbox test 1" onclick="$js.msgbox('msgbox 1')">
+			<input type="button" value="msgbox test 2" onclick="$js.msgbox({msg:'msgbox 2'})">
+			<input type="button" value="msgbox test 3" onclick="$js.msgbox({msg:'msgbox 3',timeout:5000})">
+			<input type="button" value="msgbox test 4" onclick="$js.msgbox({msg:'msgbox 4',clickclose:false,timeout:5000})">
+		</div>
+	</fieldset>
+	<h2>版本</h2>
+	<p>本方法自0.1.4版本开始支持。</p>
+	<script>$js('#msgbox_show_html').text($js('#msgbox_demo_html').outerHTML()).unindent({ignore:1});</script>
+
+
+
 	<a name="off"></a>
 	<h1>$js().off</h1>
 	<h2>定义</h2>
@@ -930,9 +997,9 @@
 		data:[...],		//原始有效回归数据
 		parameter:[...],	//多项式参数
 		expresion:string	//显示使用的多项式字符串
-		points:[[x,y],...],	//数据节点x对应回归后的数据
-		calc:function(x){},	//相当于调用了$js.regressionCalc
-		calcY:function(y){},	//相当于调用了$js.regressionCalcY
+		points:[[x,y],...],	//数据节点x对应回归后的数据。如果需要增加此展示点，可以调用calc或calcY方法进行添加
+		calc:function(x){},	//内部调用了$js.regressionCalc，并且此计算点也会自动增加到points展示点列表中
+		calcY:function(y){},	//内部调用了$js.regressionCalcY，并且此计算点也会自动增加到points展示点列表中
 	}</pre>
 	<p>这个方法可以独立使用，也可以配合echarts使用。像points就是专门为echarts显示准备的。</p>
 	<h2>示例</h2>
@@ -996,6 +1063,7 @@
 	</p>
 	<h2>版本</h2>
 	<p>本方法自0.1.3版本开始支持。</p>
+	<p>自0.1.4版本开始，调用calc或calcY时，此计算点会自动添加到points数组中。这个计算点自动增加到points中，是因为在echarts展示时，本身points是一些关键点数据，而指定点可能会因为误差造成展示点显示与实际值出现误差，造成计算的点不能和points连线重合。</p>
 	<script>
 		$js('#regressionPolynomial_show_html').text($js('#regressionPolynomial_demo_html').outerHTML()).unindent({ignore:1});
 
