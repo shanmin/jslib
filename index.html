@@ -5,53 +5,57 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>JSlib Document and Demo</title>
 <link rel="stylesheet" type="text/css" href="index.css">
+<script src="dist/jslib.min.js"></script>
 <base target="main">
 </head>
 <body>
 	<div class="top_title">JSLib Document and Demo</div>
-	<div class="left">
-		<a href="home.html">HOME</a><br>
-		<hr>
-		<a href="docs/selector.html">$js</a><br>
-		<a href="docs/api.html#add">add</a><br>
-		<a href="docs/api.html#addClass">addClass</a><br>
-		<a href="docs/api.html#after">after</a><br>
-		<a href="docs/api.html#appendTo">appendTo</a><br>
-		<a href="docs/api.html#attr">attr</a><br>
-		<a href="docs/api.html#before">before</a><br>
-		<a href="docs/api.html#bind">bind</a><br>
-		<a href="docs/api.html#closest">closest</a><br>
-		<a href="docs/api.html#css">css</a><br>
-		<a href="docs/api.html#each">each</a><br>
-		<a href="docs/api.html#eq">eq</a><br>
-		<a href="docs/api.html#find">find</a><br>
-		<a href="docs/api.html#first">first</a><br>
-		<a href="docs/api.html#html">html</a><br>
-		<a href="docs/api.html#last">last</a><br>
-		<a href="docs/api.html#off">off</a><br>
-		<a href="docs/api.html#on">on</a><br>
-		<a href="docs/api.html#outerHTML">outerHTML</a><br>
-		<a href="docs/api.html#outerText">outerText</a><br>
-		<a href="docs/api.html#parent">parent</a><br>
-		<a href="docs/api.html#removeAttr">removeAttr</a><br>
-		<a href="docs/api.html#removeClass">removeClass</a><br>
-		<a href="docs/api.html#text">text</a><br>
-		<a href="docs/api.html#topmost">topmost</a><br>
-		<a href="docs/api.html#unindent">unindent</a><br>
-		<a href="docs/api.html#version">version</a><br>
-		<hr>
-		<a href="docs/api.html#ajax">ajax</a><br>
-		<a href="docs/gb8170round.html">gb8170round</a><br>
-		<a href="docs/api.html#msgbox">msgbox</a><br>
-		<a href="docs/api.html#loadjs">loadjs</a><br>
-		<a href="docs/api.html#regressionCalc">regressionCalc</a><br>
-		<a href="docs/api.html#regressionCalcY">regressionCalcY</a><br>
-		<a href="docs/api.html#regressionPolynomial">regressionPolynomial</a><br>
-		<a href="docs/api.html#regressionSwap">regressionSwap</a><br>
-		<a href="docs/tablecells.html">tableCells</a><br>
-		<hr>
-		<a href="docs/history.html">历史版本</a><br>
-	</div>
+	<div class="left"></div>
 	<div class="main"><iframe frameborder="0" name="main" src="home.html"></iframe></div>
+	<script>
+		$js('.left').tree({selectleaf:true,data:[
+			{t:'HOME',a:'home.html'},
+			{t:'$js',a:'docs/selector.html'},
+			{t:'基础方法',c:[
+				{t:'add',a:'docs/api.html#add'},
+				{t:'addClass',a:'docs/api.html#addClass'},
+				{t:'after',a:'docs/api.html#after'},
+				{t:'appendTo',a:'docs/api.html#appendTo'},
+				{t:'attr',a:'docs/api.html#attr'},
+				{t:'before',a:'docs/api.html#before'},
+				{t:'bind',a:'docs/api.html#bind'},
+				{t:'closest',a:'docs/api.html#closest'},
+				{t:'css',a:'docs/api.html#css'},
+				{t:'each',a:'docs/api.html#each'},
+				{t:'eq',a:'docs/api.html#eq'},
+				{t:'find',a:'docs/api.html#find'},
+				{t:'first',a:'docs/api.html#first'},
+				{t:'html',a:'docs/api.html#html'},
+				{t:'last',a:'docs/api.html#last'},
+				{t:'off',a:'docs/api.html#off'},
+				{t:'on',a:'docs/api.html#on'},
+				{t:'outerHTML',a:'docs/api.html#outerHTML'},
+				{t:'outerText',a:'docs/api.html#outerText'},
+				{t:'parent',a:'docs/api.html#parent'},
+				{t:'removeAttr',a:'docs/api.html#removeAttr'},
+				{t:'removeClass',a:'docs/api.html#removeClass'},
+				{t:'text',a:'docs/api.html#text'},
+				{t:'version',a:'docs/api.html#version'},
+			]},
+			{t:'ajax',a:'docs/api.html#ajax'},
+			{t:'gb8170round',a:'docs/gb8170round.html'},
+			{t:'msgbox',a:'docs/api.html#msgbox'},
+			{t:'loadjs',a:'docs/api.html#loadjs'},
+			{t:'regressionCalc',a:'docs/api.html#regressionCalc'},
+			{t:'regressionCalcY',a:'docs/api.html#regressionCalcY'},
+			{t:'regressionPolynomial',a:'docs/api.html#regressionPolynomial'},
+			{t:'regressionSwap',a:'docs/api.html#regressionSwap'},
+			{t:'tableCells',a:'docs/tablecells.html'},
+			{t:'topmost',a:'docs/api.html#topmost'},
+			{t:'tree',a:'docs/api.html#tree'},
+			{t:'unindent',a:'docs/api.html#unindent'},
+			{t:'历史版本',a:'docs/history.html'},
+		]});
+	</script>
 </body>
 </html>

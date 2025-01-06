@@ -22,6 +22,7 @@ body
 	bottom: 0;
 	width: 240px;
 	background-color: #def;
+	overflow: auto;
 }
 
 .main

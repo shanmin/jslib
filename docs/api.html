@@ -567,9 +567,9 @@
 	<a name="loadjs"></a>
 	<h1>$js.loadjs</h1>
 	<h2>定义</h2>
-	<p>$js.loadjs(URL) : None</p>
+	<p>$js.loadjs(URL) : Boolean</p>
 	<h2>说明</h2>
-	<p>同步加载指定js文件。</p>
+	<p>同步加载指定js文件。如果加载成功，则返回true。</p>
 	<h2>示例</h2>
 	<fieldset>
 		<legend>JavaScript</legend>
@@ -998,6 +998,8 @@
 		parameter:[...],	//多项式参数
 		expresion:string	//显示使用的多项式字符串
 		points:[[x,y],...],	//数据节点x对应回归后的数据。如果需要增加此展示点，可以调用calc或calcY方法进行添加
+		points_minx(),		//获取points中最小x
+		points_miny(),		//获取points中最小y
 		calc:function(x){},	//内部调用了$js.regressionCalc，并且此计算点也会自动增加到points展示点列表中
 		calcY:function(y){},	//内部调用了$js.regressionCalcY，并且此计算点也会自动增加到points展示点列表中
 	}</pre>
@@ -1020,7 +1022,7 @@
 				<legend>返回结果</legend>
 				<pre id="regressionPolynomial_result"></pre>
 			</fieldset>
-			<script src="https://cdn.jsdelivr.net/npm/echarts@5.6.0/dist/echarts.min.js"></script>
+			<script src="../third/echarts.min.js"></script>
 			<script>
 				function regressionPolynomial_showcharts()
 				{
@@ -1063,7 +1065,8 @@
 	</p>
 	<h2>版本</h2>
 	<p>本方法自0.1.3版本开始支持。</p>
-	<p>自0.1.4版本开始，调用calc或calcY时，此计算点会自动添加到points数组中。这个计算点自动增加到points中，是因为在echarts展示时，本身points是一些关键点数据，而指定点可能会因为误差造成展示点显示与实际值出现误差，造成计算的点不能和points连线重合。</p>
+	<p>自0.1.4版本开始，调用calc或calcY时，此计算点会自动添加到points数组中。这个计算点自动增加到points中，是因为在echarts展示时，本身points是一些关键点数据，而指定点可能会因为误差造成展示点显示与实际值出现错位，造成计算的点不能和points连线重合。</p>
+	<p>自0.1.5版本开始，返回值新增points_minx()和points_miny()方法。</li>
 	<script>
 		$js('#regressionPolynomial_show_html').text($js('#regressionPolynomial_demo_html').outerHTML()).unindent({ignore:1});
 
@@ -1104,7 +1107,7 @@
 				<legend>返回结果</legend>
 				<pre id="regressionSwap_result"></pre>
 			</fieldset>
-			<script src="https://cdn.jsdelivr.net/npm/echarts@5.6.0/dist/echarts.min.js"></script>
+			<script src="../third/echarts.min.js"></script>
 			<script>
 				function regressionSwap_showcharts()
 				{
@@ -1285,6 +1288,143 @@ a3 text</pre>
 	<p>本方法自0.1.1版本开始支持。</p>
 	<script>
 		$js('#topmost_show_html').text($js('#topmost_demo_html').outerHTML()).unindent({ignore:1});
+	</script>
+
+
+
+	<a name="tree"></a>
+	<h1>$js.tree / $js().tree</h1>
+	<h2>定义</h2>
+	<p>$js.tree(opts) : HtmlElement</p>
+	<p>$js().tree(opts) : HtmlElement</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>opts</td>
+			<td>[必须]生成树的选项。</td>
+		</tr>
+		<tr>
+			<td>opts.data</td>
+			<td>[可选]树型结构数据。</td>
+		</tr>
+		<tr>
+			<td>opts.dataurl</td>
+			<td>[可选]树型结构从网络读取的URL。此参数与opts.data只能设置一个。此URL返回的数据格式参考opts.data说明。</td>
+		</tr>
+		<tr>
+			<td>opts.def</td>
+			<td>[可选]默认数据项,这个是与opts.data[].i比较得出的。</td>
+		</tr>
+		<tr>
+			<td>opts.drag=false|true</td>
+			<td>[可选]是否支持位置拖拽。默认值：false。</td>
+		</tr>
+		<tr>
+			<td>opts.ondragfinish=function(e1,e2){}</td>
+			<td>[可选]拖拽后节点位置e1操作节点，e2目标节点。</td>
+		</tr>
+		<tr>
+			<td>opts.expand=false|true</td>
+			<td>[可选]自动展开所有子节点。默认值：false。</td>
+		</tr>
+		<tr>
+			<td>opts.root_expand=false|true</td>
+			<td>[可选]自动展开根节点。默认值：false。</td>
+		</tr>
+		<tr>
+			<td>opts.onclick</td>
+			<td>[可选]节点点击时处理的回调函数。</td>
+		</tr>
+		<tr>
+			<td>opts.onmousedown</td>
+			<td>[可选]节点mousedown事件的回调函数。</td>
+		</tr>
+		<tr>
+			<td>opts.parent</td>
+			<td>[可选]生成树型结构的上层元素(HtmlElement)或元素ID(String)。注意，实例方法调用时会忽略此参数。</td>
+		</tr>
+		<tr>
+			<td>opts.url</td>
+			<td>[可选]节点默认链接,如果节点数据存在a，则忽略此参数。此参数支持自定义变量{:i},这个变量会被自动替换为当前节点的opts.data[].i值。</td>
+		</tr>
+		<tr>
+			<td>opts.target</td>
+			<td>[可选]opts.url默认位置。</td>
+		</tr>
+		<tr>
+			<td>opts.selectleaf=false|true</td>
+			<td>[可选]只能选择叶节点。默认值：false。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>此方法生成可展开的树型HTML选择代码。</p>
+	<p>opts.data结构说明：</p>
+	<pre>	[
+		{
+			i:1,	//节点ID,
+			t:'',	//显示文本
+			g:'',	//图标路径
+			a:'',	//节点URL，这个优先于opts.url。此参数支持自定义变量{:i},这个变量会被自动替换为当前节点的opts.data[].i值。
+			u:'',	//用户自定义数据
+			e:false|true	//标识节点不可选择
+			c:[...],	//子节点,数据结构同本结构
+			d:'',	//子节点从网络读取的地址。如果同时设置了c和d，则以c为准。
+		},
+		...
+	]</pre>
+	<p>opts.onclick中，可以通过e.target.parentElement.data获取此节点的数据信息。</p>
+	<p>成功执行后返回一个封装后的HtmlElement对象：</p>
+	<pre>	{
+
+	}
+	</pre>
+	<p>此方法同时存在静态方法和实例方法，使用时请根据具体场景选择。需要注意的是，实例方法会自动忽略opts.parent参数。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre id="tree_show_html"></pre>
+	</fieldset>
+	<fieldset>
+		<legend>JavaScript</legend>
+		<pre id="tree_show_js"></pre>
+	</fieldset>
+	<h2>演示</h2>
+	<fieldset>
+		<legend>演示区域</legend>
+		<div id="tree_demo_html">
+			<iframe name="tree_demo_iframe" style="float: right"></iframe>
+			<div id="tree_demo_html_msg" style="background-color: #ffc;"></div>
+		</div>
+		<script>
+			$js('#tree_show_html').text($js('#tree_demo_html').outerHTML()).unindent({ignore:1});
+		</script>
+		<script id="tree_demo_js">
+			$js('#tree_demo_html').tree({
+				selectleaf:true,
+				url:"echo.html?id={:i}",
+				target:'tree_demo_iframe',
+				onclick:function(e)
+				{
+					$js('#tree_demo_html_msg').text('节点数据：'+JSON.stringify(e.target.parentElement.data));
+				},
+				data:[
+					{i:1,t:'node 1',c:[
+						{i:11,t:'node 11'},
+						{i:12,t:'node 12'},
+					]},
+					{i:2,t:'node 2',a:'echo.html?test=1&newid={:i}'},
+					{i:3,t:'node 3',c:[
+						{i:31,t:'node 31'},
+						{i:32,t:'node 32'},
+					]},
+				]
+			});
+		</script>
+	</fieldset>
+	<h2>版本</h2>
+	<p>本方法自0.1.5版本开始支持。</p>
+	<script>
+		$js('#tree_show_js').text($js('#tree_demo_js').outerHTML()).unindent({ignore:1});
 	</script>
 
 
