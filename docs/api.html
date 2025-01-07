@@ -230,6 +230,7 @@
 	<p>本方法自0.0.0版本开始支持。</p>
 
 
+
 	<a name="attr"></a>
 	<h1>$js().attr</h1>
 	<h2>定义</h2>
@@ -361,6 +362,155 @@
 	</fieldset>
 	<h2>版本</h2>
 	<p>本方法自0.0.0版本开始支持。</p>
+
+
+<!--
+//                                     
+//    ####  ##### #####  ###### ###### 
+//   #    #   #   #    # #      #      
+//   #        #   #    # #####  #####  
+//   #        #   #####  #      #      
+//   #    #   #   #   #  #      #      
+//    ####    #   #    # ###### ###### 
+//                                     
+-->
+	<a name="ctree"></a>
+	<h1>$js.ctree / $js().ctree</h1>
+	<h2>定义</h2>
+	<p>$js.ctree(opts) : HtmlElement</p>
+	<p>$js().ctree(opts) : HtmlElement</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>opts</td>
+			<td>[必须]生成树的选项。</td>
+		</tr>
+		<tr>
+			<td>opts.parent</td>
+			<td>[可选]树型选择元素结构的上层元素(HtmlElement)或元素ID(String)，如果不设置则在当前位置插入$js.ctree元素。注意，实例方法调用时会忽略此参数。</td>
+		</tr>
+		<tr>
+			<td>opts.el_replace:false|true</td>
+			<td>[可选]是否直接使用指定的parent节点，而不是插入。</td>
+		</tr>
+		<tr>
+			<td>opts.el_insert_before:false|true</td>
+			<td>[可选]插入到opts.parent节点内最前面，默认是插入到最后。此参数与el_replace是互斥的。</td>
+		</tr>
+		<tr>
+			<td>opts.id</td>
+			<td>[可选]树型选择元素ID。</td>
+		</tr>
+		<tr>
+			<td>opts.name</td>
+			<td>[可选]自动生成的input节点名称。</td>
+		</tr>
+		<tr>
+			<td>opts.mode=1|2</td>
+			<td>[可选]1单选，2多选。默认:1单选。</td>
+		</tr>
+		<tr>
+			<td>opts.selectleaf:true|false</td>
+			<td>[可选]只能选择叶子。</td>
+		</tr>
+		<tr>
+			<td>opts.selected:[...]</td>
+			<td>[可选]默认选项。数据结构，同opts.data。</td>
+		</tr>
+		<tr>
+			<td>opts.selected_on:true|false</td>
+			<td>[可选]默认选项是否出发onselected事件，默认：true。</td>
+		</tr>
+		<tr>
+			<td>opts.width:'160px'</td>
+			<td>[可选]设置选择区域宽度。</td>
+		</tr>
+		<tr>
+			<td>opts.popup_width:'160px'</td>
+			<td>[可选]设置弹出区域宽度，如果未设置，则与width相同。</td>
+		</tr>
+		<tr>
+			<td>opts.popup_height:'200px',</td>
+			<td>[可选]设置弹出区域高度。</td>
+		</tr>
+		<tr>
+			<td>opts.onselected:function(data,datalist){}</td>
+			<td>[可选]节点选中后触发。data为当前选中节点信息，datalist为当前所有选中的节点信息。</td>
+		</tr>
+		<tr>
+			<td>opts.onremoved:function(data,datalist){}</td>
+			<td>[可选]节点移除后触发。data为当前选中节点信息，datalist为当前所有选中的节点信息。</td>
+		</tr>
+		<tr>
+			<td>opts.search:true|false</td>
+			<td>[可选]是否显示搜索框。</td>
+		</tr>
+		<tr>
+			<td>opts.suffix:"&lt;br>"</td>
+			<td>[可选]每个选中项显示的后缀。</td>
+		</tr>
+		<tr>
+			<td>opts.dataurl:''</td>
+			<td>[可选]数据读取地址(异步读取，参数与data互斥)。</td>
+		</tr>
+		<tr>
+			<td>opts.data</td>
+			<td>[可选]树型结构数据。数据结构请参考$js.tree中的opts.data部分。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>此方法生成可展开的树型选择框以及对应的input元素，可直接在form中进行提交。成功执行后返回一个封装后的HtmlElement对象：</p>
+	<p>此方法同时存在静态方法和实例方法，使用时请根据具体场景选择。需要注意的是，实例方法会自动忽略opts.parent参数。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre id="ctree_show_html"></pre>
+	</fieldset>
+	<fieldset>
+		<legend>JavaScript</legend>
+		<pre id="ctree_show_js"></pre>
+	</fieldset>
+	<h2>演示</h2>
+	<fieldset>
+		<legend>演示区域</legend>
+		<div id="ctree_demo_html">
+			<iframe name="ctree_demo_iframe" style="float: right"></iframe>
+			<form target="ctree_demo_iframe" action="echo.html">
+				name：<input type="text" name="name" value="username"><br>
+				value：<div id="ctree_demo_1"></div><br>
+				<input type="submit" value="Submit">
+			</form>
+		</div>
+		<script>
+			$js('#ctree_show_html').text($js('#ctree_demo_html').outerHTML()).unindent({ignore:1});
+		</script>
+		<script id="ctree_demo_js">
+			$js('#ctree_demo_1').ctree({
+				name:'ctree_input',
+				el_replace:true,
+				selectleaf:true,
+				mode:2,
+				selected:[{i:2,t:'node 2'}],
+				data:[
+					{i:1,t:'node 1',c:[
+						{i:11,t:'node 11'},
+						{i:12,t:'node 12'},
+					]},
+					{i:2,t:'node 2'},
+					{i:3,t:'node 3',c:[
+						{i:31,t:'node 31'},
+						{i:32,t:'node 32'},
+					]},
+				]
+			});
+		</script>
+	</fieldset>
+	<h2>版本</h2>
+	<p>本方法自0.1.6版本开始支持。</p>
+	<script>
+		$js('#ctree_show_js').text($js('#ctree_demo_js').outerHTML()).unindent({ignore:1});
+	</script>
+
 
 
 	<a name="each"></a>
@@ -1291,7 +1441,16 @@ a3 text</pre>
 	</script>
 
 
-
+<!--
+//                              
+//   ##### #####  ###### ###### 
+//     #   #    # #      #      
+//     #   #    # #####  #####  
+//     #   #####  #      #      
+//     #   #   #  #      #      
+//     #   #    # ###### ###### 
+//                              
+-->
 	<a name="tree"></a>
 	<h1>$js.tree / $js().tree</h1>
 	<h2>定义</h2>
