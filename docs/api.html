@@ -797,6 +797,54 @@
 
 
 
+<!--
+//                                #####                        
+//   #    #   ##   #    # ###### #     # #####  #      # ##### 
+//   ##   #  #  #  ##  ## #      #       #    # #      #   #   
+//   # #  # #    # # ## # #####   #####  #    # #      #   #   
+//   #  # # ###### #    # #            # #####  #      #   #   
+//   #   ## #    # #    # #      #     # #      #      #   #   
+//   #    # #    # #    # ######  #####  #      ###### #   #   
+//                                                             
+-->
+	<a name="nameSplit"></a>
+	<h1>$js.nameSplit</h1>
+	<h2>定义</h2>
+	<p>$js.nameSplit(String) : object</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>String</td>
+			<td>[必须]需要拆分的姓名。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>这个方法会根据传入的姓名，自动拆分first name、last name。</p>
+	<p>成功执行后返回对象结构：{first:'...',last:'...'}</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre id="nameSplit_show_html"></pre>
+	</fieldset>
+	<h2>演示</h2>
+	<fieldset>
+		<legend>演示区域</legend>
+		<div id="nameSplit_demo_html">
+			<input type="text" id="nameSplit_demo_name" value="张三" placeholder="待拆分姓名">
+			<input type="button" value="拆分" onclick="$js('#nameSplit_demo_result').text(JSON.stringify($js.nameSplit($js('#nameSplit_demo_name').val())))">
+			<fieldset>
+				<legend>拆分结果</legend>
+				<div id="nameSplit_demo_result"></div>
+			</fieldset>
+		</div>
+	</fieldset>
+	<h2>版本</h2>
+	<p>本方法自0.1.7版本开始支持。</p>
+	<script>$js('#nameSplit_show_html').text($js('#nameSplit_demo_html').outerHTML()).unindent({ignore:1});</script>
+	<script>$js('#nameSplit_demo_result').text(JSON.stringify($js.nameSplit($js('#nameSplit_demo_name').val())));</script>
+
+
+
 	<a name="off"></a>
 	<h1>$js().off</h1>
 	<h2>定义</h2>
@@ -1025,6 +1073,16 @@
 
 
 
+<!--
+//                                                                     #####                       
+//   #####  ######  ####  #####  ######  ####   ####  #  ####  #    # #     #   ##   #       ####  
+//   #    # #      #    # #    # #      #      #      # #    # ##   # #        #  #  #      #    # 
+//   #    # #####  #      #    # #####   ####   ####  # #    # # #  # #       #    # #      #      
+//   #####  #      #  ### #####  #           #      # # #    # #  # # #       ###### #      #      
+//   #   #  #      #    # #   #  #      #    # #    # # #    # #   ## #     # #    # #      #    # 
+//   #    # ######  ####  #    # ######  ####   ####  #  ####  #    #  #####  #    # ######  ####  
+//                                                                                                 
+-->
 	<a name="regressionCalc"></a>
 	<h1>$js.regressionCalc</h1>
 	<h2>定义</h2>
@@ -1063,8 +1121,9 @@
 	<h2>关联</h2>
 	<p>
 		<a href="api.html#regressionCalcY">regressionCalcY</a> &nbsp; 
-		<a href="api.html#regressionSwap">regressionSwap</a> &nbsp; 
+		<a href="api.html#regressionLogarithmic">regressionLogarithmic</a> &nbsp; 
 		<a href="api.html#regressionPolynomial">regressionPolynomial</a> &nbsp; 
+		<a href="api.html#regressionSwap">regressionSwap</a> &nbsp; 
 	</p>
 	<h2>版本</h2>
 	<p>本方法自0.1.3版本开始支持。</p>
@@ -1074,6 +1133,16 @@
 
 
 
+<!--
+//                                                                     #####                       #     # 
+//   #####  ######  ####  #####  ######  ####   ####  #  ####  #    # #     #   ##   #       ####   #   #  
+//   #    # #      #    # #    # #      #      #      # #    # ##   # #        #  #  #      #    #   # #   
+//   #    # #####  #      #    # #####   ####   ####  # #    # # #  # #       #    # #      #         #    
+//   #####  #      #  ### #####  #           #      # # #    # #  # # #       ###### #      #         #    
+//   #   #  #      #    # #   #  #      #    # #    # # #    # #   ## #     # #    # #      #    #    #    
+//   #    # ######  ####  #    # ######  ####   ####  #  ####  #    #  #####  #    # ######  ####     #    
+//                                                                                                         
+-->
 	<a name="regressionCalcY"></a>
 	<h1>$js.regressionCalcY</h1>
 	<h2>定义</h2>
@@ -1114,8 +1183,9 @@
 	<h2>关联</h2>
 	<p>
 		<a href="api.html#regressionCalc">regressionCalc</a> &nbsp; 
-		<a href="api.html#regressionSwap">regressionSwap</a> &nbsp; 
+		<a href="api.html#regressionLogarithmic">regressionLogarithmic</a> &nbsp; 
 		<a href="api.html#regressionPolynomial">regressionPolynomial</a> &nbsp; 
+		<a href="api.html#regressionSwap">regressionSwap</a> &nbsp; 
 	</p>
 	<h2>版本</h2>
 	<p>本方法自0.1.3版本开始支持。</p>
@@ -1125,6 +1195,120 @@
 
 
 
+<!--
+//                                                                    #                                                                  
+//   #####  ######  ####  #####  ######  ####   ####  #  ####  #    # #        ####   ####    ##   #####  # ##### #    # #    # #  ####  
+//   #    # #      #    # #    # #      #      #      # #    # ##   # #       #    # #    #  #  #  #    # #   #   #    # ##  ## # #    # 
+//   #    # #####  #      #    # #####   ####   ####  # #    # # #  # #       #    # #      #    # #    # #   #   ###### # ## # # #      
+//   #####  #      #  ### #####  #           #      # # #    # #  # # #       #    # #  ### ###### #####  #   #   #    # #    # # #      
+//   #   #  #      #    # #   #  #      #    # #    # # #    # #   ## #       #    # #    # #    # #   #  #   #   #    # #    # # #    # 
+//   #    # ######  ####  #    # ######  ####   ####  #  ####  #    # #######  ####   ####  #    # #    # #   #   #    # #    # #  ####  
+//                                                                                                                                       
+-->
+	<a name="regressionLogarithmic"></a>
+	<h1>$js.regressionLogarithmic</h1>
+	<h2>定义</h2>
+	<p>$js.regressionLogarithmic(data) : object</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>data</td>
+			<td>[必须]需要做回归计算的数据。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>对指定数据进行对数回归。计算后返回一个固定对象：</p>
+	<pre>
+	{
+		data:[...],		//原始有效回归数据
+		parameter:[...],	//回归参数
+		expresion:string	//显示使用的多项式字符串
+		points:[[x,y],...],	//数据节点x对应回归后的数据。如果需要增加此展示点，可以调用calc或calcY方法进行添加
+		points_minx(),		//获取points中最小x
+		points_miny(),		//获取points中最小y
+		calc:function(x){},	//内部调用了$js.regressionCalc，并且此计算点也会自动增加到points展示点列表中
+		calcY:function(y){},	//内部调用了$js.regressionCalcY，并且此计算点也会自动增加到points展示点列表中
+	}</pre>
+	<p>这个方法可以独立使用，也可以配合echarts使用。像points就是专门为echarts显示准备的。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre id="regressionLogarithmic_show_html"></pre>
+	</fieldset>
+	<fieldset>
+		<legend>JavaScript</legend>
+		<pre>regressionLogarithmic_showcharts();</pre>
+	</fieldset>
+	<h2>演示</h2>
+	<fieldset>
+		<legend>演示区域</legend>
+		<div id="regressionLogarithmic_demo_html">
+			<div id="regressionLogarithmic_charts" style="height:240px;"></div>
+			<fieldset>
+				<legend>返回结果</legend>
+				<pre id="regressionLogarithmic_result"></pre>
+			</fieldset>
+			<script src="../third/echarts.min.js"></script>
+			<script>
+				function regressionLogarithmic_showcharts()
+				{
+					var data=[[1,1],[2,3],[3,10],[4,15],[5,26],[6,34],[7,40],[8,70],[9,80]];
+					var result=$js.regressionLogarithmic(data);
+
+					//SHOW
+					var txt='';
+					txt+="      data:"+JSON.stringify(result['data'])+"\n";
+					txt+=" parameter:"+JSON.stringify(result['parameter'])+"\n";
+					txt+="expression:"+result['expression']+"\n";
+					txt+="    points:[\n";
+					for(let p of result['points'])
+						txt+='               '+JSON.stringify(p)+"\n";
+					txt+="           ]";
+					$js('#regressionLogarithmic_result').text(txt);
+
+					//CHARTS
+					var myChart = echarts.init(document.getElementById('regressionLogarithmic_charts'));
+					var option={
+						grid:{left:"32px",right:"32px",top:"32px",bottom:'32px'},
+			  			xAxis:{},
+						yAxis:{},
+						series:
+						[
+							{type:"line",data:result.points,symbol:"none"},
+							{type:'scatter',data:result.data,symbol:"circle"},
+						]
+					};
+					option && myChart.setOption(option);
+				}
+			</script>
+		</div>
+	</fieldset>
+	<h2>关联</h2>
+	<p>
+		<a href="api.html#regressionCalc">regressionCalc</a> &nbsp; 
+		<a href="api.html#regressionCalcY">regressionCalcY</a> &nbsp; 
+		<a href="api.html#regressionPolynomial">regressionPolynomial</a> &nbsp; 
+		<a href="api.html#regressionSwap">regressionSwap</a> &nbsp; 
+	</p>
+	<h2>版本</h2>
+	<p>本方法自0.1.7版本开始支持。</p>
+	<script>
+		$js('#regressionLogarithmic_show_html').text($js('#regressionLogarithmic_demo_html').outerHTML()).unindent({ignore:1});
+
+		regressionLogarithmic_showcharts();
+	</script>
+
+
+<!--
+//                                                                    ######                                                           
+//   #####  ######  ####  #####  ######  ####   ####  #  ####  #    # #     #  ####  #      #   # #    #  ####  #    # #   ##   #      
+//   #    # #      #    # #    # #      #      #      # #    # ##   # #     # #    # #       # #  ##   # #    # ##  ## #  #  #  #      
+//   #    # #####  #      #    # #####   ####   ####  # #    # # #  # ######  #    # #        #   # #  # #    # # ## # # #    # #      
+//   #####  #      #  ### #####  #           #      # # #    # #  # # #       #    # #        #   #  # # #    # #    # # ###### #      
+//   #   #  #      #    # #   #  #      #    # #    # # #    # #   ## #       #    # #        #   #   ## #    # #    # # #    # #      
+//   #    # ######  ####  #    # ######  ####   ####  #  ####  #    # #        ####  ######   #   #    #  ####  #    # # #    # ###### 
+//                                                                                                                                     
+-->
 	<a name="regressionPolynomial"></a>
 	<h1>$js.regressionPolynomial</h1>
 	<h2>定义</h2>
@@ -1211,6 +1395,7 @@
 	<p>
 		<a href="api.html#regressionCalc">regressionCalc</a> &nbsp; 
 		<a href="api.html#regressionCalcY">regressionCalcY</a> &nbsp; 
+		<a href="api.html#regressionLogarithmic">regressionLogarithmic</a> &nbsp; 
 		<a href="api.html#regressionSwap">regressionSwap</a> &nbsp; 
 	</p>
 	<h2>版本</h2>
@@ -1225,6 +1410,16 @@
 
 
 
+<!--
+//                                                                     #####                       
+//   #####  ######  ####  #####  ######  ####   ####  #  ####  #    # #     # #    #   ##   #####  
+//   #    # #      #    # #    # #      #      #      # #    # ##   # #       #    #  #  #  #    # 
+//   #    # #####  #      #    # #####   ####   ####  # #    # # #  #  #####  #    # #    # #    # 
+//   #####  #      #  ### #####  #           #      # # #    # #  # #       # # ## # ###### #####  
+//   #   #  #      #    # #   #  #      #    # #    # # #    # #   ## #     # ##  ## #    # #      
+//   #    # ######  ####  #    # ######  ####   ####  #  ####  #    #  #####  #    # #    # #      
+//                                                                                                 
+-->
 	<a name="regressionSwap"></a>
 	<h1>$js.regressionSwap</h1>
 	<h2>定义</h2>
@@ -1297,6 +1492,7 @@
 	<p>
 		<a href="api.html#regressionCalc">regressionCalc</a> &nbsp; 
 		<a href="api.html#regressionCalcY">regressionCalcY</a> &nbsp; 
+		<a href="api.html#regressionLogarithmic">regressionLogarithmic</a> &nbsp; 
 		<a href="api.html#regressionPolynomial">regressionPolynomial</a>
 	</p>
 	<h2>版本</h2>
@@ -1395,6 +1591,17 @@ a3 text</pre>
 	<p>本方法自0.1.0版本开始支持。</p>
 
 
+
+<!--
+//                                                  
+//   #####  ####  #####  #    #  ####   ####  ##### 
+//     #   #    # #    # ##  ## #    # #        #   
+//     #   #    # #    # # ## # #    #  ####    #   
+//     #   #    # #####  #    # #    #      #   #   
+//     #   #    # #      #    # #    # #    #   #   
+//     #    ####  #      #    #  ####   ####    #   
+//                                                  
+-->
 	<a name="topmost"></a>
 	<h1>$js.topmost / $js().topmost</h1>
 	<h2>定义</h2>
@@ -1588,6 +1795,16 @@ a3 text</pre>
 
 
 
+<!--
+//                                                     
+//   #    # #    # # #    # #####  ###### #    # ##### 
+//   #    # ##   # # ##   # #    # #      ##   #   #   
+//   #    # # #  # # # #  # #    # #####  # #  #   #   
+//   #    # #  # # # #  # # #    # #      #  # #   #   
+//   #    # #   ## # #   ## #    # #      #   ##   #   
+//    ####  #    # # #    # #####  ###### #    #   #   
+//                                                     
+-->
 	<a name="unindent"></a>
 	<h1>$js.unindent / $js().unindent</h1>
 	<h2>定义</h2>
@@ -1633,11 +1850,68 @@ a3 text</pre>
 	</fieldset>
 	<h2>版本</h2>
 	<p>本方法自0.1.2版本开始支持。</p>
-	<script>
-		$js('#unindent_show_html').text($js('#unindent_demo_html').outerHTML()).unindent({ignore:1});
-	</script>
+	<script>$js('#unindent_show_html').text($js('#unindent_demo_html').outerHTML()).unindent({ignore:1});</script>
 
 
+
+<!--
+//                        
+//   #    #   ##   #      
+//   #    #  #  #  #      
+//   #    # #    # #      
+//   #    # ###### #      
+//    #  #  #    # #      
+//     ##   #    # ###### 
+//                        
+-->
+	<a name="val"></a>
+	<h1>$js().val</h1>
+	<h2>定义</h2>
+	<p>$js().val() : String</p>
+	<p>$js().val(String) : JSLib</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>String</td>
+			<td>[可选]要设置的字符串。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>返回或设置INPUT类元素的值。</p>
+	<p>传递String参数时，将设置当前所有匹配元素的value。未传递String参数时返回第一个匹配元素的value。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre id="val_show_html"></pre>
+	</fieldset>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>演示区域</legend>
+		<div id="val_demo_html">
+			<form>
+				<input type="text" name="val_demo_input_text" value="test test test">
+				<input type="button" value="get value" onclick="$js('#val_demo_result').text('获取文本：'+$js('@val_demo_input_text').val())">
+				<input type="button" value="set value" onclick="$js('@val_demo_input_text').val(new Date())">
+			</form>
+			<div id="val_demo_result"></div>
+		</div>
+	</fieldset>
+	<h2>版本</h2>
+	<p>本方法自0.1.7版本开始支持。</p>
+	<script>$js('#val_show_html').text($js('#val_demo_html').outerHTML()).unindent({ignore:1});</script>
+
+
+
+<!--
+//                                               
+//   #    # ###### #####   ####  #  ####  #    # 
+//   #    # #      #    # #      # #    # ##   # 
+//   #    # #####  #    #  ####  # #    # # #  # 
+//   #    # #      #####       # # #    # #  # # 
+//    #  #  #      #   #  #    # # #    # #   ## 
+//     ##   ###### #    #  ####  #  ####  #    # 
+//                                               
+-->
 	<a name="version"></a>
 	<h1>$js.version</h1>
 	<h2>定义</h2>
@@ -1656,9 +1930,7 @@ a3 text</pre>
 	<h2>版本</h2>
 	<p>本属性自0.0.0版本开始支持。</p>
 	<p>自0.1.0版本开始变更为静态属性。</p>
-	<script>
-		// console.log($js.version);
-		// console.log($js().version);
-	</script>
+
+
 </body>
 </html>
