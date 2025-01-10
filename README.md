@@ -16,8 +16,8 @@ JSLib的基本架构和使用方式类似JQuery，可以简单的理解为JSLib�
 使用$js.gb8170round()方法可以GB/T 8170国标的数字修约标准，俗称：四舍六进五成双，奇进偶不进。
 ## 单元格选择
 使用$js().tableCells()方法可以实现多单元格区域选择，以及单元格内容复制、粘贴功能。
-## 多项式回归
-通过$js.regressionPolynomial()生成多项式回归函数，通过$js.regressionCalc()或$js.regressionCalcY()可以直接进行数据计算。
+## 回归函数
+可以通过$js.regressionPolynomial()生成多项式回归函数，通过$js.regressionLogarithmic()生成对数回归函数。通过$js.regressionCalc()或$js.regressionCalcY()直接进行数据计算。
 
 # 引用文件
 在使用$js时，一定要引用dist/jslib.min.js文件。

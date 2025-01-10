@@ -607,7 +607,16 @@
 
 
 
-                                                                                                                     
+<!--
+//                                
+//   ###### # #####   ####  ##### 
+//   #      # #    # #        #   
+//   #####  # #    #  ####    #   
+//   #      # #####       #   #   
+//   #      # #   #  #    #   #   
+//   #      # #    #  ####    #   
+//                                
+-->                                                                                                                     
 	<a name="first"></a>
 	<h1>$js().first</h1>
 	<h2>定义</h2>
@@ -629,11 +638,66 @@
 		<legend>输出示例</legend>
 		<pre>&lt;div id="a1">a1 text&lt;/div></pre>
 	</fieldset>
+	<h2>关联</h2>
+	<p>
+		<a href="api.html#firstElement">firstElement</a> &nbsp;
+	</p>
 	<h2>版本</h2>
 	<p>本方法自0.0.0版本开始支持。</p>
 
 
 
+<!--
+//                                #######                                          
+//   ###### # #####   ####  ##### #       #      ###### #    # ###### #    # ##### 
+//   #      # #    # #        #   #       #      #      ##  ## #      ##   #   #   
+//   #####  # #    #  ####    #   #####   #      #####  # ## # #####  # #  #   #   
+//   #      # #####       #   #   #       #      #      #    # #      #  # #   #   
+//   #      # #   #  #    #   #   #       #      #      #    # #      #   ##   #   
+//   #      # #    #  ####    #   ####### ###### ###### #    # ###### #    #   #   
+//                                                                                 
+-->
+	<a name="firstElement"></a>
+	<h1>$js().firstElement</h1>
+	<h2>定义</h2>
+	<p>$js().firstElement : HtmlElement</p>
+	<h2>说明</h2>
+	<p>返回当前JSLib中第一个元素，如果当前未包含任何元素则不返回有效数据（即undefined）。</p>
+	<p>这个方法与$js().first()的区别是$js().first()返回的是一个JSLib对象，而$js().firstElement返回的是一个HtmlElement元素。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre>&lt;div id="a1">a1 text&lt;/div>
+&lt;div id="a2">a2 text&lt;/div>
+&lt;div id="a3">a3 text&lt;/div></pre>
+	</fieldset>
+	<fieldset>
+		<legend>JavaScript</legend>
+		<pre>console.log($js('div').firstElement);</pre>
+	</fieldset>
+	<fieldset>
+		<legend>输出示例</legend>
+		<pre>[object HTMLPreElement]</pre>
+	</fieldset>
+	<h2>关联</h2>
+	<p>
+		<a href="api.html#first">first</a> &nbsp;
+	</p>
+	<h2>版本</h2>
+	<p>本属性自0.1.8版本开始支持。</p>
+
+
+
+<!--
+//                              
+//   #    # ##### #    # #      
+//   #    #   #   ##  ## #      
+//   ######   #   # ## # #      
+//   #    #   #   #    # #      
+//   #    #   #   #    # #      
+//   #    #   #   #    # ###### 
+//                              
+-->
 	<a name="html"></a>
 	<h1>$js().html</h1>
 	<h2>定义</h2>
@@ -1593,6 +1657,151 @@ a3 text</pre>
 
 
 <!--
+//                                                             
+//    ####  #    #  ####  #    # # #    #   ##    ####  ###### 
+//   #      #    # #    # #    # # ##  ##  #  #  #    # #      
+//    ####  ###### #    # #    # # # ## # #    # #      #####  
+//        # #    # #    # # ## # # #    # ###### #  ### #      
+//   #    # #    # #    # ##  ## # #    # #    # #    # #      
+//    ####  #    #  ####  #    # # #    # #    #  ####  ###### 
+//                                                             
+-->
+	<a name="showimage"></a>
+	<h1>$js.showimage</h1>
+	<h2>定义</h2>
+	<p>$js.showimage(opts) : HtmlElement</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>opts</td>
+			<td>[必须]参数。</td>
+		</tr>
+		<tr>
+			<td>opts.file</td>
+			<td>[必填]需要显示的图片路径。</td>
+		</tr>
+		<tr>
+			<td>opts.basepath</td>
+			<td>[可选]图片文件的基路径。</td>
+		</tr>
+		<tr>
+			<td>opts.fullscreen=false|true</td>
+			<td>[可选]是否全屏显示。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>全屏显示指定的图片文件，支持鼠标滚轮缩放和拖拽位置移动。点击空白区或Esc键退出显示状态。</p>
+	<p>当opts.fullscreen=false时，图片是在当前窗口内全窗口显示；当fullscreen=true时会在顶层桌面显示图片。</p>
+	<p>本方式运行后返回信息显示HtmlElement元素，此元素包含一个close()方法，可以使用此方法手工关闭信息显示。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre id="showimage_show_html"></pre>
+	</fieldset>
+	<h2>演示</h2>
+	<fieldset>
+		<legend>演示区域</legend>
+		<div id="showimage_demo_html">
+			<button onclick="runme(this)">$js.showimage({file:'demo1.png'})</button>
+			<button onclick="runme(this)">$js.showimage({file:'docs/demo1.png',fullscreen:true})</button>
+			<script>
+				function runme(e)
+				{
+					eval(e.innerHTML);
+				}
+			</script>
+		</div>
+	</fieldset>
+	<h2>版本</h2>
+	<p>本方法自0.1.8版本开始支持。</p>
+	<script>
+		$js('#showimage_show_html').text($js('#showimage_demo_html').outerHTML()).unindent({ignore:1});
+	</script>
+
+
+<!--
+//                                            
+//   #####  ####  #####  #    #  ####   ####  
+//     #   #    # #    # ##  ## #      #    # 
+//     #   #    # #    # # ## #  ####  #      
+//     #   #    # #####  #    #      # #  ### 
+//     #   #    # #      #    # #    # #    # 
+//     #    ####  #      #    #  ####   ####  
+//                                            
+-->
+	<a name="topmsg"></a>
+	<h1>$js.topmsg</h1>
+	<h2>定义</h2>
+	<p>$js.topmsg(opts) : HtmlElement</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>opts</td>
+			<td>[必须]需要操作的HTML元素。</td>
+		</tr>
+		<tr>
+			<td>opts.msg</td>
+			<td>[必填]显示文本，可以为HTML格式内容。</td>
+		</tr>
+		<tr>
+			<td>opts.parent=self</td>
+			<td>[必填]显示信息的上层窗口。默认：self。可选值：top或其他指定窗口名称。</td>
+		</tr>
+		<tr>
+			<td>opts.timeout=5000</td>
+			<td>[可选]显示时长，单位：毫秒，默认值：5000。</td>
+		</tr>
+		<tr>
+			<td>opts.flag=false</td>
+			<td>[可选]是否着重显示，即：红色、加粗显示。</td>
+		</tr>
+		<tr>
+			<td>opts.onclick=function(e,el){}</td>
+			<td>[可选]信息框点击回调函数。e是onclick事件信息，el是当前信息显示的HtmlElement，可以使用el.close()手工关闭提示信息。</td>
+		</tr>
+		<tr>
+			<td>opts.prompt</td>
+			<td>[可选]自定义的提示信息。</td>
+		</tr>
+		<tr>
+			<td>opts.position</td>
+			<td>[可选]显示位置，可选值：rb（右下角）。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>在界面右上角或右下角显示提示信息。</p>
+	<p>本方式运行后返回信息显示元素，此元素包含一个close()方法，可以使用此方法手工关闭信息显示。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre id="topmsg_show_html"></pre>
+	</fieldset>
+	<h2>演示</h2>
+	<fieldset>
+		<legend>演示区域</legend>
+		<div id="topmsg_demo_html">
+			<button onclick="runme(this)">$js.topmsg({msg:'普通提醒信息'})</button>
+			<button onclick="runme(this)">$js.topmsg({msg:'普通提醒信息（顶层窗口显示）',parent:top})</button>
+			<button onclick="runme(this)">$js.topmsg({msg:'红色提醒信息',flag:true})</button>
+			<button onclick="runme(this)">$js.topmsg({msg:'点击关闭消息的信息',timeout:0})</button>
+			<button onclick="runme(this)">$js.topmsg({msg:'消息点击的处理',onclick:function(e,el){console.log('topmsg.close',e);el.close()}})</button>
+			<script>
+				function runme(e)
+				{
+					eval(e.innerHTML);
+				}
+			</script>
+		</div>
+	</fieldset>
+	<h2>版本</h2>
+	<p>本方法自0.1.8版本开始支持。</p>
+	<script>
+		$js('#topmsg_show_html').text($js('#topmsg_demo_html').outerHTML()).unindent({ignore:1});
+	</script>
+
+
+
+<!--
 //                                                  
 //   #####  ####  #####  #    #  ####   ####  ##### 
 //     #   #    # #    # ##  ## #    # #        #   
@@ -1851,6 +2060,209 @@ a3 text</pre>
 	<h2>版本</h2>
 	<p>本方法自0.1.2版本开始支持。</p>
 	<script>$js('#unindent_show_html').text($js('#unindent_demo_html').outerHTML()).unindent({ignore:1});</script>
+
+
+
+<!--
+//                                               
+//   #    # #####  # #    #   ##    ####  ###### 
+//   #    # #    # # ##  ##  #  #  #    # #      
+//   #    # #    # # # ## # #    # #      #####  
+//   #    # #####  # #    # ###### #  ### #      
+//   #    # #      # #    # #    # #    # #      
+//    ####  #      # #    # #    #  ####  ###### 
+//                                               
+-->
+	<a name="upimage"></a>
+	<h1>$js.upimage / $js().upimage</h1>
+	<h2>定义</h2>
+	<p>$js.upimage(String,opts) : Object</p>
+	<p>$js().upimage(opts) : Object</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>String</td>
+			<td>[必须]要处理的字符串。</td>
+		</tr>
+		<tr>
+			<td>opts</td>
+			<td>[可选]附加参数。</td>
+		</tr>
+		<tr>
+			<td>opts.el</td>
+			<td>[可选]上传操作节点区域，默认：当前位置。</td>
+		</tr>
+		<tr>
+			<td>opts.el_dd</td>
+			<td>[可选]拖动操作节点，默认：args['el']。</td>
+		</tr>
+		<tr>
+			<td>opts.name='file'</td>
+			<td>[可选]上传文件的文件域名称，默认：file。</td>
+		</tr>
+		<tr>
+			<td>opts.captrue='camera'</td>
+			<td>[可选]手机图片上传时，优先使用摄像头直接拍照。</td>
+		</tr>
+		<tr>
+			<td>opts.url='../upfile.php'</td>
+			<td>[可选]异步文件上传的处理路径，默认：../upfile.php。</td>
+		</tr>
+		<tr>
+			<td>opts.localmode=false|true</td>
+			<td>[可选]是否开启本地模式，默认：false。</td>
+		</tr>
+		<tr>
+			<td>opts.start=function(){}</td>
+			<td>[可选]开始上传时的回调函数。</td>
+		</tr>
+		<tr>
+			<td>opts.success=function(){}</td>
+			<td>[可选]上传完成后的回调。</td>
+		</tr>
+		<tr>
+			<td>opts.dataType=function(){}</td>
+			<td>[可选]上传完成后的回调参数类型。如果是Json类型则需要设置dataType=‘json’</td>
+		</tr>
+		<tr>
+			<td>opts.text</td>
+			<td>[可选]显示的提示文本。默认值为“文件拖拽到这里，即可直接上传。”</td>
+		</tr>
+		<tr>
+			<td>opts.input</td>
+			<td>[可选]是否显示浏览式文件上传。默认：显示。</td>
+		</tr>
+		<tr>
+			<td>opts.count</td>
+			<td>[可选]限制上传文件数量限制，默认：无限制。</td>
+		</tr>
+		<tr>
+			<td>opts.files</td>
+			<td>[可选]已上传文件列表。如果设置，则自动显示已上传文件的列表项。</td>
+		</tr>
+		<tr>
+			<td>opts.basepath</td>
+			<td>[可选]图片的基准路径。设置后所有显示的图片都会增加这个基准路径进行显示。</td>
+		</tr>
+		<tr>
+			<td>opts.addo</td>
+			<td>[可选]input文件上传框的附加信息。内容可以为文本或元素。</td>
+		</tr>
+		<tr>
+			<td>opts.disabled=false</td>
+			<td>[可选]文件上传不可编辑</td>
+		</tr>
+		<tr>
+			<td>opts.preview_width='96px'</td>
+			<td>[可选]图片预览区域宽度，默认：96px。</td>
+		</tr>
+		<tr>
+			<td>opts.preview_height='96px'</td>
+			<td>[可选]图片预览区域高度，默认：96px。</td>
+		</tr>
+		<tr>
+			<td>opts.preview_clickshow=false</td>
+			<td>[可选]如果只有“预览”一个按钮时，直接进行预览操作。</td>
+		</tr>
+		<tr>
+			<td>opts.usermedia=false</td>
+			<td>[可选]优先UserMedia方式获取图片。</td>
+		</tr>
+		<tr>
+			<td>opts.usermedia_webp=false</td>
+			<td>[可选]使用UserMedia模式时，获取webp格式图片。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>通过浏览器的文件拖拽或选择功能实现图片文件上传及预览。</p>
+	<p>opts.url是图片上传的处理URL路径，这个返回的应该是一个JSON格式的字符串表示上传后的文件绝对位置或相对opts.basepath的相对位置，示例：{"file":"25010922/abc.png"}。</p>
+	<p>opts.success回调函数说明：</p>
+	<pre>
+	opts.success=function(data,last)
+	{
+		alert('回调数据:'+data);
+		alert('是否最后一个数据:'+last);
+	}
+	</pre>
+	<p>data参数为回调返回的数据，具体数据由args.url路径指定的文件为准；last字段返回当前回调的数据是否为最后一个上传的文件，如果是则返回true，否则返回false。</p>
+</p>
+	<p>此方法的返回值是一个upimage对象，对象内容包括：</p>
+	<pre>
+	obj.add_file(filepath);	//增加上传文件,返回显示区域节点。
+						//返回节点的replace方法，可以替换图片。
+	obj.input_onchange		//input[type=file].onchange事件处理
+	obj.clear()			//清除当前已上传的图片
+</pre>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre id="upimage_show_html"></pre>
+	</fieldset>
+	<h2>演示</h2>
+	<fieldset>
+		<legend>演示区域</legend>
+		<div id="upimage_demo_html" style="display: flex;">
+			<form method="post" enctype="multipart/form-data">
+				<script>
+					let files=
+					[
+						'demo1.png',
+						'demo2.png',
+					];
+				</script>
+				<table border="1">
+					<tr>
+						<td>指定拖拽区域<br>指定显示文件</td>
+						<td><div style="position:relative;background-color:red;width:300px;height:200px;">
+							<script>$js.upimage({files:files});</script></div></td>
+					</tr>
+					<tr>
+						<td>指定显示文件<br>显示上传按钮</td>
+						<td><script>$js.upimage({files:files,input:true});</script></td>
+					</tr>
+					<tr>
+						<td>只读模式</td>
+						<td><script>$js.upimage({files:files,disabled:true});</script></td>
+					</tr>
+					<tr>
+						<td>仅“预览”按钮时直接最大化预览</td>
+						<td>
+							<script>$js.upimage({files:files,disabled:true,preview_clickshow:true});</script>
+						</td>
+					</tr>
+					<tr>
+						<td>仅“预览”按钮时直接最大化预览<br>全屏预览</td>
+						<td>
+							<script>$js.upimage({files:files,disabled:true,preview_clickshow:true,preview_fullscreen:true});</script>
+						</td>
+					</tr>
+					<tr>
+						<td>本地模式</td>
+						<td><script>$js.upimage({files:files,input:true,localmode:true});</script></td>
+					</tr>
+					<tr>
+						<td>文件上传时优先调用摄像头<br>(手机上使用)</td>
+						<td>
+							<script>$js.upimage({files:files,input:true,localmode:true,capture:'camera'});</script>
+						</td>
+					</tr>
+					<tr>
+						<td>摄像头直接调用<br>开启坐标<br>开启水印</td>
+						<td>
+							<script>
+								$js.upimage({files:files,input:true,localmode:true,capture:'camera',usermedia:true,watermark:'拍摄时间: {:datetime}\n拍摄日期: {:date}\n位置坐标: {:lng},{:lat}',
+									geo:true});
+							</script>
+						</td>
+					</tr>
+				</table>
+				<input type="submit" value="SUBMIT">
+			</form>
+		</div>
+	</fieldset>
+	<h2>版本</h2>
+	<p>本方法自0.1.8版本开始支持。</p>
+	<script>$js('#upimage_show_html').text($js('#upimage_demo_html').outerHTML()).unindent({ignore:1});</script>
 
 
 
