@@ -9,6 +9,11 @@
 <script src="../dist/jslib.min.js"></script>
 </head>
 <body>
+	<script>
+		$js.UPLOAD_FILE='../php/upfile.php';
+		$js.UPLOAD_PATH='../upload/';
+	</script>
+
 	<a name="add"></a>
 	<h1>$js().add</h1>
 	<h2>定义</h2>
@@ -750,6 +755,64 @@
 
 
 
+<!--
+//               #                                                    ######                      
+//   #  ####    # #   #####   ####   ####  #      #    # ##### ###### #     #   ##   ##### #    # 
+//   # #       #   #  #    # #      #    # #      #    #   #   #      #     #  #  #    #   #    # 
+//   #  ####  #     # #####   ####  #    # #      #    #   #   #####  ######  #    #   #   ###### 
+//   #      # ####### #    #      # #    # #      #    #   #   #      #       ######   #   #    # 
+//   # #    # #     # #    # #    # #    # #      #    #   #   #      #       #    #   #   #    # 
+//   #  ####  #     # #####   ####   ####  ######  ####    #   ###### #       #    #   #   #    # 
+//                                                                                                
+-->
+	<a name="isAbsolutePath"></a>
+	<h1>$js.isAbsolutePath</h1>
+	<h2>定义</h2>
+	<p>$js.isAbsolutePath(String) : Boolean</p>
+	<h2>说明</h2>
+	<p>判断指定路径是否为绝对路径。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre id="isAbsolutePath_show_html"></pre>
+	</fieldset>
+	<h2>演示</h2>
+	<fieldset>
+		<legend>JavaScript</legend>
+		<div id="isAbsolutePath_demo_html">
+			<script>
+				console.log($js.isAbsolutePath('abc.png'));
+				console.log($js.isAbsolutePath('abc/abc.png'));
+				console.log($js.isAbsolutePath('/abc/abc.png'));
+				console.log($js.isAbsolutePath('http://abc/abc.png'));
+				console.log($js.isAbsolutePath('https://abc/abc.png'));
+			</script>
+		</div>
+	</fieldset>
+	<fieldset>
+		<legend>输出示例</legend>
+		<pre>false
+false
+true
+true
+true</pre>
+	</fieldset>
+	<h2>版本</h2>
+	<p>本方法自0.1.9版本开始支持。</p>
+	<script>$js('#isAbsolutePath_show_html').text($js('#isAbsolutePath_demo_html').outerHTML()).unindent({ignore:1});</script>
+
+
+
+<!--
+//                              
+//   #        ##    ####  ##### 
+//   #       #  #  #        #   
+//   #      #    #  ####    #   
+//   #      ######      #   #   
+//   #      #    # #    #   #   
+//   ###### #    #  ####    #   
+//                              
+-->
 	<a name="last"></a>
 	<h1>$js().last</h1>
 	<h2>定义</h2>
@@ -778,6 +841,16 @@
 
 
 
+<!--
+//                                             
+//   #       ####    ##   #####       #  ####  
+//   #      #    #  #  #  #    #      # #      
+//   #      #    # #    # #    #      #  ####  
+//   #      #    # ###### #    #      #      # 
+//   #      #    # #    # #    # #    # #    # 
+//   ######  ####  #    # #####   ####   ####  
+//                                             
+-->
 	<a name="loadjs"></a>
 	<h1>$js.loadjs</h1>
 	<h2>定义</h2>
@@ -794,6 +867,16 @@
 
 
 
+<!--
+//                                             
+//   #    #  ####   ####  #####   ####  #    # 
+//   ##  ## #      #    # #    # #    #  #  #  
+//   # ## #  ####  #      #####  #    #   ##   
+//   #    #      # #  ### #    # #    #   ##   
+//   #    # #    # #    # #    # #    #  #  #  
+//   #    #  ####   ####  #####   ####  #    # 
+//                                             
+-->
 	<a name="msgbox"></a>
 	<h1>$js.msgbox</h1>
 	<h2>定义</h2>
@@ -1703,7 +1786,7 @@ a3 text</pre>
 		<legend>演示区域</legend>
 		<div id="showimage_demo_html">
 			<button onclick="runme(this)">$js.showimage({file:'demo1.png'})</button>
-			<button onclick="runme(this)">$js.showimage({file:'docs/demo1.png',fullscreen:true})</button>
+			<button onclick="runme(this)">$js.showimage({file:'/upload/demo1.png',fullscreen:true})</button>
 			<script>
 				function runme(e)
 				{
@@ -2105,8 +2188,8 @@ a3 text</pre>
 			<td>[可选]手机图片上传时，优先使用摄像头直接拍照。</td>
 		</tr>
 		<tr>
-			<td>opts.url='../upfile.php'</td>
-			<td>[可选]异步文件上传的处理路径，默认：../upfile.php。</td>
+			<td>opts.url=$js.UPLOAD_FILE</td>
+			<td>[可选]异步文件上传的处理路径，默认：$js.UPLOAD_FILE。</td>
 		</tr>
 		<tr>
 			<td>opts.localmode=false|true</td>
@@ -2141,8 +2224,8 @@ a3 text</pre>
 			<td>[可选]已上传文件列表。如果设置，则自动显示已上传文件的列表项。</td>
 		</tr>
 		<tr>
-			<td>opts.basepath</td>
-			<td>[可选]图片的基准路径。设置后所有显示的图片都会增加这个基准路径进行显示。</td>
+			<td>opts.basepath=$js.UPLOAD_FILE</td>
+			<td>[可选]图片的基准路径。设置后所有显示的图片都会增加这个基准路径进行显示。默认：$js.UPLOAD_PATH。</td>
 		</tr>
 		<tr>
 			<td>opts.addo</td>
@@ -2171,6 +2254,10 @@ a3 text</pre>
 		<tr>
 			<td>opts.usermedia_webp=false</td>
 			<td>[可选]使用UserMedia模式时，获取webp格式图片。</td>
+		</tr>
+		<tr>
+			<td>opts.onremove=function(el){}</td>
+			<td>[可选]移除图片时的回调函数，el为图片显示节点。</td>
 		</tr>
 	</table>
 	<h2>说明</h2>
@@ -2260,9 +2347,81 @@ a3 text</pre>
 			</form>
 		</div>
 	</fieldset>
+	<h2>关联</h2>
+	<p>
+		<a href="api.php?#UPLOAD_FILE">UPLOAD_FILE</a> &nbsp;
+		<a href="api.php?#UPLOAD_PATH">UPLOAD_PATH</a> &nbsp;
+	</p>
 	<h2>版本</h2>
 	<p>本方法自0.1.8版本开始支持。</p>
+	<p>0.1.9版本增加onremove参数。</p>
 	<script>$js('#upimage_show_html').text($js('#upimage_demo_html').outerHTML()).unindent({ignore:1});</script>
+
+
+
+<!--
+//   #     # ######  #       #######    #    ######          ####### ### #       ####### 
+//   #     # #     # #       #     #   # #   #     #         #        #  #       #       
+//   #     # #     # #       #     #  #   #  #     #         #        #  #       #       
+//   #     # ######  #       #     # #     # #     #         #####    #  #       #####   
+//   #     # #       #       #     # ####### #     #         #        #  #       #       
+//   #     # #       #       #     # #     # #     #         #        #  #       #       
+//    #####  #       ####### ####### #     # ######          #       ### ####### ####### 
+//                                                   #######                             
+-->
+	<a name="UPLOAD_FILE"></a>
+	<h1>$js.UPLOAD_FILE</h1>
+	<h2>定义</h2>
+	<p>$js.UPLOAD_FILE : String</p>
+	<h2>说明</h2>
+	<p>此变量标识系统默认的异步上传文件处理程序的路径，默认：../upfile.php。</p>
+	<p>此变量指定的文件路径，用于文件的异步上传。使用本变量设置后，其他文件上传的相关方法会自动使用，这样可以无需在每次调用这类方法时多次设置（例如$js.upimage等组件）。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre id="UPLOAD_FILE_show_html">
+	$js.UPLOAD_FILE='../php/upfile.php';
+		</pre>
+	</fieldset>
+	<h2>关联</h2>
+	<p>
+		<a href="api.php?#UPLOAD_PATH">UPLOAD_PATH</a> &nbsp;
+	</p>
+	<h2>版本</h2>
+	<p>本方法自0.1.9版本开始支持。</p>
+
+
+
+<!--
+//   #     # ######  #       #######    #    ######          ######     #    ####### #     # 
+//   #     # #     # #       #     #   # #   #     #         #     #   # #      #    #     # 
+//   #     # #     # #       #     #  #   #  #     #         #     #  #   #     #    #     # 
+//   #     # ######  #       #     # #     # #     #         ######  #     #    #    ####### 
+//   #     # #       #       #     # ####### #     #         #       #######    #    #     # 
+//   #     # #       #       #     # #     # #     #         #       #     #    #    #     # 
+//    #####  #       ####### ####### #     # ######          #       #     #    #    #     # 
+//                                                   #######                                 
+-->
+	<a name="UPLOAD_PATH"></a>
+	<h1>$js.UPLOAD_PATH</h1>
+	<h2>定义</h2>
+	<p>$js.UPLOAD_PATH : String</p>
+	<h2>说明</h2>
+	<p>此变量标识系统默认的上传文件基路径，默认：../data。</p>
+	<p>此变量指定的文件路径，用于文件的显示、下载使用。使用本变量设置后，其他文件上传的相关方法会自动使用，这样可以无需在每次调用这类方法时多次设置（例如$js.upimage等组件）。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre id="UPLOAD_PATH_show_html">
+	$js.UPLOAD_PATH='../upload';
+		</pre>
+	</fieldset>
+	<h2>关联</h2>
+	<p>
+		<a href="api.php?#UPLOAD_FILE">UPLOAD_FILE</a> &nbsp;
+	</p>
+	<h2>版本</h2>
+	<p>本方法自0.1.9版本开始支持。</p>
 
 
 
