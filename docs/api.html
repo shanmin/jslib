@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title></title>
+<title>JSLib API</title>
 <link rel="stylesheet" type="text/css" href="../common.css">
 <script src="../common.js"></script>
 <script src="../dist/jslib.min.js"></script>
@@ -800,6 +800,35 @@ true</pre>
 	<h2>版本</h2>
 	<p>本方法自0.1.9版本开始支持。</p>
 	<script>$js('#isAbsolutePath_show_html').text($js('#isAbsolutePath_demo_html').outerHTML()).unindent({ignore:1});</script>
+
+
+
+	<a name="isMobile"></a>
+	<h1>$js.isMobile</h1>
+	<h2>定义</h2>
+	<p>$js.isMobile() : Boolean</p>
+	<h2>说明</h2>
+	<p>返回当前浏览设备是否为移动设备。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre id="isMobile_show_html"></pre>
+	</fieldset>
+	<h2>演示</h2>
+	<fieldset>
+		<legend>JavaScript</legend>
+		<div id="isMobile_demo_html">
+			<input type="button" value="调用测试" onclick="$js('#isMobile_show_result').text($js.isMobile()?'true':'false')">
+		</div>
+	</fieldset>
+	<fieldset>
+		<legend>输出示例</legend>
+		<pre id="isMobile_show_result"></pre>
+	</fieldset>
+	<h2>版本</h2>
+	<p>本方法自0.1.10版本开始支持。</p>
+	<script>$js('#isMobile_show_html').text($js('#isMobile_demo_html').outerHTML()).unindent({ignore:1});</script>
+
 
 
 
@@ -2501,6 +2530,184 @@ a3 text</pre>
 	<h2>版本</h2>
 	<p>本属性自0.0.0版本开始支持。</p>
 	<p>自0.1.0版本开始变更为静态属性。</p>
+
+
+<!--
+//                                        
+//   #    # # #    # #####   ####  #    # 
+//   #    # # ##   # #    # #    # #    # 
+//   #    # # # #  # #    # #    # #    # 
+//   # ## # # #  # # #    # #    # # ## # 
+//   ##  ## # #   ## #    # #    # ##  ## 
+//   #    # # #    # #####   ####  #    # 
+//                                        
+-->
+	<a name="window"></a>
+	<h1>$js.window</h1>
+	<h2>定义</h2>
+	<p>$js.window(opts) : Object</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>opts</td>
+			<td>[必须]窗口参数。</td>
+		</tr>
+		<tr>
+			<td>opts.id</td>
+			<td>[可选]窗口ID，如果没有提供，则自动生成一个。</td>
+		</tr>
+		<tr>
+			<td>opts.className</td>
+			<td>[可选]指定使用的窗口类。</td>
+		</tr>
+		<tr>
+			<td>opts.parent=document.body</td>
+			<td>[可选]窗口的上层节点。如果值为”parent”(字符串)则窗口会在上层窗口创建，“top”(字符串)则窗口在最上层窗口创建。</td>
+		</tr>
+		<tr>
+			<td>opts.btn_refresh=true|false</td>
+			<td>[可选]是否显示"刷新"按钮，默认：true。</td>
+		</tr>
+		<tr>
+			<td>opts.btn_min=false|true</td>
+			<td>[可选]是否显示“最小化”按钮，默认：false。</td>
+		</tr>
+		<tr>
+			<td>opts.btn_max=false|true</td>
+			<td>[可选]是否显示“最大化”按钮，默认：false。</td>
+		</tr>
+		<tr>
+			<td>opts.center=true|false</td>
+			<td>[可选]窗口居中显示。</td>
+		</tr>
+		<tr>
+			<td>opts.modal=true|false</td>
+			<td>[可选]是否为模式窗口，是的话为true,默认：true。</td>
+		</tr>
+		<tr>
+			<td>opts.url='...'</td>
+			<td>[可选]显示的页面路径。</td>
+		</tr>
+		<tr>
+			<td>opts.data=…</td>
+			<td>[可选]window.frameElement.data附加数据。</td>
+		</tr>
+		<tr>
+			<td>opts.html=HtmlElement|HtmlString</td>
+			<td>[可选]窗口内显示的html内容，这个不能与url同时使用，因为url使用iframe,html使用div。如果同时设置了url和html，则以url为准。</td>
+		</tr>
+		<tr>
+			<td>opts.title='...'</td>
+			<td>[可选]窗口显示的标题。如果未设置窗口标题，则系统自动显示页面中的title。</td>
+		</tr>
+		<tr>
+			<td>opts.width=520</td>
+			<td>[可选]窗口默认宽度。默认值：520。</td>
+		</tr>
+		<tr>
+			<td>opts.height=500</td>
+			<td>[可选]窗口默认高度。</td>
+		</tr>
+		<tr>
+			<td>opts.maxWidth='95%'</td>
+			<td>[可选]设置窗口最大宽度，默认：无。</td>
+		</tr>
+		<tr>
+			<td>opts.maxHeight='95%'</td>
+			<td>[可选]设置窗口最大高度，默认：无。</td>
+		</tr>
+		<tr>
+			<td>opts.mobile_max=true|false</td>
+			<td>[可选]移动设备模式下是否默认最大化显示，默认：true。</td>
+		</tr>
+		<tr>
+			<td>opts.onclose=function(){..}</td>
+			<td>[可选]当onclose事件发生时触发。</td>
+		</tr>
+		<tr>
+			<td>opts.data=object</td>
+			<td>[可选]用户自定义数据。</td>
+		</tr>
+		<tr>
+			<td>opts.post={k:v,...}</td>
+			<td>[可选]按照POST提交方式打开窗口。</td>
+		</tr>
+		<tr>
+			<td>opts.add_btns:[...]</td>
+			<td>[可选]窗口标题栏附加按钮。参数格式：<pre>[
+	{
+		id:'a123',			//按钮的唯一标识
+		title:'鼠标放到按钮上显示的文字',
+		text:'按钮上显示的文字'，
+		class:'c123',			//CSS样式类名称
+		onclick:function(){…}		//点击的处理
+	},…
+]</pre></td>
+		</tr>
+	</table>
+	<h2>其他设置</h2>
+	<table>
+		<tr>
+			<td>$js.window.DEFAULT_ICON='icon path'</td>
+			<td>设置全局窗口默认图标。如果调用$js.window时未指定图标，则以这个设置为准。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>本方法执行后，返回一个HtmlElement元素，内置扩展方法：</p>
+	<p>win.setZIndex(z)	//设置窗口z-index次序</p>
+	<p>win.show()			//显示窗口</p>
+	<p>win.showtop(w)		//显示指定窗口为前置窗口，如果传递null则显示当前zindex最大的窗口为前置窗口。</p>
+	<p></p>
+	<p>当前$js.window生成的是一个类似Windows 11的窗口。	默认情况下，窗口的最小大小为240px*160px，最大显示尺寸为95%*95%。</p>
+	<p>在窗口内，调用 window.frameElement.close(); 来关闭窗口。如果调用时增加参数true则关闭窗口时不调用onclose事件，例如：</p>
+	<pre>
+	&lt;script>
+		window.frameElement.close();
+		window.frameElement.close(true);
+	&lt;/script>
+	</pre>
+	需要获取弹出窗口中的数据，可以参照：
+	<pre>
+	&lt;script>
+		var win;
+		function openw()
+		{
+			win=$js.window({'title':'慢页面显示','url':'window.php?wait=1'});
+		}
+
+		function openr()
+		{
+			console.log(win.iframe);	//获取数据区域
+			console.log(win.iframe.contentDocument);	//获取页面
+			console.log(win.iframe.contentDocument.getElementById('test'));	//获取指定元素
+		}
+	&lt;/script>
+</pre>
+	<p>窗口内页面，可以调用window.frameElement.settitle(txt)修改窗口标题内容。</p>
+	<p>如果想窗口显示时最大化，则可设置className=jslib_window_max来实现，例如：</p>
+	<pre>
+	$js.window({parent:top,url:'scene.php?display_id='+display_id,className:'jslib_window_max'});
+	</pre>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre id="window_show_html"></pre>
+	</fieldset>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>演示区域</legend>
+		<div id="window_demo_html">
+			<input type="button" value="最简窗口显示" onclick="$js.window({url:'api.html'})">
+			<input type="button" value="宽800高600窗口显示" onclick="$js.window({url:'api.html',width:800,height:600})">
+			<input type="button" value="显示一个非模式窗口" onclick="$js.window({url:'api.html',modal:false})">
+			<input type="button" value="显示一个非模式窗口(居中)" onclick="$js.window({url:'api.html',modal:false,center:true})">
+			<input type="button" value="在顶层显示一个模式窗口(居中)" onclick="$js.window({url:'home.html',parent:top})">
+			<input type="button" value="在顶层显示一个非内模式窗口(居中)" onclick="$js.window({url:'home.html',modal:false,center:true,parent:top})">
+		</div>
+	</fieldset>
+	<h2>版本</h2>
+	<p>本方法自0.1.10版本开始支持。</p>
+	<script>$js('#window_show_html').text($js('#window_demo_html').outerHTML()).unindent({ignore:1});</script>
 
 
 </body>
