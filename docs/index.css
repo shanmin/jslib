@@ -10,13 +10,17 @@ body
 
 .top_title
 {
-	display: fixed;
+/*	display: fixed;*/
 	background-color: #39f;
 	color: #fff;
 	height: 40px;
 	line-height: 40px;
 	font-size: 20px;
 	padding-left: 8px;
+	padding-right: 8px;
+
+	display: flex;
+	justify-content: space-between;
 }
 
 .left

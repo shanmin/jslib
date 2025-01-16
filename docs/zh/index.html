@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JSlib Document and Demo</title>
+<link rel="stylesheet" type="text/css" href="../index.css">
+<script src="../../dist/jslib.min.js"></script>
+<script src="../index.js"></script>
+<base target="main">
+</head>
+<body>
+	<div class="top_title">
+		<div>JSLib Document and Demo</div>
+		<div style="font-size: 14px;">
+			语言选择
+			<select id="slang">
+				<option value="zh">中文</option>
+				<option value="en">ENGLISH</option>
+			</select>
+		</div>
+	</div>
+	<div class="left"></div>
+	<div class="main"><iframe frameborder="0" name="main" src="home.html"></iframe></div>
+	<script>
+		$js('.left').tree({selectleaf:true,data:[
+			{t:'HOME',a:'home.html'},
+			{t:'$js',a:'selector.html'},
+			{t:'基础方法',c:[
+				{t:'add',a:'api.html#add'},
+				{t:'addClass',a:'api.html#addClass'},
+				{t:'after',a:'api.html#after'},
+				{t:'appendTo',a:'api.html#appendTo'},
+				{t:'attr',a:'api.html#attr'},
+				{t:'before',a:'api.html#before'},
+				{t:'bind',a:'api.html#bind'},
+				{t:'closest',a:'api.html#closest'},
+				{t:'css',a:'api.html#css'},
+				{t:'each',a:'api.html#each'},
+				{t:'eq',a:'api.html#eq'},
+				{t:'find',a:'api.html#find'},
+				{t:'first',a:'api.html#first'},
+				{t:'html',a:'api.html#html'},
+				{t:'last',a:'api.html#last'},
+				{t:'off',a:'api.html#off'},
+				{t:'on',a:'api.html#on'},
+				{t:'outerHTML',a:'api.html#outerHTML'},
+				{t:'outerText',a:'api.html#outerText'},
+				{t:'parent',a:'api.html#parent'},
+				{t:'removeAttr',a:'api.html#removeAttr'},
+				{t:'removeClass',a:'api.html#removeClass'},
+				{t:'text',a:'api.html#text'},
+				{t:'val',a:'api.html#val'},
+			]},
+			{t:'基础属性',c:[
+				{t:'firstElement',a:'api.html#firstElement'},
+				{t:'parentElement',a:'api.html#parentElement'},
+				{t:'version',a:'api.html#version'},
+			]},
+			{t:'ajax',a:'api.html#ajax'},
+			{t:'ctree',a:'api.html#ctree'},
+			{t:'gb8170round',a:'gb8170round.html'},
+			{t:'get',a:'api.html#get'},
+			{t:'isAbsolutePath',a:'api.html#isAbsolutePath'},
+			{t:'isMobile',a:'api.html#isMobile'},
+			{t:'msgbox',a:'api.html#msgbox'},
+			{t:'nameSplit',a:'api.html#nameSplit'},
+			{t:'loadjs',a:'api.html#loadjs'},
+			{t:'regressionCalc',a:'api.html#regressionCalc'},
+			{t:'regressionCalcY',a:'api.html#regressionCalcY'},
+			{t:'regressionLogarithmic',a:'api.html#regressionLogarithmic'},
+			{t:'regressionPolynomial',a:'api.html#regressionPolynomial'},
+			{t:'regressionSwap',a:'api.html#regressionSwap'},
+			{t:'showimage',a:'api.html#showimage'},
+			{t:'tableCells',a:'tablecells.html'},
+			{t:'topmsg',a:'api.html#topmsg'},
+			{t:'topmost',a:'api.html#topmost'},
+			{t:'tree',a:'api.html#tree'},
+			{t:'unindent',a:'api.html#unindent'},
+			{t:'upimage',a:'api.html#upimage'},
+			{t:'window',a:'api.html#window'},
+			{t:'变量',c:[
+				{t:'UPLOAD_FILE',a:'api.html#UPLOAD_FILE'},
+				{t:'UPLOAD_PATH',a:'api.html#UPLOAD_PATH'},
+			]},
+			{t:'PHP',c:[
+				{t:'upfile',a:'php.html#upfile'},
+			]},
+			{t:'历史版本',a:'history.html'},
+		]});
+	</script>
+</body>
+</html>
