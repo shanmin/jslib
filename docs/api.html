@@ -201,6 +201,55 @@
 	<p>本方法自0.1.0版本开始支持。</p>
 
 
+
+	<a name="avg"></a>
+	<h1>$js.avg</h1>
+	<h2>定义</h2>
+	<p>$js.avg(va,opts) : Number</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>va</td>
+			<td>[必须]数值数组。</td>
+		</tr>
+		<tr>
+			<td>opts</td>
+			<td>[必须]可选参数。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>对指定数值数组求平均值。</p>
+	<p>如果数组中存在非数字，则此项不计算在内。例如：$js.avg([1,2,3])=2；再例如$js.avg([1,'a',2])=1.5，其中'a'是被忽略的。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>JavaScript</legend>
+		<pre id="avg_demo_html"></pre>
+	</fieldset>
+	<h2>演示</h2>
+	<fieldset>
+		<legend>演示区域</legend>
+		<div id="avg_demo">
+			<table border="1">
+				<tr>
+					<td>[1,2,3]</td>
+					<td id="avg_demo_result1"></td>
+				</tr>
+				<tr>
+					<td>[1,'a',2]</td>
+					<td id="avg_demo_result2"></td>
+				</tr>
+			</table>
+			<script>
+				$js('#avg_demo_result1').text($js.avg([1,2,3]));
+				$js('#avg_demo_result2').text($js.avg([1,'a',2]));
+			</script>
+		</div>
+	</fieldset>
+	<h2>版本</h2>
+	<p>本方法自0.1.15版本开始支持。</p>
+	<script>$js('#avg_demo_html').text($js('#avg_demo').outerHTML()).unindent({ignore:1});</script>
+
+
 	<a name="appendTo"></a>
 	<h1>$js().appendTo</h1>
 	<h2>定义</h2>
