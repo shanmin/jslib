@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>JSLib API</title>
-<link rel="stylesheet" type="text/css" href="../common.css">
-<script src="../common.js"></script>
-<script src="../../dist/jslib.min.js"></script>
+<link rel="stylesheet" type="text/css" href="common.css">
+<script src="common.js"></script>
+<script src="../dist/jslib.min.js"></script>
 </head>
 <body>
 	<script>
-		$js.UPLOAD_FILE='../../php/upfile.php';
-		$js.UPLOAD_PATH='../../upload/';
+		$js.UPLOAD_FILE='../php/upfile.php';
+		$js.UPLOAD_PATH='../upload/';
 	</script>
 
 	<a name="add"></a>
@@ -24,7 +24,10 @@
 	<table>
 		<tr>
 			<td>selector</td>
-			<td>[可选]指定选择器字符串。</td>
+			<td>
+				<div lang="zh">[可选]指定选择器字符串。</div>
+				<div lang="en">[optional]A string containing one or more selectors to match.</div>
+			</td>
 		</tr>
 		<tr>
 			<td>HtmlString</td>
@@ -94,7 +97,7 @@
 &lt;/div></pre>
 	</fieldset>
 	<h2>关联</h2>
-	<p><a href="../api.html#removeClass">removeClass</a><br></p>
+	<p><a href="api.html#removeClass">removeClass</a><br></p>
 	<h2>版本</h2>
 	<p>本方法自0.0.0版本开始支持。</p>
 
@@ -143,7 +146,7 @@
 &lt;/div></pre>
 	</fieldset>
 	<h2>关联</h2>
-	<p><a href="../api.html#before">before</a><br></p>
+	<p><a href="api.html#before">before</a><br></p>
 	<h2>版本</h2>
 	<p>本方法自0.1.0版本开始支持。</p>
 
@@ -286,7 +289,7 @@
 	<h2>说明</h2>
 	<p>本方法与.on方法功能相同，请参阅.on方法说明。</p>
 	<h2>关联</h2>
-	<p><a href="../api.html#on">on</a><br></p>
+	<p><a href="api.html#on">on</a><br></p>
 	<h2>版本</h2>
 	<p>本方法自0.0.0版本开始支持。</p>
 
@@ -423,6 +426,10 @@
 			<td>$js.calc.DEFAULT_GB8170=false|true</td>
 			<td>[可选]全局默认的数值修约是否遵循GB8170。</td>
 		</tr>
+		<tr>
+			<td>$js.calc.DEFAULT_DICT={}</td>
+			<td>[可选]全局默认的数值修约字典，使用方式请参照示例。</td>
+		</tr>
 	</table>
 	<h2>说明</h2>
 	<p>需要注意！静态方法和实例方法的运行方式是完全不一样的，静态方法仅仅在调用时计算一次，实例方法是绑定后的计算。</p>
@@ -457,15 +464,25 @@
 					<td><input type="text" name="calc_demo_2price"></td>
 					<td><input type="text" name="calc_demo_2amount"></td>
 				</tr>
+				<tr>
+					<td>3</td>
+					<td><input type="text" name="calc_demo_3num"></td>
+					<td><input type="text" name="calc_demo_3price"></td>
+					<td><input type="text" name="calc_demo_3amount"></td>
+				</tr>
 			</table>
 			<script>
 				$js('@calc_demo_1amount').calc('{@calc_demo_1num}*{@calc_demo_1price}');
 				$js('@calc_demo_2amount').calc('{@calc_demo_2num}*{@calc_demo_2price}',0.01,{isNaN0:true});
+
+				$js.calc.DEFAULT_DICT['三位小数']=0.001;
+				$js('@calc_demo_3amount').calc('{@calc_demo_3num}*{@calc_demo_3price}','三位小数');
 			</script>
 		</div>
 	</fieldset>
 	<h2>版本</h2>
 	<p>本方法自0.1.13版本开始支持。</p>
+	<p>0.1.14版本开始支持$js.calc.DEFAULT_DICT。</p>
 	<script>$js('#calc_demo_html').text($js('#calc_demo').outerHTML()).unindent({ignore:1});</script>
 
 
@@ -581,7 +598,7 @@
 		<legend>演示区域</legend>
 		<div id="ctree_demo_html">
 			<iframe name="ctree_demo_iframe" style="float: right"></iframe>
-			<form target="ctree_demo_iframe" action="../echo.html">
+			<form target="ctree_demo_iframe" action="echo.html">
 				name：<input type="text" name="name" value="username"><br>
 				value：<div id="ctree_demo_1"></div><br>
 				<input type="submit" value="Submit">
@@ -744,7 +761,7 @@
 	</fieldset>
 	<h2>关联</h2>
 	<p>
-		<a href="../api.html#firstElement">firstElement</a> &nbsp;
+		<a href="api.html#firstElement">firstElement</a> &nbsp;
 	</p>
 	<h2>版本</h2>
 	<p>本方法自0.0.0版本开始支持。</p>
@@ -785,7 +802,7 @@
 	</fieldset>
 	<h2>关联</h2>
 	<p>
-		<a href="../api.html#first">first</a> &nbsp;
+		<a href="api.html#first">first</a> &nbsp;
 	</p>
 	<h2>版本</h2>
 	<p>本属性自0.1.8版本开始支持。</p>
@@ -835,7 +852,7 @@
 	</fieldset>
 	<h2>关联</h2>
 	<p>
-		<a href="../api.html#val">val</a> &nbsp;
+		<a href="api.html#val">val</a> &nbsp;
 	</p>
 	<h2>版本</h2>
 	<p>本属性自0.1.13版本开始支持。</p>
@@ -882,6 +899,31 @@
 	</fieldset>
 	<h2>版本</h2>
 	<p>本属性自0.1.12版本开始支持。</p>
+
+
+
+<!--
+//                          
+//   #    # # #####  ###### 
+//   #    # # #    # #      
+//   ###### # #    # #####  
+//   #    # # #    # #      
+//   #    # # #    # #      
+//   #    # # #####  ###### 
+//                          
+-->
+	<a name="hide"></a>
+	<h1>$js().hide</h1>
+	<h2>定义</h2>
+	<p>$js().hide() : JSLib</p>
+	<h2>说明</h2>
+	<p>隐藏当前元素。</p>
+	<h2>关联</h2>
+	<p>
+		<a href="api.html#show">show</a> &nbsp;
+	</p>
+	<h2>版本</h2>
+	<p>本属性自0.1.14版本开始支持。</p>
 
 
 
@@ -939,8 +981,8 @@
 	</fieldset>
 	<h2>关联</h2>
 	<p>
-		<a href="../api.html#text">text</a> &nbsp;
-		<a href="../api.html#outerHTML">outerHTML</a> &nbsp;
+		<a href="api.html#text">text</a> &nbsp;
+		<a href="api.html#outerHTML">outerHTML</a> &nbsp;
 	</p>
 	<h2>版本</h2>
 	<p>本方法自0.0.0版本开始支持。</p>
@@ -1056,7 +1098,7 @@ true</pre>
 		<pre>&lt;div id="a3">a3 text&lt;/div></pre>
 	</fieldset>
 	<h2>关联</h2>
-	<p><a href="../api.html#first">first</a><br></p>
+	<p><a href="api.html#first">first</a><br></p>
 	<h2>版本</h2>
 	<p>本方法自0.0.0版本开始支持。</p>
 
@@ -1243,7 +1285,7 @@ true</pre>
 		<pre>$js('#a2').off('click',function(e){console.log(e)});</pre>
 	</fieldset>
 	<h2>关联</h2>
-	<p><a href="../api.html#on">on</a><br></p>
+	<p><a href="api.html#on">on</a><br></p>
 	<h2>版本</h2>
 	<p>本方法自0.0.0版本开始支持。</p>
 
@@ -1278,7 +1320,7 @@ true</pre>
 		<pre>$js('#a2').on('click',function(e){console.log(e)});</pre>
 	</fieldset>
 	<h2>关联</h2>
-	<p><a href="../api.html#bind">bind</a> &nbsp; <a href="../api.html#off">off</a></p>
+	<p><a href="api.html#bind">bind</a> &nbsp; <a href="api.html#off">off</a></p>
 	<h2>版本</h2>
 	<p>本方法自0.0.0版本开始支持。</p>
 
@@ -1314,9 +1356,9 @@ true</pre>
 	</fieldset>
 	<h2>关联</h2>
 	<p>
-		<a href="../api.html#html">html</a> &nbsp;
-		<a href="../api.html#text">text</a> &nbsp;
-		<a href="../api.html#outerText">outerText</a> &nbsp;
+		<a href="api.html#html">html</a> &nbsp;
+		<a href="api.html#text">text</a> &nbsp;
+		<a href="api.html#outerText">outerText</a> &nbsp;
 	</p>
 	<h2>版本</h2>
 	<p>本方法自0.1.2版本开始支持。</p>
@@ -1356,9 +1398,9 @@ true</pre>
 	</fieldset>
 	<h2>关联</h2>
 	<p>
-		<a href="../api.html#html">html</a> &nbsp;
-		<a href="../api.html#text">text</a> &nbsp;
-		<a href="../api.html#outerHTML">outerHTML</a> &nbsp;
+		<a href="api.html#html">html</a> &nbsp;
+		<a href="api.html#text">text</a> &nbsp;
+		<a href="api.html#outerHTML">outerHTML</a> &nbsp;
 	</p>
 	<h2>版本</h2>
 	<p>本方法自0.1.2版本开始支持。</p>
@@ -1488,10 +1530,10 @@ true</pre>
 	</fieldset>
 	<h2>关联</h2>
 	<p>
-		<a href="../api.html#regressionCalcY">regressionCalcY</a> &nbsp; 
-		<a href="../api.html#regressionLogarithmic">regressionLogarithmic</a> &nbsp; 
-		<a href="../api.html#regressionPolynomial">regressionPolynomial</a> &nbsp; 
-		<a href="../api.html#regressionSwap">regressionSwap</a> &nbsp; 
+		<a href="api.html#regressionCalcY">regressionCalcY</a> &nbsp; 
+		<a href="api.html#regressionLogarithmic">regressionLogarithmic</a> &nbsp; 
+		<a href="api.html#regressionPolynomial">regressionPolynomial</a> &nbsp; 
+		<a href="api.html#regressionSwap">regressionSwap</a> &nbsp; 
 	</p>
 	<h2>版本</h2>
 	<p>本方法自0.1.3版本开始支持。</p>
@@ -1550,10 +1592,10 @@ true</pre>
 	</fieldset>
 	<h2>关联</h2>
 	<p>
-		<a href="../api.html#regressionCalc">regressionCalc</a> &nbsp; 
-		<a href="../api.html#regressionLogarithmic">regressionLogarithmic</a> &nbsp; 
-		<a href="../api.html#regressionPolynomial">regressionPolynomial</a> &nbsp; 
-		<a href="../api.html#regressionSwap">regressionSwap</a> &nbsp; 
+		<a href="api.html#regressionCalc">regressionCalc</a> &nbsp; 
+		<a href="api.html#regressionLogarithmic">regressionLogarithmic</a> &nbsp; 
+		<a href="api.html#regressionPolynomial">regressionPolynomial</a> &nbsp; 
+		<a href="api.html#regressionSwap">regressionSwap</a> &nbsp; 
 	</p>
 	<h2>版本</h2>
 	<p>本方法自0.1.3版本开始支持。</p>
@@ -1616,7 +1658,7 @@ true</pre>
 				<legend>返回结果</legend>
 				<pre id="regressionLogarithmic_result"></pre>
 			</fieldset>
-			<script src="../../third/echarts.min.js"></script>
+			<script src="../third/echarts.min.js"></script>
 			<script>
 				function regressionLogarithmic_showcharts()
 				{
@@ -1653,10 +1695,10 @@ true</pre>
 	</fieldset>
 	<h2>关联</h2>
 	<p>
-		<a href="../api.html#regressionCalc">regressionCalc</a> &nbsp; 
-		<a href="../api.html#regressionCalcY">regressionCalcY</a> &nbsp; 
-		<a href="../api.html#regressionPolynomial">regressionPolynomial</a> &nbsp; 
-		<a href="../api.html#regressionSwap">regressionSwap</a> &nbsp; 
+		<a href="api.html#regressionCalc">regressionCalc</a> &nbsp; 
+		<a href="api.html#regressionCalcY">regressionCalcY</a> &nbsp; 
+		<a href="api.html#regressionPolynomial">regressionPolynomial</a> &nbsp; 
+		<a href="api.html#regressionSwap">regressionSwap</a> &nbsp; 
 	</p>
 	<h2>版本</h2>
 	<p>本方法自0.1.7版本开始支持。</p>
@@ -1724,7 +1766,7 @@ true</pre>
 				<legend>返回结果</legend>
 				<pre id="regressionPolynomial_result"></pre>
 			</fieldset>
-			<script src="../../third/echarts.min.js"></script>
+			<script src="../third/echarts.min.js"></script>
 			<script>
 				function regressionPolynomial_showcharts()
 				{
@@ -1761,10 +1803,10 @@ true</pre>
 	</fieldset>
 	<h2>关联</h2>
 	<p>
-		<a href="../api.html#regressionCalc">regressionCalc</a> &nbsp; 
-		<a href="../api.html#regressionCalcY">regressionCalcY</a> &nbsp; 
-		<a href="../api.html#regressionLogarithmic">regressionLogarithmic</a> &nbsp; 
-		<a href="../api.html#regressionSwap">regressionSwap</a> &nbsp; 
+		<a href="api.html#regressionCalc">regressionCalc</a> &nbsp; 
+		<a href="api.html#regressionCalcY">regressionCalcY</a> &nbsp; 
+		<a href="api.html#regressionLogarithmic">regressionLogarithmic</a> &nbsp; 
+		<a href="api.html#regressionSwap">regressionSwap</a> &nbsp; 
 	</p>
 	<h2>版本</h2>
 	<p>本方法自0.1.3版本开始支持。</p>
@@ -1820,7 +1862,7 @@ true</pre>
 				<legend>返回结果</legend>
 				<pre id="regressionSwap_result"></pre>
 			</fieldset>
-			<script src="../../third/echarts.min.js"></script>
+			<script src="../third/echarts.min.js"></script>
 			<script>
 				function regressionSwap_showcharts()
 				{
@@ -1858,10 +1900,10 @@ true</pre>
 	</fieldset>
 	<h2>关联</h2>
 	<p>
-		<a href="../api.html#regressionCalc">regressionCalc</a> &nbsp; 
-		<a href="../api.html#regressionCalcY">regressionCalcY</a> &nbsp; 
-		<a href="../api.html#regressionLogarithmic">regressionLogarithmic</a> &nbsp; 
-		<a href="../api.html#regressionPolynomial">regressionPolynomial</a>
+		<a href="api.html#regressionCalc">regressionCalc</a> &nbsp; 
+		<a href="api.html#regressionCalcY">regressionCalcY</a> &nbsp; 
+		<a href="api.html#regressionLogarithmic">regressionLogarithmic</a> &nbsp; 
+		<a href="api.html#regressionPolynomial">regressionPolynomial</a>
 	</p>
 	<h2>版本</h2>
 	<p>本方法自0.1.3版本开始支持。</p>
@@ -1906,7 +1948,7 @@ true</pre>
 &lt;/div></pre>
 	</fieldset>
 	<h2>关联</h2>
-	<p><a href="../api.html#addClass">addClass</a><br></p>
+	<p><a href="api.html#addClass">addClass</a><br></p>
 	<h2>版本</h2>
 	<p>本方法自0.0.0版本开始支持。</p>
 
@@ -1954,7 +1996,7 @@ a3 text</pre>
 &lt;/div></pre>
 	</fieldset>
 	<h2>关联</h2>
-	<p><a href="../api.html#html">html</a><br></p>
+	<p><a href="api.html#html">html</a><br></p>
 	<h2>版本</h2>
 	<p>本方法自0.1.0版本开始支持。</p>
 
@@ -2196,6 +2238,31 @@ a3 text</pre>
 	</fieldset>
 	<h2>版本</h2>
 	<p>本属性自0.1.13版本开始支持。</p>
+
+
+
+<!--
+//                               
+//    ####  #    #  ####  #    # 
+//   #      #    # #    # #    # 
+//    ####  ###### #    # #    # 
+//        # #    # #    # # ## # 
+//   #    # #    # #    # ##  ## 
+//    ####  #    #  ####  #    # 
+//                                                       
+-->
+	<a name="show"></a>
+	<h1>$js().show</h1>
+	<h2>定义</h2>
+	<p>$js().show() : JSLib</p>
+	<h2>说明</h2>
+	<p>显示当前元素。</p>
+	<h2>关联</h2>
+	<p>
+		<a href="api.html#hide">hide</a> &nbsp;
+	</p>
+	<h2>版本</h2>
+	<p>本属性自0.1.14版本开始支持。</p>
 
 
 
@@ -2809,8 +2876,8 @@ a3 text</pre>
 	</fieldset>
 	<h2>关联</h2>
 	<p>
-		<a href="../api.php?#UPLOAD_FILE">UPLOAD_FILE</a> &nbsp;
-		<a href="../api.php?#UPLOAD_PATH">UPLOAD_PATH</a> &nbsp;
+		<a href="api.php?#UPLOAD_FILE">UPLOAD_FILE</a> &nbsp;
+		<a href="api.php?#UPLOAD_PATH">UPLOAD_PATH</a> &nbsp;
 	</p>
 	<h2>版本</h2>
 	<p>本方法自0.1.8版本开始支持。</p>
@@ -2845,7 +2912,7 @@ a3 text</pre>
 	</fieldset>
 	<h2>关联</h2>
 	<p>
-		<a href="../api.php?#UPLOAD_PATH">UPLOAD_PATH</a> &nbsp;
+		<a href="api.php?#UPLOAD_PATH">UPLOAD_PATH</a> &nbsp;
 	</p>
 	<h2>版本</h2>
 	<p>本方法自0.1.9版本开始支持。</p>
@@ -2878,7 +2945,7 @@ a3 text</pre>
 	</fieldset>
 	<h2>关联</h2>
 	<p>
-		<a href="../api.php?#UPLOAD_FILE">UPLOAD_FILE</a> &nbsp;
+		<a href="api.php?#UPLOAD_FILE">UPLOAD_FILE</a> &nbsp;
 	</p>
 	<h2>版本</h2>
 	<p>本方法自0.1.9版本开始支持。</p>

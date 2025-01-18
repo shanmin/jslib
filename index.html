@@ -1,6 +1,99 @@
-<script>
-	if(navigator.language.startsWith('zh'))
-		location.href="docs/zh";
-	else
-		location.href="docs/en";
-</script>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JSlib Document and Demo</title>
+<link rel="stylesheet" type="text/css" href="index.css">
+<script src="dist/jslib.min.js"></script>
+<script src="index.js"></script>
+<base target="main">
+</head>
+<body>
+	<div class="top_title">
+		<div>JSLib Document and Demo</div>
+		<div style="font-size: 14px;">
+			<span lang="zh">语言选择</span>
+			<span lang="en">LANGUAGE</span>
+			<select id="slang">
+				<option value="zh">中文</option>
+				<option value="en">ENGLISH</option>
+			</select>
+		</div>
+	</div>
+	<div class="left"></div>
+	<div class="main"><iframe frameborder="0" name="main" src="docs/home.html"></iframe></div>
+	<script>
+		$js('.left').tree({selectleaf:true,data:[
+			{t:'HOME',a:'docs/home.html'},
+			{t:'$js',a:'docs/selector.html'},
+			{t:'基础方法',c:[
+				{t:'add',a:'docs/api.html#add'},
+				{t:'addClass',a:'docs/api.html#addClass'},
+				{t:'after',a:'docs/api.html#after'},
+				{t:'appendTo',a:'docs/api.html#appendTo'},
+				{t:'attr',a:'docs/api.html#attr'},
+				{t:'before',a:'docs/api.html#before'},
+				{t:'bind',a:'docs/api.html#bind'},
+				{t:'closest',a:'docs/api.html#closest'},
+				{t:'css',a:'docs/api.html#css'},
+				{t:'each',a:'docs/api.html#each'},
+				{t:'eq',a:'docs/api.html#eq'},
+				{t:'find',a:'docs/api.html#find'},
+				{t:'first',a:'docs/api.html#first'},
+				{t:'hide',a:'docs/api.html#hide'},
+				{t:'html',a:'docs/api.html#html'},
+				{t:'last',a:'docs/api.html#last'},
+				{t:'off',a:'docs/api.html#off'},
+				{t:'on',a:'docs/api.html#on'},
+				{t:'outerHTML',a:'docs/api.html#outerHTML'},
+				{t:'outerText',a:'docs/api.html#outerText'},
+				{t:'parent',a:'docs/api.html#parent'},
+				{t:'removeAttr',a:'docs/api.html#removeAttr'},
+				{t:'removeClass',a:'docs/api.html#removeClass'},
+				{t:'show',a:'docs/api.html#show'},
+				{t:'text',a:'docs/api.html#text'},
+				{t:'val',a:'docs/api.html#val'},
+			]},
+			{t:'基础属性',c:[
+				{t:'firstElement',a:'docs/api.html#firstElement'},
+				{t:'parentElement',a:'docs/api.html#parentElement'},
+				{t:'version',a:'docs/api.html#version'},
+			]},
+			{t:'ajax',a:'docs/api.html#ajax'},
+			{t:'calc',a:'docs/api.html#calc'},
+			{t:'ctree',a:'docs/api.html#ctree'},
+			{t:'float',a:'docs/api.html#float'},
+			{t:'gb8170round',a:'docs/gb8170round.html'},
+			{t:'get',a:'docs/api.html#get'},
+			{t:'isAbsolutePath',a:'docs/api.html#isAbsolutePath'},
+			{t:'isMobile',a:'docs/api.html#isMobile'},
+			{t:'msgbox',a:'docs/api.html#msgbox'},
+			{t:'nameSplit',a:'docs/api.html#nameSplit'},
+			{t:'loadjs',a:'docs/api.html#loadjs'},
+			{t:'regressionCalc',a:'docs/api.html#regressionCalc'},
+			{t:'regressionCalcY',a:'docs/api.html#regressionCalcY'},
+			{t:'regressionLogarithmic',a:'docs/api.html#regressionLogarithmic'},
+			{t:'regressionPolynomial',a:'docs/api.html#regressionPolynomial'},
+			{t:'regressionSwap',a:'docs/api.html#regressionSwap'},
+			{t:'round',a:'docs/api.html#round'},
+			{t:'showimage',a:'docs/api.html#showimage'},
+			{t:'tableCells',a:'docs/tablecells.html'},
+			{t:'topmsg',a:'docs/api.html#topmsg'},
+			{t:'topmost',a:'docs/api.html#topmost'},
+			{t:'tree',a:'docs/api.html#tree'},
+			{t:'unindent',a:'docs/api.html#unindent'},
+			{t:'upimage',a:'docs/api.html#upimage'},
+			{t:'window',a:'docs/api.html#window'},
+			{t:'变量',c:[
+				{t:'UPLOAD_FILE',a:'docs/api.html#UPLOAD_FILE'},
+				{t:'UPLOAD_PATH',a:'docs/api.html#UPLOAD_PATH'},
+			]},
+			{t:'PHP',c:[
+				{t:'upfile',a:'docs/php.html#upfile'},
+			]},
+			{t:'历史版本',a:'docs/history.html'},
+		]});
+	</script>
+</body>
+</html>
