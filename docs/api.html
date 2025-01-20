@@ -974,6 +974,64 @@
 
 
 <!--
+//                                  #####                                 
+//   #    #   ##   #    # ###### # #     # #####  # #    # #   # # #    # 
+//   #    #  #  #  ##   #     #  #       # #    # # ##   #  # #  # ##   # 
+//   ###### #    # # #  #    #   #  #####  #    # # # #  #   #   # # #  # 
+//   #    # ###### #  # #   #    # #       #####  # #  # #   #   # #  # # 
+//   #    # #    # #   ##  #     # #       #      # #   ##   #   # #   ## 
+//   #    # #    # #    # ###### # ####### #      # #    #   #   # #    # 
+//                                                                        
+-->
+	<a name="hanzi2pinyin"></a>
+	<h1>$js.hanzi2pinyin</h1>
+	<h2>定义</h2>
+	<p>$js.hanzi2pinyin(str,mode) : Array|String</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>str</td>
+			<td>[必须]要转换的字符串。</td>
+		</tr>
+		<tr>
+			<td>mode</td>
+			<td>[可选]转换模式，0标准/1首字母/2无音调。默认：0。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>本方法是把指定字符串转换为拼音。返回值为每个汉字的拼音数组。</p>
+	<p>mode=1时，返回值为字符串。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre id="hanzi2pinyin_show"></pre>
+	</fieldset>
+	<h2>演示</h2>
+	<fieldset>
+		<legend>演示区域</legend>
+		<div id="hanzi2pinyin_demo">
+			<table border="1">
+				<tr>
+					<td>学习中文</td>
+					<td id="hanzi2pinyin_demo_0"></td>
+					<td id="hanzi2pinyin_demo_1"></td>
+					<td id="hanzi2pinyin_demo_2"></td>
+				</tr>
+			</table>
+			<script>
+				$js('#hanzi2pinyin_demo_0').text(JSON.stringify($js.hanzi2pinyin('学习中文')));
+				$js('#hanzi2pinyin_demo_1').text($js.hanzi2pinyin('学习中文',1));
+				$js('#hanzi2pinyin_demo_2').text(JSON.stringify($js.hanzi2pinyin('学习中文',2)));
+			</script>
+		</div>
+	</fieldset>
+	<h2>版本</h2>
+	<p>本属性自0.1.16版本开始支持。需注意，本方法需要jslib.zh.min.js文件。</p>
+	<script>$js('#hanzi2pinyin_show').text($js('#hanzi2pinyin_demo').outerHTML()).unindent({ignore:1});</script>
+
+
+
+<!--
 //                          
 //   #    # # #####  ###### 
 //   #    # # #    # #      
@@ -1513,6 +1571,35 @@ true</pre>
 	</fieldset>
 	<h2>版本</h2>
 	<p>本方法自0.0.1版本开始支持。</p>
+
+
+
+<!--
+//   ######     #    ####### #     # 
+//   #     #   # #      #    #     # 
+//   #     #  #   #     #    #     # 
+//   ######  #     #    #    ####### 
+//   #       #######    #    #     # 
+//   #       #     #    #    #     # 
+//   #       #     #    #    #     # 
+//                                   
+-->
+	<a name="PATH"></a>
+	<h1>$js.PATH</h1>
+	<h2>定义</h2>
+	<p>$js.PATH : String</p>
+	<h2>说明</h2>
+	<p>获取或设置当前JSLib文件所在目录。</p>
+	<p>正常情况下，系统会自动设置此属性，如果加载的附加库与JSLib不同目录时，需手工设置此属性。如果此属性不正确，则会发生加载附加库错误的情况。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>JavaScript</legend>
+		<pre>$js.PATH="/js";</pre>
+	</fieldset>
+	<h2>版本</h2>
+	<p>本属性自0.1.16版本开始支持。</p>
+
+
 
 
 	<a name="removeAttr"></a>
