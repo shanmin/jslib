@@ -930,6 +930,103 @@
 	<script>$js('#float_demo_html').text($js('#float_demo').outerHTML()).unindent({ignore:1});</script>
 
 
+
+<!--
+//                               
+//   ######  ####  #####  #    # 
+//   #      #    # #    # ##  ## 
+//   #####  #    # #    # # ## # 
+//   #      #    # #####  #    # 
+//   #      #    # #   #  #    # 
+//   #       ####  #    # #    # 
+//                               
+-->
+	<a name="form"></a>
+	<h1>$js.form</h1>
+	<h2>定义</h2>
+	<p>$js.form(opts) : None</p>
+	<p>$js().form(opts) : JSLib</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>opts</td>
+			<td>[可选]参数。</td>
+		</tr>
+		<tr>
+			<td>opts.form:HtmlElement</td>
+			<td>[可选]指定的FORM节点。如果未指定，则首先查找当前标签所在的FORM，如果未找到则查找当前页面第一个FORM，如果还未找到，则直接返回。</td>
+		</tr>
+		<tr>
+			<td>opts.onsubmit:function(form){}</td>
+			<td>[可选]提交前执行的脚本。参数form为当前提交表单，如果此方法返回false则不再进行提交操作。</td>
+		</tr>
+		<tr>
+			<td>opts.success:function(data)</td>
+			<td>[可选]调用成功后的回调函数，data为服务器返回数据。</td>
+		</tr>
+		<tr>
+			<td>opts.success_callback:function(data)</td>
+			<td>[可选]系统默认的success执行后,再次调用的方法。</td>
+		</tr>
+		<tr>
+			<td>opts.error:function(data)</td>
+			<td>[可选]调用失败后的回调函数，data为服务器返回数据。</td>
+		</tr>
+		<tr>
+			<td>opts.location:''</td>
+			<td>[可选]当success=302时使用。</td>
+		</tr>
+		<tr>
+			<td>opts.prompt_timeout:0</td>
+			<td>[可选]设置提醒信息关闭时间，单位：ms。此参数仅针对正常信息，出错信息不自动关闭。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>这个函数是使用AJAX方式模拟FORM提交，并显示提交进度及显示返回结果的方法。</p>
+	<p>如果参数args.success=close，且返回数据ret[success]=true时默认直接关窗；返回数据ret[success]=false时显示错误信息。这个有一个前置条件，当前form必须是在$js.window中的。</p>
+	<p>如果参数args.success=reload，且返回数据ret[success]=true时默认重新加载当前页面；返回ret[success]=false时显示错误信息。</p>
+	<p>如果参数args.success=302，且返回数据ret[success]=true时页面转到opts.location页面；返回数据ret[success]=false时显示错误信息。</p>
+	<p>如果参数args.success=302id，则如果当前页面URL中的参数id与返回data.id不一致时做302操作，否则不做任何操作。</p>
+	<p>如果未设置参数error，则出错的事后会自动调用参数success。</p>
+	<p>数据接收文件，在数据处理后需要返回JSON格式结果，标准最小格式，正常为：{success:true}，出错为：{success:false}</p>
+	<p>如果有需要显示的信息，则返回msg，例如：{success:false,msg:'保存时发生未知错误!'}</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre id="form_demo_html"></pre>
+	</fieldset>
+	<h2>演示</h2>
+	<fieldset>
+		<legend>演示区域</legend>
+			<form method="post" action="form.php" enctype="multipart/form-data" id="form_demo">
+				普通文本框<input type="text" name="text" value="汉字"><br>
+				复选框<input type="checkbox" name="checkbox1" value="1"><br>
+				单选框<input type="radio" name="radio1" value="1" checked required>
+				<input type="radio" name="radio1" value="2" required><br>
+				文件上传<input type="file" name="file[]"><br>
+				<input type="checkBOX" name="error" checked value="服务器返回的错误信息">错误<br>
+				返回结果模拟选择
+				<label><input type="radio" name="return_value" value="1" checked>正常返回</label>
+				<label><input type="radio" name="return_value" value="3">正常返回，自定义信息</label>
+				<label><input type="radio" name="return_value" value="2">错误返回</label>
+				<label><input type="radio" name="return_value" value="4">错误返回，自定义信息</label>
+				<br>
+				<input type="submit" value="SUBMIT">
+				<script>
+					$js.form({onsubmit:function(form)
+					{
+						form.setAttribute('action','form.'+$js('@return_value:checked').val()+'.json');
+					}});
+					//onsubmit事件，在这里仅仅为了模拟各种返回值
+				</script>
+			</form>
+	</fieldset>
+	<h2>版本</h2>
+	<p>本方法自0.1.17版本开始支持。</p>
+	<script>$js('#form_demo_html').text($js('#form_demo').outerHTML()).unindent({ignore:1});</script>
+
+
+
 <!--
 //                       
 //    ####  ###### ##### 
@@ -2866,7 +2963,7 @@ a3 text</pre>
 		</tr>
 		<tr>
 			<td>opts.name='file'</td>
-			<td>[可选]上传文件的文件域名称，默认：file。</td>
+			<td>[可选]上传文件的文件域名称，默认：file。需注意，因为此组件支持批量上传，所以这个指定的名称在实际上传时会自动增加[]变为file[]（即使是限制了只能上传一个图片）。</td>
 		</tr>
 		<tr>
 			<td>opts.captrue='camera'</td>
