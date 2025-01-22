@@ -1028,6 +1028,56 @@
 
 
 <!--
+//                  #####   #####   #####    ###   
+//    ####  #####  #     # #     # #     #  #   #  
+//   #    # #    #       #       # #       #     # 
+//   #      #####   #####   #####  ######  #     # 
+//   #  ### #    # #       #       #     # #     # 
+//   #    # #    # #       #       #     #  #   #  
+//    ####  #####  ####### #######  #####    ###   
+//                                                 
+-->
+	<a name="gb2260"></a>
+	<h1>$js.gb2260</h1>
+	<h2>定义</h2>
+	<p>$js.gb2260(n6) : String</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>n6</td>
+			<td>[必须]需要转换的GB2260代码。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>这个方法用于GB2260的代码转地区文本。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre id="gb2260_demo_html"></pre>
+	</fieldset>
+	<h2>演示</h2>
+	<fieldset>
+		<legend>演示区域</legend>
+			<div id="gb2260_demo">
+				<table border="1">
+					<tr>
+						<td>130123</td>
+						<td id="gb2260_demo_1"></td>
+					</tr>
+				</table>
+				<script>
+					$js('#gb2260_demo_1').text($js.gb2260('130123'));
+				</script>
+			</div>
+	</fieldset>
+	<h2>版本</h2>
+	<p>本方法自0.1.18版本开始支持。本方法需要jslib.gb.min.js文件支持。</p>
+	<script>$js('#gb2260_demo_html').text($js('#gb2260_demo').outerHTML()).unindent({ignore:1});</script>
+
+
+
+
+<!--
 //                       
 //    ####  ###### ##### 
 //   #    # #        #   
