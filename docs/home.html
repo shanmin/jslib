@@ -20,10 +20,31 @@
 	<p>在使用$js时，一定要引用dist/jslib.min.js文件。</p>
 	<fieldset>
 		<legend>HTML引用示例</legend>
-		<pre>&lt;script src="jslib.min.js">&lt;/script></pre>
+		<pre>
+&lt;html&gt;
+&lt;head&gt;
+	&lt;script src="jslib.min.js">&lt;/script>
+&lt;/head&gt;
+&lt;body&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
 	</fieldset>
 	<p>jslib.min.js文件的存放位置不做任何限定，可根据项目自身的需要把dist目录下jslib.min.js文件进行任意存放（其他分包文件如果使用了，建议与jslib.min.js放到同一目录，如果未放置同一目录则需要设置$js.PATH属性）。</p>
+	<h2>分包文件</h2>
 	<p>因为本JSLib库比较大，所以当主文件大于1M时我们会考虑拆包的问题。通常，我们会按照不同功能进行拆包，例如与中文相关的操作，我们已经拆出一个jslib.zh.min.js的独立文件。在使用这类方法时，需要这个分包文件在jslib.min.js同目录下保存，但不需要手工进行引用，库会在调用时自动进行加载操作（按需加载）。</p>
+	<p>分包文件使用的建议：正常情况下由$js自动加载分包文件没有什么问题，但是由于按需加载分包文件会导致相关方法调用的延时，如果介意这个延时则可以使用主动加载分包文件的方式，例如：</p>
+	<fieldset><legend>分包手工引用示例</legend>
+	<pre>
+&lt;html&gt;
+&lt;head&gt;
+	&lt;script src="jslib.min.js">&lt;/script>
+	&lt;script src="jslib.zh.min.js">&lt;/script>
+&lt;/head&gt;
+&lt;body&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+	</fieldset>
 	<h1>调用示例</h1>
 	<fieldset>
 		<legend>HTML</legend>

@@ -16,6 +16,12 @@ p
 	text-indent:2em;
 }
 
+pre.code
+{
+	background-color: #eee;
+	padding: 1em;
+}
+
 h1
 {
 	background-color: #ccc;

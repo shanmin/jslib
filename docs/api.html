@@ -3080,6 +3080,10 @@ a3 text</pre>
 			<td>[可选]如果只有“预览”一个按钮时，直接进行预览操作。</td>
 		</tr>
 		<tr>
+			<td>opts.preview_fullscreen=false|true</td>
+			<td>[可选]全屏预览。此参数只有在iframe内才可使用，因为此参数实际上是把预览区域放在了top窗口。因为预览窗口的不一致，这会导致top窗口所在路径与当前窗口所在路径不在一个层级时，会导致图片相对路径的错误，这点在调用时需要注意。</td>
+		</tr>
+		<tr>
 			<td>opts.usermedia=false</td>
 			<td>[可选]优先UserMedia方式获取图片。</td>
 		</tr>
