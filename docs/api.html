@@ -2920,6 +2920,48 @@ a3 text</pre>
 
 
 <!--
+//                                              
+//   ##### #####  #  ####   ####  ###### #####  
+//     #   #    # # #    # #    # #      #    # 
+//     #   #    # # #      #      #####  #    # 
+//     #   #####  # #  ### #  ### #      #####  
+//     #   #   #  # #    # #    # #      #   #  
+//     #   #    # #  ####   ####  ###### #    # 
+//                                                                                                  
+-->
+	<a name="trigger"></a>
+	<h1>$js().trigger</h1>
+	<h2>定义</h2>
+	<p>$js().trigger(eventName) : JSLib</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>eventName</td>
+			<td>[必须]事件名称。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>当前范围内元素，触发指定事件。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre id="trigger_show_html"></pre>
+	</fieldset>
+	<h2>演示</h2>
+	<fieldset>
+		<legend>演示区域</legend>
+		<div id="trigger_demo_html">
+			<input type="text" id="trigger_demo_1" onclick="$js.topmsg({msg:'click!!!'})">
+			<input type="button" value="点这触发文本框的click事件" onclick="$js('#trigger_demo_1').trigger('click')">
+		</div>
+	</fieldset>
+	<h2>版本</h2>
+	<p>本方法自0.1.20版本开始支持。</p>
+	<script>$js('#trigger_show_html').text($js('#trigger_demo_html').outerHTML()).unindent({ignore:1});</script>
+
+
+
+<!--
 //                                                     
 //   #    # #    # # #    # #####  ###### #    # ##### 
 //   #    # ##   # # ##   # #    # #      ##   #   #   
