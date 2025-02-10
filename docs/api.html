@@ -490,6 +490,10 @@
 			<td>opts.isNaN0=false|true</td>
 			<td>[可选]表达式中的变量非数字时是否按照0处理，默认：false。</td>
 		</tr>
+		<tr>
+			<td>opts.prefix=String</td>
+			<td>[可选]显示文本的前缀，默认：无。</td>
+		</tr>
 	</table>
 	<h2>全局参数</h2>
 	<table>
@@ -541,6 +545,12 @@
 					<td><input type="text" name="calc_demo_3price"></td>
 					<td><input type="text" name="calc_demo_3amount"></td>
 				</tr>
+				<tr>
+					<td>4</td>
+					<td><input type="text" name="calc_demo_4num"></td>
+					<td><input type="text" name="calc_demo_4price"></td>
+					<td><input type="text" name="calc_demo_4amount"></td>
+				</tr>
 			</table>
 			<script>
 				$js('@calc_demo_1amount').calc('{@calc_demo_1num}*{@calc_demo_1price}');
@@ -548,12 +558,15 @@
 
 				$js.calc.DEFAULT_DICT['三位小数']=0.001;
 				$js('@calc_demo_3amount').calc('{@calc_demo_3num}*{@calc_demo_3price}','三位小数');
+
+				$js('@calc_demo_4amount').calc('{@calc_demo_4num}*{@calc_demo_4price}',0.01,{prefix:'≥'});
 			</script>
 		</div>
 	</fieldset>
 	<h2>版本</h2>
 	<p>本方法自0.1.13版本开始支持。</p>
 	<p>0.1.14版本开始支持$js.calc.DEFAULT_DICT。</p>
+	<p>0.1.21版本开始支持opts.prefix参数。</p>
 	<script>$js('#calc_demo_html').text($js('#calc_demo').outerHTML()).unindent({ignore:1});</script>
 
 
