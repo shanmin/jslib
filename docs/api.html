@@ -2899,7 +2899,10 @@ a3 text</pre>
 	<p>opts.onclick中，可以通过e.target.parentElement.data获取此节点的数据信息。</p>
 	<p>成功执行后返回一个封装后的HtmlElement对象：</p>
 	<pre>	{
-
+		checkbox_clear:function(),		//清除所有选择项
+		checkbox_set:function(id_list),	//设置选择项，id_list为选中数据的id列表。
+		node_find:function(id),			//返回指定id的节点
+		node_scroll:function(node),		//显示区域滚动到指定节点
 	}
 	</pre>
 	<p>此方法同时存在静态方法和实例方法，使用时请根据具体场景选择。需要注意的是，实例方法会自动忽略opts.parent参数。</p>
