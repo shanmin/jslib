@@ -571,6 +571,87 @@
 
 
 
+
+<!--
+//                                               
+//    ####   ####  #    # ###### # #####  #    # 
+//   #    # #    # ##   # #      # #    # ##  ## 
+//   #      #    # # #  # #####  # #    # # ## # 
+//   #      #    # #  # # #      # #####  #    # 
+//   #    # #    # #   ## #      # #   #  #    # 
+//    ####   ####  #    # #      # #    # #    # 
+//                                               
+-->
+	<a name="confirm"></a>
+	<h1>$js.confirm</h1>
+	<h2>定义</h2>
+	<p>$js.confirm(opts) : $js.window</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>opts</td>
+			<td>[必须]选项。</td>
+		</tr>
+		<tr>
+			<td>opts.text</td>
+			<td>[可选]显示提示信息的文本信息。</td>
+		</tr>
+		<tr>
+			<td>opts.btn1text:'确定'</td>
+			<td>[可选]按钮1的文字。</td>
+		</tr>
+		<tr>
+			<td>opts.btn1click:function()</td>
+			<td>[可选]按钮1点击后的处理程序。</td>
+		</tr>
+		<tr>
+			<td>opts.btn1icon:String</td>
+			<td>[可选]按钮1图标文件路径的文字。</td>
+		</tr>
+		<tr>
+			<td>opts.btn2text:'取消'</td>
+			<td>[可选]按钮2的文字。</td>
+		</tr>
+		<tr>
+			<td>opts.btn2click:function()</td>
+			<td>[可选]按钮2点击后的处理程序。</td>
+		</tr>
+		<tr>
+			<td>opts.btn2icon:String</td>
+			<td>[可选]按钮2图标文件路径的文字。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>此方法生成一个确认窗口，默认显示“确定”、“取消”按钮供选择。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre id="confirm_show_html"></pre>
+	</fieldset>
+	<h2>演示</h2>
+	<fieldset>
+		<legend>演示区域</legend>
+		<div id="confirm_demo_html">
+			<button id="confirm_demo_btn1">点击弹出确认窗口</button>
+			<script>
+				confirm_demo_btn1.onclick=function()
+				{
+					$js.confirm({text:'这是一段确认窗口的提示文字。',
+						btn1click:function(){alert('btn1 click')},
+						btn2click:function(){alert('btn2 click')},
+					});
+				}
+			</script>
+		</div>
+	</fieldset>
+	<h2>版本</h2>
+	<p>本方法自0.1.26版本开始支持。</p>
+	<script>$js('#confirm_show_html').text($js('#confirm_demo_html').outerHTML()).unindent({ignore:1});</script>
+
+
+
+
+
 <!--
 //                                     
 //    ####  ##### #####  ###### ###### 
