@@ -491,6 +491,10 @@
 			<td>[可选]表达式中的变量非数字时是否按照0处理，默认：false。</td>
 		</tr>
 		<tr>
+			<td>opts.NaN2empty=false|true</td>
+			<td>[可选]计算结果为NaN时按照空字符串处理，默认：false。（注：此属性只有在设置了修约间隔才会起作用）</td>
+		</tr>
+		<tr>
 			<td>opts.prefix=String</td>
 			<td>[可选]显示文本的前缀，默认：无。</td>
 		</tr>
@@ -567,6 +571,7 @@
 	<p>本方法自0.1.13版本开始支持。</p>
 	<p>0.1.14版本开始支持$js.calc.DEFAULT_DICT。</p>
 	<p>0.1.21版本开始支持opts.prefix参数。</p>
+	<p>0.1.28版本开始支持opts.NaN2empty参数。</p>
 	<script>$js('#calc_demo_html').text($js('#calc_demo').outerHTML()).unindent({ignore:1});</script>
 
 
