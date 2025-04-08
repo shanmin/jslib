@@ -9,6 +9,30 @@ JSLib的基本架构和使用方式类似JQuery，可以简单的理解为JSLib�
 
 查看文档请前往： https://shanmin.github.io/jslib/
 
+#快速入门
+$js默认支持常见的选择器字符串，例如下面的HTML代码：
+```
+<div id="a"></div>
+<div name="b"></div>
+<div class="c"></div>
+```
+选择所有DIV元素，并设置显示文本test
+```
+$js('div').text('test');
+```
+选择id="a"的元素，，并设置显示文本test
+```
+$js('#a').text('test');
+```
+选择name="b"的元素，，并设置显示文本test
+```
+$js('@b').text('test');
+```
+选择class="c"的元素，，并设置显示文本test
+```
+$js('.c').text('test');
+```
+
 # 扩展功能
 ## 同步加载js文件
 使用$js.loadjs()方法可以实现js文件的同步加载。
