@@ -9,7 +9,7 @@ JSLib的基本架构和使用方式类似JQuery，可以简单的理解为JSLib�
 
 查看文档请前往： https://shanmin.github.io/jslib/
 
-#快速入门
+# 快速入门
 $js默认支持常见的选择器字符串，例如下面的HTML代码：
 ```
 <div id="a"></div>
