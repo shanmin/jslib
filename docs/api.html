@@ -124,6 +124,16 @@
 	<p>本方法自0.0.0版本开始支持。</p>
 
 
+<!--
+//                                     
+//     ##   ###### ##### ###### #####  
+//    #  #  #        #   #      #    # 
+//   #    # #####    #   #####  #    # 
+//   ###### #        #   #      #####  
+//   #    # #        #   #      #   #  
+//   #    # #        #   ###### #    # 
+//  
+-->
 	<a name="after"></a>
 	<h1>$js().after</h1>
 	<h2>定义</h2>
@@ -237,7 +247,16 @@
 	<p>本方法自0.1.0版本开始支持。</p>
 
 
-
+<!--
+//                        
+//     ##   #    #  ####  
+//    #  #  #    # #    # 
+//   #    # #    # #      
+//   ###### #    # #  ### 
+//   #    #  #  #  #    # 
+//   #    #   ##    ####  
+//                        
+-->
 	<a name="avg"></a>
 	<h1>$js.avg</h1>
 	<h2>定义</h2>
@@ -286,6 +305,16 @@
 	<script>$js('#avg_demo_html').text($js('#avg_demo').outerHTML()).unindent({ignore:1});</script>
 
 
+<!--
+//                                             #######        
+//     ##   #####  #####  ###### #    # #####     #     ####  
+//    #  #  #    # #    # #      ##   # #    #    #    #    # 
+//   #    # #    # #    # #####  # #  # #    #    #    #    # 
+//   ###### #####  #####  #      #  # # #    #    #    #    # 
+//   #    # #      #      #      #   ## #    #    #    #    # 
+//   #    # #      #      ###### #    # #####     #     ####  
+//                                                            
+-->
 	<a name="appendTo"></a>
 	<h1>$js().appendTo</h1>
 	<h2>定义</h2>
@@ -323,7 +352,16 @@
 	<p>本方法自0.0.0版本开始支持。</p>
 
 
-
+<!--
+//                             
+//     ##   ##### ##### #####  
+//    #  #    #     #   #    # 
+//   #    #   #     #   #    # 
+//   ######   #     #   #####  
+//   #    #   #     #   #   #  
+//   #    #   #     #   #    # 
+//                             
+-->
 	<a name="attr"></a>
 	<h1>$js().attr</h1>
 	<h2>定义</h2>
@@ -367,6 +405,76 @@
 	<p>本方法自0.1.0版本开始支持。</p>
 
 
+<!--
+//                                             
+//   #####  ###### ######  ####  #####  ###### 
+//   #    # #      #      #    # #    # #      
+//   #####  #####  #####  #    # #    # #####  
+//   #    # #      #      #    # #####  #      
+//   #    # #      #      #    # #   #  #      
+//   #####  ###### #       ####  #    # ###### 
+//                                             
+-->
+	<a name="before"></a>
+	<h1>$js().before</h1>
+	<h2>定义</h2>
+	<p>$js().before(selector) : JSLib</p>
+	<p>$js().before(HtmlString) : JSLib</p>
+	<p>$js().before(HtmlElement) : JSLib</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>selector</td>
+			<td>[必须]选择器。</td>
+		</tr>
+		<tr>
+			<td>HtmlString</td>
+			<td>[必须]HTML字符串。</td>
+		</tr>
+		<tr>
+			<td>HtmlElement</td>
+			<td>[必须]HTML节点。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>向当前匹配节点前面添加指定的信息。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre>&lt;div id="a1">
+	&lt;div id="a2">a2 text&lt;/div>
+	&lt;div id="a3">a3 text&lt;/div>
+&lt;/div></pre>
+	</fieldset>
+	<fieldset>
+		<legend>JavaScript</legend>
+		<pre>$js('#a2').before('&lt;div>abc&lt;/div>');</pre>
+	</fieldset>
+	<fieldset>
+		<legend>执行后原HTML信息变为</legend>
+		<pre>&lt;div id="a1">
+	&lt;div>abc&lt;/div>
+	&lt;div id="a2">a2 text&lt;/div>
+	&lt;div id="a3">a3 text&lt;/div>
+&lt;/div></pre>
+	</fieldset>
+	<h2>关联</h2>
+	<p><a href="api.html#after">after</a><br></p>
+	<h2>版本</h2>
+	<p>本方法自0.1.0版本开始支持。</p>
+
+
+
+<!--
+//                          
+//   #####  # #    # #####  
+//   #    # # ##   # #    # 
+//   #####  # # #  # #    # 
+//   #    # # #  # # #    # 
+//   #    # # #   ## #    # 
+//   #####  # #    # #####  
+//    
+-->
 	<a name="bind"></a>
 	<h1>$js().bind</h1>
 	<h2>定义</h2>
@@ -817,7 +925,16 @@
 	<script>$js('#ctree_show_js').text($js('#ctree_demo_js').outerHTML()).unindent({ignore:1});</script>
 
 
-
+<!--
+//                               
+//   ######   ##    ####  #    # 
+//   #       #  #  #    # #    # 
+//   #####  #    # #      ###### 
+//   #      ###### #      #    # 
+//   #      #    # #    # #    # 
+//   ###### #    #  ####  #    # 
+//                               
+-->
 	<a name="each"></a>
 	<h1>$js().each</h1>
 	<h2>定义</h2>
@@ -852,6 +969,16 @@
 	<p>本方法自0.0.0版本开始支持。</p>
 
 
+<!--
+//                 
+//   ######  ####  
+//   #      #    # 
+//   #####  #    # 
+//   #      #  # # 
+//   #      #   #  
+//   ######  ### # 
+//                 
+-->
 	<a name="eq"></a>
 	<h1>$js().eq</h1>
 	<h2>定义</h2>
@@ -877,6 +1004,16 @@
 	<p>本方法自0.0.0版本开始支持。</p>
 
 
+<!--
+//                          
+//   ###### # #    # #####  
+//   #      # ##   # #    # 
+//   #####  # # #  # #    # 
+//   #      # #  # # #    # 
+//   #      # #   ## #    # 
+//   #      # #    # #####  
+//                          
+-->
 	<a name="find"></a>
 	<h1>$js().find</h1>
 	<h2>定义</h2>
@@ -889,7 +1026,7 @@
 		</tr>
 	</table>
 	<h2>说明</h2>
-	<p>在当前匹配的节点中查找符合selector的节点。</p>
+	<p>在当前匹配的节点下查找符合selector的节点。</p>
 	<h2>示例</h2>
 	<fieldset>
 		<legend>HTML</legend>
@@ -908,7 +1045,6 @@
 	</fieldset>
 	<h2>版本</h2>
 	<p>本方法自0.0.0版本开始支持。</p>
-
 
 
 
@@ -1660,7 +1796,60 @@ true</pre>
 	<script>$js('#nameSplit_demo_result').text(JSON.stringify($js.nameSplit($js('#nameSplit_demo_name').val())));</script>
 
 
+<!--
+//                       
+//   #    #  ####  ##### 
+//   ##   # #    #   #   
+//   # #  # #    #   #   
+//   #  # # #    #   #   
+//   #   ## #    #   #   
+//   #    #  ####    #   
+//                       
+-->
+	<a name="not"></a>
+	<h1>$js().not</h1>
+	<h2>定义</h2>
+	<p>$js().not(selector) : JSLib</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>selector</td>
+			<td>[可选]指定选择器字符串。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>这个方法返回移除selector之后的节点。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre id="not_show_html"></pre>
+	</fieldset>
+	<h2>演示</h2>
+	<fieldset>
+		<legend>演示区域</legend>
+		<div id="not_demo_html">
+			<div class="not_class">A</div>
+			<div class="not_class" id="not_id">B</div>
+			<div class="not_class">C</div>
+			<script>
+				$js('.not_class').not('#not_id').css('background-color','#f00');
+			</script>
+		</div>
+	</fieldset>
+	<h2>版本</h2>
+	<p>本方法自0.1.30版本开始支持。</p>
+	<script>$js('#not_show_html').text($js('#not_demo_html').outerHTML()).unindent({ignore:1});</script>
 
+<!--
+//                        
+//    ####  ###### ###### 
+//   #    # #      #      
+//   #    # #####  #####  
+//   #    # #      #      
+//   #    # #      #      
+//    ####  #      #      
+//                        
+-->
 	<a name="off"></a>
 	<h1>$js().off</h1>
 	<h2>定义</h2>
