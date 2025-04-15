@@ -628,6 +628,10 @@
 			<td>[可选]全局默认的数值修约是否遵循GB8170。</td>
 		</tr>
 		<tr>
+			<td>$js.calc.DEFAULT_NaN2empty=false|true</td>
+			<td>[可选]全局默认的计算结果处理。</td>
+		</tr>
+		<tr>
 			<td>$js.calc.DEFAULT_DICT={}</td>
 			<td>[可选]全局默认的数值修约字典，使用方式请参照示例。</td>
 		</tr>
@@ -3643,12 +3647,16 @@ a3 text</pre>
 	<h1>$js().val</h1>
 	<h2>定义</h2>
 	<p>$js().val() : String</p>
-	<p>$js().val(String) : JSLib</p>
+	<p>$js().val(String,oninput) : JSLib</p>
 	<h2>参数</h2>
 	<table>
 		<tr>
 			<td>String</td>
 			<td>[可选]要设置的字符串。</td>
+		</tr>
+		<tr>
+			<td>oninput</td>
+			<td>[可选]是否引发oninput事件。</td>
 		</tr>
 	</table>
 	<h2>说明</h2>
