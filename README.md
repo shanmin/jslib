@@ -5,7 +5,7 @@ JSLib的基本架构和使用方式类似JQuery，可以简单的理解为JSLib�
 
 因为在调用JSLib时，默认使用$js进行调用，所以我们内部也把JSLib称为$js。也就是说，在本项目内JSLib与$js两个名称都是指本项目的JSLib库。
 
-如果在学习过程中遇到任何问题或有什么想法，请发到 https://github.com/shanmin/jslib/issues 进行交流。如果提交issue不方便，也可以直接给我们发送邮件进行交流 Email: 0123@163.com 。
+如果在学习过程中遇到任何问题或有什么想法，请发到 https://github.com/shanmin/jslib/issues 或 https://gitee.com/shanmin/jslib/issues 进行交流。如果提交issue不方便，也可以直接给我们发送邮件进行交流 Email: 0123@163.com 。
 
 查看文档请前往： https://shanmin.github.io/jslib/
 
