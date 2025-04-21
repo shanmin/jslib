@@ -2890,6 +2890,16 @@ true</pre>
 
 
 
+<!--
+//                                              #####                              
+//   #####  ###### #    #  ####  #    # ###### #     # #        ##    ####   ####  
+//   #    # #      ##  ## #    # #    # #      #       #       #  #  #      #      
+//   #    # #####  # ## # #    # #    # #####  #       #      #    #  ####   ####  
+//   #####  #      #    # #    # #    # #      #       #      ######      #      # 
+//   #   #  #      #    # #    #  #  #  #      #     # #      #    # #    # #    # 
+//   #    # ###### #    #  ####    ##   ######  #####  ###### #    #  ####   ####  
+//                                                                                 
+-->
 	<a name="removeClass"></a>
 	<h1>$js().removeClass</h1>
 	<h2>定义</h2>
@@ -2926,54 +2936,6 @@ true</pre>
 	<p><a href="api.html#addClass">addClass</a><br></p>
 	<h2>版本</h2>
 	<p>本方法自0.0.0版本开始支持。</p>
-
-
-	<a name="text"></a>
-	<h1>$js().text</h1>
-	<h2>定义</h2>
-	<p>$js().text() : String</p>
-	<p>$js().text(TextString) : JSLib</p>
-	<h2>参数</h2>
-	<table>
-		<tr>
-			<td>TextString</td>
-			<td>[可选]指定的文本字符串。</td>
-		</tr>
-	</table>
-	<h2>说明</h2>
-	<p>当未传递TextString时，将返回第一个匹配节点的文本字符串。</p>
-	<p>当传递TextString时，会使用这个TextString字符串内容填充所有匹配的节点。</p>
-	<h2>示例</h2>
-	<fieldset>
-		<legend>HTML</legend>
-		<pre>&lt;div id="a1">
-	&lt;div id="a2">a2 text&lt;/div>
-	&lt;div id="a3">a3 text&lt;/div>
-&lt;/div></pre>
-	</fieldset>
-	<fieldset>
-		<legend>JavaScript</legend>
-		<pre>console.log($js('#a1').text());</pre>
-	</fieldset>
-	<fieldset>
-		<legend>输出示例</legend>
-		<pre>a2 text
-a3 text</pre>
-	</fieldset>
-	<fieldset>
-		<legend>JavaScript</legend>
-		<pre>$js('#a1').text('abc');</pre>
-	</fieldset>
-	<fieldset>
-		<legend>执行后原HTML信息变为</legend>
-		<pre>&lt;div id="a1">
-	abc
-&lt;/div></pre>
-	</fieldset>
-	<h2>关联</h2>
-	<p><a href="api.html#html">html</a><br></p>
-	<h2>版本</h2>
-	<p>本方法自0.1.0版本开始支持。</p>
 
 
 
@@ -3302,6 +3264,64 @@ a3 text</pre>
 	<script>
 		$js('#showimage_show_html').text($js('#showimage_demo_html').outerHTML()).unindent({ignore:1});
 	</script>
+
+
+<!--
+//                             
+//   ##### ###### #    # ##### 
+//     #   #       #  #    #   
+//     #   #####    ##     #   
+//     #   #        ##     #   
+//     #   #       #  #    #   
+//     #   ###### #    #   #   
+//                             
+-->
+	<a name="text"></a>
+	<h1>$js().text</h1>
+	<h2>定义</h2>
+	<p>$js().text() : String</p>
+	<p>$js().text(TextString) : JSLib</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>TextString</td>
+			<td>[可选]指定的文本字符串。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>当未传递TextString时，将返回第一个匹配节点的文本字符串。</p>
+	<p>当传递TextString时，会使用这个TextString字符串内容填充所有匹配的节点。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre>&lt;div id="a1">
+	&lt;div id="a2">a2 text&lt;/div>
+	&lt;div id="a3">a3 text&lt;/div>
+&lt;/div></pre>
+	</fieldset>
+	<fieldset>
+		<legend>JavaScript</legend>
+		<pre>console.log($js('#a1').text());</pre>
+	</fieldset>
+	<fieldset>
+		<legend>输出示例</legend>
+		<pre>a2 text
+a3 text</pre>
+	</fieldset>
+	<fieldset>
+		<legend>JavaScript</legend>
+		<pre>$js('#a1').text('abc');</pre>
+	</fieldset>
+	<fieldset>
+		<legend>执行后原HTML信息变为</legend>
+		<pre>&lt;div id="a1">
+	abc
+&lt;/div></pre>
+	</fieldset>
+	<h2>关联</h2>
+	<p><a href="api.html#html">html</a><br></p>
+	<h2>版本</h2>
+	<p>本方法自0.1.0版本开始支持。</p>
 
 
 <!--
@@ -3635,6 +3655,134 @@ a3 text</pre>
 	<h2>版本</h2>
 	<p>本方法自0.1.20版本开始支持。</p>
 	<script>$js('#trigger_show_html').text($js('#trigger_demo_html').outerHTML()).unindent({ignore:1});</script>
+
+
+
+<!--
+//                                                  
+//   #####  ####  ###### #      ######  ####  ##### 
+//     #   #      #      #      #      #    #   #   
+//     #    ####  #####  #      #####  #        #   
+//     #        # #      #      #      #        #   
+//     #   #    # #      #      #      #    #   #   
+//     #    ####  ###### ###### ######  ####    #   
+//                                                  
+-->
+	<a name="tselect"></a>
+	<h1>$js.tselect</h1>
+	<h2>定义</h2>
+	<p>$js.tselect(opts) : HtmlElement</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>opts</td>
+			<td>[必须]选项。</td>
+		</tr>
+		<tr>
+			<td>opts.class</td>
+			<td>[可选]选择节点的CSS样式类名称。</td>
+		</tr>
+		<tr>
+			<td>opts.data</td>
+			<td>[可选]带选择数据，数据格式：[{'id'=>数据ID,'text'=>'显示数据','search'=>'搜索数据'},{...}]</td>
+		</tr>
+		<tr>
+			<td>opts.url</td>
+			<td>[可选]数据读取地址，返回的数据格式与data相同。如果设置了data，则本属性无效。</td>
+		</tr>
+		<tr>
+			<td>opts.data_url</td>
+			<td>[可选]动态数据读取地址，返回数据格式与data相同。每次数据变化时，本方法都会调用此路径读取实时查询数据。读取地址示例：“http://test/data?search=”，在调用时会自动拼接输入数据到url后面。</td>
+		</tr>
+		<tr>
+			<td>opts.el_select</td>
+			<td>[可选]选择节点，可传递HtmlElement节点或节点ID。如果未传递，则本方法会自动生成一个。</td>
+		</tr>
+		<tr>
+			<td>opts.el_select_name</td>
+			<td>[可选]选择节点名称。</td>
+		</tr>
+		<tr>
+			<td>opts.el_value</td>
+			<td>[可选]对应的值节点，可传递HtmlElement节点或节点ID。如果未传递，则本方法会自动生成一个。</td>
+		</tr>
+		<tr>
+			<td>opts.el_value_name</td>
+			<td>[可选]对应的值节点名称。</td>
+		</tr>
+		<tr>
+			<td>opts.notfound</td>
+			<td>[可选]设置未查找到数据项时的提示文本，如果不设置则显示默认文本。</td>
+		</tr>
+		<tr>
+			<td>opts.onselected</td>
+			<td>[可选]选中数据后的回调。</td>
+		</tr>
+		<tr>
+			<td>opts.placeholder</td>
+			<td>[可选]提示文本。</td>
+		</tr>
+		<tr>
+			<td>opts.selected=false|true</td>
+			<td>[可选]是否必须选择，默认：false。此值是true时，则输入的项目必须完全与数据相同才会选择，否则会自动清空。</td>
+		</tr>
+		<tr>
+			<td>opts.search=true|false</td>
+			<td>[可选]是否启用数据搜索功能，默认：true。</td>
+		</tr>
+		<tr>
+			<td>opts.size</td>
+			<td>[可选]单行文本框的长度。</td>
+		</tr>
+		<tr>
+			<td>opts.value</td>
+			<td>[可选]默认值。</td>
+		</tr>
+		<tr>
+			<td>opts.value2={id:123,text:'show'}</td>
+			<td>[可选]成对的默认值。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>显示一个文本选择框。</p>
+	<p>如果需要编辑文本框CSS样式，可直接设置.jslib_tselect样式即可。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>常用示例</legend>
+		<pre id="tselect_show1"></pre>
+		<pre id="tselect_show2"></pre>
+	</fieldset>
+	<fieldset>
+		<legend>演示</legend>
+		<style id="tselect_css">
+			.tselect_custom
+			{
+				border:1px solid #ccc;
+				padding: 4px;
+			}
+		</style>
+		<script id="tselect_js">
+			{
+				let data=[{id:1,text:'AAA'},{id:2,text:'BBB'},{id:3,text:'CCC'}];
+
+				$js.tselect({class:'tselect_custom',data:data,
+					onselected:function(v){$js.topmsg({msg:`onselected(${v})`})},
+					onselected2:function(v){$js.topmsg({msg:`onselected2(${JSON.stringify(v)})`})},
+					placeholder:'任意输入'});
+
+				$js.tselect({class:'tselect_custom',data:data,
+					onselected:function(v){$js.topmsg({msg:`onselected(${v})`})},
+					onselected2:function(v){$js.topmsg({msg:`onselected2(${JSON.stringify(v)})`})},
+					selected:true,autoselect:true,
+					placeholder:'选择输入'});
+			}
+		</script>
+	</fieldset>
+	<h2>版本</h2>
+	<p>本方法自0.1.35版本开始支持。</p>
+	<script>$js('#tselect_show1').text($js('#tselect_css').outerHTML()).unindent({ignore:1});</script>
+	<script>$js('#tselect_show2').text($js('#tselect_js').outerHTML()).unindent({ignore:1});</script>
+
 
 
 
@@ -4128,7 +4276,8 @@ a3 text</pre>
 		</tr>
 		<tr>
 			<td>opts.html=HtmlElement|HtmlString</td>
-			<td>[可选]窗口内显示的html内容，这个不能与url同时使用，因为url使用iframe,html使用div。如果同时设置了url和html，则以url为准。</td>
+			<td>[可选]窗口内显示的html内容，这个不能与url同时使用，因为url使用iframe,html使用div。如果同时设置了url和html，则以url为准。
+			如果传入的是TEMPLATE标签，则本方法会自动读取TEMPLATE内的内容。</td>
 		</tr>
 		<tr>
 			<td>opts.title='...'</td>
