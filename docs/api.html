@@ -629,16 +629,16 @@
 	<h2>全局参数</h2>
 	<table>
 		<tr>
-			<td>$js.calc.DEFAULT_GB8170=false|true</td>
-			<td>[可选]全局默认的数值修约是否遵循GB8170。</td>
+			<td>$js.calc.DEFAULT_GB8170=false|true (不推荐使用)</td>
+			<td>[可选]全局默认的数值修约是否遵循GB8170。【此参数，请使用$js.round.DEFAULT_GB8170替代】</td>
 		</tr>
 		<tr>
 			<td>$js.calc.DEFAULT_NaN2empty=false|true</td>
 			<td>[可选]全局默认的计算结果处理。</td>
 		</tr>
 		<tr>
-			<td>$js.calc.DEFAULT_DICT={}</td>
-			<td>[可选]全局默认的数值修约字典，使用方式请参照示例。</td>
+			<td>$js.calc.DEFAULT_DICT={} (不推荐使用)</td>
+			<td>[可选]全局默认的数值修约字典，使用方式请参照示例。【此参数，请使用$js.round.DEFAULT_DICT替代】</td>
 		</tr>
 	</table>
 	<h2>说明</h2>
@@ -1190,17 +1190,36 @@
 	<a name="float"></a>
 	<h1>$js().float</h1>
 	<h2>定义</h2>
+	<p>$js().float() : Number</p>
 	<p>$js().float(nan0) : Number</p>
+	<p>$js().float(num,interval,opts) : JSLib</p>
 	<h2>参数</h2>
 	<table>
 		<tr>
 			<td>nan0=false|true</td>
 			<td>[可选]nan0=true时，值为非数字时返回0。默认：false。</td>
 		</tr>
+		<tr>
+			<td>num</td>
+			<td>[可选]需设置的值。</td>
+		</tr>
+		<tr>
+			<td>interval</td>
+			<td>[可选]修约间隔。注：本修约值支持$js.round.DEFAULT_DICT字典。</td>
+		</tr>
+		<tr>
+			<td>opts</td>
+			<td>[可选]附加选项。</td>
+		</tr>
+		<tr>
+			<td>opts.zero2empty=false|true</td>
+			<td>[可选]num=0时，显示为空字符串。</td>
+		</tr>
 	</table>
 	<h2>说明</h2>
-	<p>返回元素中第一个符合条件的数值，如果当前未包含任何元素则返回NaN。</p>
-	<p>如果JSLib匹配列表中包含checkbox/radio元素时，只有在选中状态才会返回有效数值。</p>
+	<p>没有参数或只传递nan0参数时，返回元素中第一个符合条件的数值，如果当前未包含任何元素则返回NaN。</p>
+	<p>注：如果JSLib匹配列表中包含checkbox/radio元素时，只有在选中状态才会返回有效数值。</p>
+	<p>传递num参数时，设置指定数字到当前符合元素上。</p>
 	<h2>示例</h2>
 	<fieldset>
 		<legend>HTML</legend>
@@ -2968,10 +2987,21 @@ true</pre>
 			<td>[可选]是否使用GB8170规则进行修约，默认值：false。</td>
 		</tr>
 	</table>
+	<h2>全局参数</h2>
+	<table>
+		<tr>
+			<td>$js.round.DEFAULT_GB8170=false|true</td>
+			<td>[可选]全局默认的数值修约是否遵循GB8170。</td>
+		</tr>
+		<tr>
+			<td>$js.round.DEFAULT_DICT={}</td>
+			<td>[可选]全局默认的数值修约字典，使用方式请参照示例。</td>
+		</tr>
+	</table>
 	<h2>说明</h2>
 	<p>本方法对指定数字进行修约。此方法除简单的四舍五入，还可以进行不同修约间隔的舍入，例如2为间隔的舍入等。</p>
 	<p>gb8170=true时，按照GB/T 8170标准对指定的数字进行修约，这个修约标准与普通的四舍五入有点区别，俗称：四舍六进五成双，奇进偶不进。具体规则请参阅相应的标准文件。</p>
-	<p>注意：为了防止浮点数误差造成的进位错误，本方法当前仅支持8位有效小数。</p>
+	<p>注意：为了防止浮点数误差造成的进位错误，本方法当前仅保证8位有效小数位（应该不止8位，但再大的没有做过测试）。</p>
 	<h2>示例</h2>
 	<fieldset>
 		<legend>HTML & JavaScript (部分)</legend>
@@ -3173,9 +3203,103 @@ true</pre>
 		</table>
 		<p>上表中的“修约”列是JSLib实时计算出来的。</p>
 	</fieldset>
+	<h2>示例2</h2>
+	<fieldset>
+		<legend>代码</legend>
+		<pre id="round_demo2_show"></pre>
+	</fieldset>
+	<fieldset>
+		<legend>演示</legend>
+		<div id="round_demo2_src">
+			<table border="1">
+				<tr>
+					<th>输入值</th>
+					<th>修约间隔</th>
+					<th>输出值</th>
+					<th>测试说明</th>
+				</tr>
+				<tr>
+					<td rowspan="2"><input type="text" name="round_num1" value="3.1415926" oninput="round_demo()"></td>
+					<td><input type="text" name="round_interval1" value="0.01" oninput="round_demo()"></td>
+					<td name="round_result1"></td>
+					<td>直接输入修约间隔</td>
+				</tr>
+				<tr>
+					<td>
+						<select name="round_interval2" onchange="round_demo()">
+							<option></option>
+							<option value="一位小数">一位小数</option>
+							<option value="二位小数" selected>两位小数</option>
+							<option value="三位小数">三位小数</option>
+						</select>
+					</td>
+					<td name="round_result2"></td>
+					<td>使用修约字典方式</td>
+				</tr>
+			</table>
+			<script>
+				$js.round.DEFAULT_DICT={'一位小数':0.1,'二位小数':0.01,'三位小数':0.001};
+				function round_demo()
+				{
+					console.log($js('@round_interval2'),$js('@round_interval2').val());
+					$js('@round_result1').text($js.round($js('@round_num1').val(),$js('@round_interval1').val()));
+					$js('@round_result2').text($js.round($js('@round_num1').val(),$js('@round_interval2').val()));
+				}
+				round_demo();
+			</script>
+		</div>
+	</fieldset>
 	<h2>版本</h2>
 	<p>本属性自0.1.13版本开始支持。</p>
+	<p>本属性自0.2.0版本开始支持$js.round.DEFAULT_GB8170和$js.round.DEFAULT_DICT全局设置。</p>
+	<script>$js('#round_demo2_show').text($js('#round_demo2_src').html()).unindent({ignore:1});</script>
 
+<!--
+//                   ###   
+//    ####  #####   #   #  
+//   #      #    # #     # 
+//    ####  #    # #     # 
+//        # #    # #     # 
+//   #    # #    #  #   #  
+//    ####  #####    ###   
+//                         
+-->
+	<a name="sd0"></a>
+	<h1>$js.sd0</h1>
+	<h2>定义</h2>
+	<p>$js.sd0(arr) : Number</p>
+	<h2>说明</h2>
+	<p>计算总体标准差。</p>
+	<h2>关联</h2>
+	<p>
+		<a href="api.html#sd1">sd1</a> &nbsp;
+	</p>
+	<h2>版本</h2>
+	<p>本属性自0.2.0版本开始支持。</p>
+
+
+<!--
+//                   #   
+//    ####  #####   ##   
+//   #      #    # # #   
+//    ####  #    #   #   
+//        # #    #   #   
+//   #    # #    #   #   
+//    ####  #####  ##### 
+//                       
+-->
+	<a name="sd1"></a>
+	<h1>$js.sd1</h1>
+	<h2>定义</h2>
+	<p>$js.sd1(arr) : Number</p>
+	<h2>说明</h2>
+	<p>计算样本标准差。</p>
+	<h2>关联</h2>
+	<p>
+		<a href="api.html#sd1">sd1</a> &nbsp;
+	</p>
+	<h2>版本</h2>
+	<p>本属性自0.2.0版本开始支持。</p>
 
 
 <!--

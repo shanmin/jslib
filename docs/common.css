@@ -36,6 +36,18 @@ h1
 	text-shadow: 0 0 4px #fff;
 }
 
+h1.deprecated:after
+{
+	content:'(不再推荐使用)';
+	color:#f00;
+}
+
+h2.deprecated
+{
+	background-color: #f3cccc;
+	text-align: center;
+}
+
 h2
 {
 /*	background:linear-gradient(to left,#fff,#eee);*/
