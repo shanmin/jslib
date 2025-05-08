@@ -1858,6 +1858,66 @@
 
 
 <!--
+//   ###                                                                              #                                      #####  
+//    #  #    # ##### ###### #####  #####   ####  #        ##   ##### #  ####  #    # #       # #    # ######   ##   #####  #     # 
+//    #  ##   #   #   #      #    # #    # #    # #       #  #    #   # #    # ##   # #       # ##   # #       #  #  #    #       # 
+//    #  # #  #   #   #####  #    # #    # #    # #      #    #   #   # #    # # #  # #       # # #  # #####  #    # #    #  #####  
+//    #  #  # #   #   #      #####  #####  #    # #      ######   #   # #    # #  # # #       # #  # # #      ###### #####  #       
+//    #  #   ##   #   #      #   #  #      #    # #      #    #   #   # #    # #   ## #       # #   ## #      #    # #   #  #       
+//   ### #    #   #   ###### #    # #       ####  ###### #    #   #   #  ####  #    # ####### # #    # ###### #    # #    # ####### 
+//                                                                                                                                  
+-->
+	<a name="InterpolationLinear2"></a>
+	<h1>$js.InterpolationLinear2</h1>
+	<h2>定义</h2>
+	<p>$js.InterpolationLinear2(x,t) : Number</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>x</td>
+			<td>[必须]需要计算的位置。</td>
+		</tr>
+		<tr>
+			<td>t</td>
+			<td>[必须]数据集，具体数据格式请参见示例。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>本方法按照线性插值规则，返回插值后的数值。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre id="InterpolationLinear2_html"></pre>
+		<pre id="InterpolationLinear2_src"></pre>
+	</fieldset>
+	<fieldset>
+		<legend>输出示例</legend>
+		<pre id="InterpolationLinear2_result"></pre>
+	</fieldset>
+	<script id="InterpolationLinear2_js">
+		let InterpolationLinear2t={'5.0':0.9999919,
+			'6.0':0.9999681,'7.0':0.9999295,'8.0':0.9998762,'9.0':0.9998088,'10.0':0.9997277,
+			'11.0':0.9996328,'12.0':0.9995247,'13.0':0.9994040,'14.0':0.9992712,'15.0':0.9991265,
+			'16.0':0.9989701,'17.0':0.9988022,'18.0':0.9986232,'19.0':0.9984331,'20.0':0.9982323,
+			'21.0':0.9980210,'22.0':0.9977993,'23.0':0.9975674,'24.0':0.9973256,'25.0':0.9970739,
+			'26.0':0.9968128,'27.0':0.9965241,'28.0':0.9962623,'29.0':0.9959735,'30.0':0.9956756,
+			'31.0':0.9953692,'32.0':0.9950542,'33.0':0.9947308,'34.0':0.9943991,'35.0':0.9940594
+		};
+		let InterpolationLinear2_ret=$js.InterpolationLinear2(22.5,InterpolationLinear2t);
+		$js('#InterpolationLinear2_result').html(InterpolationLinear2_ret);
+	</script>
+	<h2>关联</h2>
+	<p>
+		<a href="api.html#InterpolationBilinear">InterpolationBilinear</a> &nbsp;
+	</p>
+	<h2>版本</h2>
+	<p>本方法自0.1.34版本开始支持。</p>
+	<script>$js('#InterpolationLinear2_html').text($js('#InterpolationLinear2_result').outerHTML()).unindent({ignore:1});</script>
+	<script>$js('#InterpolationLinear2_src').text($js('#InterpolationLinear2_js').outerHTML()).unindent({ignore:1});</script>
+
+
+
+<!--
 //               #                                                    ######                      
 //   #  ####    # #   #####   ####   ####  #      #    # ##### ###### #     #   ##   ##### #    # 
 //   # #       #   #  #    # #      #    # #      #    #   #   #      #     #  #  #    #   #    # 
