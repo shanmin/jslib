@@ -2350,6 +2350,16 @@ true</pre>
 	<p>本方法自0.0.0版本开始支持。</p>
 
 
+<!--
+//                                     #     # ####### #     # #       
+//    ####  #    # ##### ###### #####  #     #    #    ##   ## #       
+//   #    # #    #   #   #      #    # #     #    #    # # # # #       
+//   #    # #    #   #   #####  #    # #######    #    #  #  # #       
+//   #    # #    #   #   #      #####  #     #    #    #     # #       
+//   #    # #    #   #   #      #   #  #     #    #    #     # #       
+//    ####   ####    #   ###### #    # #     #    #    #     # ####### 
+//                                                                     
+-->
 	<a name="outerHTML"></a>
 	<h1>$js().outerHTML</h1>
 	<h2>定义</h2>
@@ -2390,7 +2400,16 @@ true</pre>
 	<script>$js('#outerHTML_show_html').text($js('#outerHTML_demo_html').outerHTML()).unindent({ignore:1});</script>
 
 
-
+<!--
+//                                     #######                     
+//    ####  #    # ##### ###### #####     #    ###### #    # ##### 
+//   #    # #    #   #   #      #    #    #    #       #  #    #   
+//   #    # #    #   #   #####  #    #    #    #####    ##     #   
+//   #    # #    #   #   #      #####     #    #        ##     #   
+//   #    # #    #   #   #      #   #     #    #       #  #    #   
+//    ####   ####    #   ###### #    #    #    ###### #    #   #   
+//                                                                 
+-->
 	<a name="outerText"></a>
 	<h1>$js().outerText</h1>
 	<h2>定义</h2>
@@ -2432,7 +2451,16 @@ true</pre>
 	<script>$js('#outerText_show_html').text($js('#outerText_demo_html').outerHTML()).unindent({ignore:1});</script>
 
 
-
+<!--
+//                                            
+//   #####    ##   #####  ###### #    # ##### 
+//   #    #  #  #  #    # #      ##   #   #   
+//   #    # #    # #    # #####  # #  #   #   
+//   #####  ###### #####  #      #  # #   #   
+//   #      #    # #   #  #      #   ##   #   
+//   #      #    # #    # ###### #    #   #   
+//                                            
+-->
 	<a name="parent"></a>
 	<h1>$js().parent()</h1>
 	<h2>定义</h2>
@@ -2468,6 +2496,45 @@ true</pre>
 	<h2>版本</h2>
 	<p>本方法自0.0.1版本开始支持。</p>
 
+
+
+<!--
+//                                            #######                                          
+//   #####    ##   #####  ###### #    # ##### #       #      ###### #    # ###### #    # ##### 
+//   #    #  #  #  #    # #      ##   #   #   #       #      #      ##  ## #      ##   #   #   
+//   #    # #    # #    # #####  # #  #   #   #####   #      #####  # ## # #####  # #  #   #   
+//   #####  ###### #####  #      #  # #   #   #       #      #      #    # #      #  # #   #   
+//   #      #    # #   #  #      #   ##   #   #       #      #      #    # #      #   ##   #   
+//   #      #    # #    # ###### #    #   #   ####### ###### ###### #    # ###### #    #   #   
+//                                                                                             
+-->
+	<a name="parentElement"></a>
+	<h1>$js().parentElement</h1>
+	<h2>定义</h2>
+	<p>$js().parentElement : HtmlElement</p>
+	<h2>说明</h2>
+	<p>获取当前匹配节点列表中第一个节点的父节点。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre>&lt;div id="a1">
+	&lt;div id="a2">a2 text&lt;/div>
+	&lt;div id="a3">a3 text&lt;/div>
+&lt;/div></pre>
+	</fieldset>
+	<fieldset>
+		<legend>JavaScript</legend>
+		<pre>console.log($js('#a2').parentElement);</pre>
+	</fieldset>
+	<fieldset>
+		<legend>输出示例</legend>
+		<pre>&lt;div id="a1">
+	&lt;div id="a2">a2 text&lt;/div>
+	&lt;div id="a3">a3 text&lt;/div>
+&lt;/div></pre>
+	</fieldset>
+	<h2>版本</h2>
+	<p>本方法自0.1.8版本开始支持。</p>
 
 
 <!--
@@ -3757,6 +3824,7 @@ a3 text</pre>
 		node_scroll:function(node),		//显示区域滚动到指定节点
 		radio_get:function(),			//获取RADIO选择的数据，返回示例：{i:37,t:'筛分试验',u:'t0302/'}
 		selected_get:function(),		//获取设置了selected_class类选择的数据，返回示例：{i:37,t:'筛分试验',u:'t0302/'}
+		selected_claer:function(),		//清除设置了selected_class类选择的数据
 	}
 	</pre>
 	<p>此方法同时存在静态方法和实例方法，使用时请根据具体场景选择。需要注意的是，实例方法会自动忽略opts.parent参数。</p>
@@ -3804,6 +3872,8 @@ a3 text</pre>
 	</fieldset>
 	<h2>版本</h2>
 	<p>本方法自0.1.5版本开始支持。</p>
+	<p>本方法自0.2.5版本开始支持参数radio、selected_class。</p>
+	<p>本方法自0.2.6版本开始支持返回对象selected_clear方法。</p>
 	<script>
 		$js('#tree_show_js').text($js('#tree_demo_js').outerHTML()).unindent({ignore:1});
 	</script>
