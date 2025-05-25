@@ -1476,12 +1476,13 @@
 		</tr>
 		<tr>
 			<td>mode</td>
-			<td>[可选]转换模式，0标准/1首字母/2无音调。默认：0。</td>
+			<td>[可选]转换模式，0标准/1首字母/2无音调/10姓氏模式。默认：0。</td>
 		</tr>
 	</table>
 	<h2>说明</h2>
 	<p>本方法是把指定字符串转换为拼音。返回值为每个汉字的拼音数组。</p>
 	<p>mode=1时，返回值为字符串。</p>
+	<p>mode=10时，读音优先姓氏读音。</p>
 	<h2>示例</h2>
 	<fieldset>
 		<legend>HTML</legend>
@@ -1504,10 +1505,13 @@
 				$js('#hanzi2pinyin_demo_1').text($js.hanzi2pinyin('学习中文',1));
 				$js('#hanzi2pinyin_demo_2').text(JSON.stringify($js.hanzi2pinyin('学习中文',2)));
 			</script>
+			普通模式转换“单双”：<script>document.write($js.hanzi2pinyin('单双'));</script><br>
+			姓氏模式转换“单双”：<script>document.write($js.hanzi2pinyin('单双',10));</script>
 		</div>
 	</fieldset>
 	<h2>版本</h2>
 	<p>本属性自0.1.16版本开始支持。需注意，本方法需要jslib.zh.min.js文件。</p>
+	<p>本属性自0.2.7版本开始支持mode=10参数。</p>
 	<script>$js('#hanzi2pinyin_show').text($js('#hanzi2pinyin_demo').outerHTML()).unindent({ignore:1});</script>
 
 
