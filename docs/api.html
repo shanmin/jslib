@@ -1410,6 +1410,171 @@
 
 
 
+<!--
+//                  #####   #####   #####    ###                                             #####  
+//    ####  #####  #     # #     # #     #  #   #   ####  ###### #      ######  ####  ##### #     # 
+//   #    # #    #       #       # #       #     # #      #      #      #      #    #   #         # 
+//   #      #####   #####   #####  ######  #     #  ####  #####  #      #####  #        #    #####  
+//   #  ### #    # #       #       #     # #     #      # #      #      #      #        #         # 
+//   #    # #    # #       #       #     #  #   #  #    # #      #      #      #    #   #   #     # 
+//    ####  #####  ####### #######  #####    ###    ####  ###### ###### ######  ####    #    #####  
+//                                                                                                  
+-->
+	<a name="gb2260select3"></a>
+	<h1>$js.gb2260select3</h1>
+	<h2>定义</h2>
+	<p>$js.gb2260select3(opts) : HtmlElement</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>opts.name</td>
+			<td>[可选]节点名称。</td>
+		</tr>
+		<tr>
+			<td>opts.value</td>
+			<td>[可选]默认值。</td>
+		</tr>
+	</table>
+	<h2>返回值</h2>
+	<div>返回最后一个HtmlElement节点，其中自定义方法：
+		<pre>{
+	show:function(){},	//显示选择区域
+	hide:function(){},	//隐藏显示区域
+}</pre>
+	</div>
+	<h2>说明</h2>
+	<p>这个方法用于三级地区选择。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre id="gb2260select3_demo_html"></pre>
+	</fieldset>
+	<h2>演示</h2>
+	<fieldset>
+		<legend>演示区域</legend>
+			<div id="gb2260select3_demo">
+				<table border="1">
+					<tr>
+						<td>130123</td>
+						<td>
+							<script>
+								$js.gb2260select3({value:'130123'});
+							</script>
+						</td>
+					</tr>
+				</table>
+			</div>
+	</fieldset>
+	<h2>版本</h2>
+	<p>本方法自0.2.8版本开始支持。本方法需要jslib.gb.min.js文件支持。</p>
+	<script>$js('#gb2260select3_demo_html').text($js('#gb2260select3_demo').outerHTML()).unindent({ignore:1});</script>
+
+
+<!--
+//                  #####   #####  #######  #####  
+//    ####  #####  #     # #     # #       #     # 
+//   #    # #    #       # #       #       #     # 
+//   #      #####   #####  ######  ######   ###### 
+//   #  ### #    # #       #     #       #       # 
+//   #    # #    # #       #     # #     # #     # 
+//    ####  #####  #######  #####   #####   #####  
+//                                                 
+-->
+	<a name="gb2659"></a>
+	<h1>$js.gb2659</h1>
+	<h2>定义</h2>
+	<p>$js.gb2659(code,opts) : String</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>code</td>
+			<td>[可选]国家代码。</td>
+		</tr>
+	</table>
+	<h2>返回值</h2>
+	<div>返回指定国家代码对应国家的简称。</div>
+	<h2>说明</h2>
+	<p>这个方法用于使用国家代码获取国家名称信息。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre id="gb2659_demo_html"></pre>
+	</fieldset>
+	<h2>演示</h2>
+	<fieldset>
+		<legend>演示区域</legend>
+			<div id="gb2659_demo">
+				<table border="1">
+					<tr>
+						<td>CN</td>
+						<td><script>document.write($js.gb2659('CN'));</script></td>
+					</tr>
+				</table>
+			</div>
+	</fieldset>
+	<h2>版本</h2>
+	<p>本方法自0.2.8版本开始支持。本方法需要jslib.gb.min.js文件支持。</p>
+	<script>$js('#gb2659_demo_html').text($js('#gb2659_demo').outerHTML()).unindent({ignore:1});</script>
+
+
+
+<!--
+//                  #####   #####  #######  #####                                           
+//    ####  #####  #     # #     # #       #     #  ####  ###### #      ######  ####  ##### 
+//   #    # #    #       # #       #       #     # #      #      #      #      #    #   #   
+//   #      #####   #####  ######  ######   ######  ####  #####  #      #####  #        #   
+//   #  ### #    # #       #     #       #       #      # #      #      #      #        #   
+//   #    # #    # #       #     # #     # #     # #    # #      #      #      #    #   #   
+//    ####  #####  #######  #####   #####   #####   ####  ###### ###### ######  ####    #   
+//                                                                                          
+-->
+	<a name="gb2659select"></a>
+	<h1>$js.gb2659select</h1>
+	<h2>定义</h2>
+	<p>$js.gb2659select(opts) : HtmlElement</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>opts.name</td>
+			<td>[可选]节点名称。</td>
+		</tr>
+		<tr>
+			<td>opts.value</td>
+			<td>[可选]默认值。</td>
+		</tr>
+	</table>
+	<h2>返回值</h2>
+	<div>返回最后一个HtmlElement节点。</div>
+	<h2>说明</h2>
+	<p>这个方法用于国家选择。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre id="gb2659select_demo_html"></pre>
+	</fieldset>
+	<h2>演示</h2>
+	<fieldset>
+		<legend>演示区域</legend>
+			<div id="gb2659select_demo">
+				<table border="1">
+					<tr>
+						<td>国家选择</td>
+						<td>
+							<script>
+								$js.gb2659select({value:'CN',
+									onselected:function(v){$js.topmsg({msg:`onselected(${v})`})},
+									onselected2:function(v){$js.topmsg({msg:`onselected2(${JSON.stringify(v)})`})},
+									placeholder:'任意输入'});
+							</script>
+						</td>
+					</tr>
+				</table>
+			</div>
+	</fieldset>
+	<h2>版本</h2>
+	<p>本方法自0.2.8版本开始支持。本方法需要jslib.gb.min.js文件支持。</p>
+	<script>$js('#gb2659select_demo_html').text($js('#gb2659select_demo').outerHTML()).unindent({ignore:1});</script>
+
 
 <!--
 //                       
@@ -3976,6 +4141,10 @@ a3 text</pre>
 		</tr>
 		<tr>
 			<td>opts.el_value_name</td>
+			<td>[可选]对应的值节点名称。【此参数不推荐使用，请尽量使用opts.name替代本参数。如果两个同时设置则以opts.name为准】</td>
+		</tr>
+		<tr>
+			<td>opts.name</td>
 			<td>[可选]对应的值节点名称。</td>
 		</tr>
 		<tr>
@@ -3983,8 +4152,12 @@ a3 text</pre>
 			<td>[可选]设置未查找到数据项时的提示文本，如果不设置则显示默认文本。</td>
 		</tr>
 		<tr>
-			<td>opts.onselected</td>
-			<td>[可选]选中数据后的回调。</td>
+			<td>opts.onselected=function(data)</td>
+			<td>[可选]选中数据后的回调。回调参数data为选中的数据值。</td>
+		</tr>
+		<tr>
+			<td>opts.onselected2=function(data)</td>
+			<td>[可选]选中或设置数据后的回调。回调参数data为选中的数据条目。</td>
 		</tr>
 		<tr>
 			<td>opts.placeholder</td>
@@ -4011,6 +4184,14 @@ a3 text</pre>
 			<td>[可选]成对的默认值。</td>
 		</tr>
 	</table>
+	<h2>返回</h2>
+	<div>本方法返回opts.el_value节点。节点上附加方法：
+<pre>{
+	setvalue:function(value),	//设置值，示例：obj.setvalue(10);
+	setvalue2:function(value),	//设置显示值，示例：obj.setvalue2({id:12,text:'显示文本'});
+	el_value:HtmlElement,		//值节点
+}</pre>
+	</div>
 	<h2>说明</h2>
 	<p>显示一个文本选择框。</p>
 	<p>如果需要编辑文本框CSS样式，可直接设置.jslib_tselect样式即可。</p>
@@ -4048,6 +4229,7 @@ a3 text</pre>
 	</fieldset>
 	<h2>版本</h2>
 	<p>本方法自0.1.35版本开始支持。</p>
+	<p>本方法自0.2.8版本开始支持opts.name属性。</p>
 	<script>$js('#tselect_show1').text($js('#tselect_css').outerHTML()).unindent({ignore:1});</script>
 	<script>$js('#tselect_show2').text($js('#tselect_js').outerHTML()).unindent({ignore:1});</script>
 
