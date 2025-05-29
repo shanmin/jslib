@@ -1641,7 +1641,7 @@
 		</tr>
 		<tr>
 			<td>mode</td>
-			<td>[可选]转换模式，0标准/1首字母/2无音调/10姓氏模式。默认：0。</td>
+			<td>[可选]转换模式，0标准/1首字母/2无音调/10姓氏标准/11姓氏首字母/2姓氏无音调。默认：0。</td>
 		</tr>
 	</table>
 	<h2>说明</h2>
@@ -1674,11 +1674,66 @@
 			姓氏模式转换“单双”：<script>document.write($js.hanzi2pinyin('单双',10));</script>
 		</div>
 	</fieldset>
+	<h2>关联</h2>
+	<p>
+		<a href="api.html#$js.pinyin2shengdiao">$js.pinyin2shengdiao</a> &nbsp;
+	</p>
 	<h2>版本</h2>
 	<p>本属性自0.1.16版本开始支持。需注意，本方法需要jslib.zh.min.js文件。</p>
 	<p>本属性自0.2.7版本开始支持mode=10参数。</p>
+	<p>本属性自0.2.9版本开始支持mode=11/12参数。</p>
 	<script>$js('#hanzi2pinyin_show').text($js('#hanzi2pinyin_demo').outerHTML()).unindent({ignore:1});</script>
 
+
+
+<!--
+//                                   #####                                                            
+//   #####  # #    # #   # # #    # #     #  ####  #    # ###### #    #  ####  #####  #   ##    ####  
+//   #    # # ##   #  # #  # ##   #       # #      #    # #      ##   # #    # #    # #  #  #  #    # 
+//   #    # # # #  #   #   # # #  #  #####   ####  ###### #####  # #  # #      #    # # #    # #    # 
+//   #####  # #  # #   #   # #  # # #            # #    # #      #  # # #  ### #    # # ###### #    # 
+//   #      # #   ##   #   # #   ## #       #    # #    # #      #   ## #    # #    # # #    # #    # 
+//   #      # #    #   #   # #    # #######  ####  #    # ###### #    #  ####  #####  # #    #  ####  
+//                                                                                                    
+-->
+	<a name="pinyin2shengdiao"></a>
+	<h1>$js.pinyin2shengdiao</h1>
+	<h2>定义</h2>
+	<p>$js.pinyin2shengdiao(str) : String</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>str</td>
+			<td>[必须]要转换的字符串。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>本方法是把指定字符串中标的声调转换为声调符号。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre id="pinyin2shengdiao_show"></pre>
+	</fieldset>
+	<h2>演示</h2>
+	<fieldset>
+		<legend>演示区域</legend>
+		<div id="pinyin2shengdiao_demo">
+			<table border="1">
+				<tr>
+					<td>中国</td>
+					<td>zhong1 guo1</td>
+					<td><script>document.write($js.pinyin2shengdiao('zhong1 guo2'))</script></td>
+				</tr>
+			</table>
+		</div>
+	</fieldset>
+	<h2>关联</h2>
+	<p>
+		<a href="api.html#$js.hanzi2pinyin">$js.hanzi2pinyin</a> &nbsp;
+	</p>
+	<h2>版本</h2>
+	<p>本属性自0.2.9版本开始支持。需注意，本方法需要jslib.zh.min.js文件。</p>
+	<script>$js('#pinyin2shengdiao_show').text($js('#pinyin2shengdiao_demo').outerHTML()).unindent({ignore:1});</script>
 
 
 <!--
@@ -4117,7 +4172,7 @@ a3 text</pre>
 		</tr>
 		<tr>
 			<td>opts.data</td>
-			<td>[可选]带选择数据，数据格式：[{'id'=>数据ID,'text'=>'显示数据','search'=>'搜索数据'},{...}]</td>
+			<td>[可选]带选择数据，数据格式：[{id:'数据ID',text:'选中后显示文本',show:'选择时显示文本',search:'搜索数据'},{...}]</td>
 		</tr>
 		<tr>
 			<td>opts.url</td>
