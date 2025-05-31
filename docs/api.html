@@ -119,7 +119,10 @@
 &lt;/div></pre>
 	</fieldset>
 	<h2>关联</h2>
-	<p><a href="api.html#removeClass">removeClass</a><br></p>
+	<p>
+		<a href="api.html#hasClass">hasClass</a> &nbsp;
+		<a href="api.html#removeClass">removeClass</a> &nbsp;
+	</p>
 	<h2>版本</h2>
 	<p>本方法自0.0.0版本开始支持。</p>
 
@@ -492,6 +495,16 @@
 	<p>本方法自0.0.0版本开始支持。</p>
 
 
+<!--
+//                                                   
+//    ####  #       ####   ####  ######  ####  ##### 
+//   #    # #      #    # #      #      #        #   
+//   #      #      #    #  ####  #####   ####    #   
+//   #      #      #    #      # #           #   #   
+//   #    # #      #    # #    # #      #    #   #   
+//    ####  ######  ####   ####  ######  ####    #   
+//                                                   
+-->
 	<a name="closest"></a>
 	<h1>$js().closest</h1>
 	<h2>定义</h2>
@@ -1684,6 +1697,51 @@
 	<p>本属性自0.2.9版本开始支持mode=11/12参数。</p>
 	<script>$js('#hanzi2pinyin_show').text($js('#hanzi2pinyin_demo').outerHTML()).unindent({ignore:1});</script>
 
+
+
+<!--
+//                         #####                              
+//   #    #   ##    ####  #     # #        ##    ####   ####  
+//   #    #  #  #  #      #       #       #  #  #      #      
+//   ###### #    #  ####  #       #      #    #  ####   ####  
+//   #    # ######      # #       #      ######      #      # 
+//   #    # #    # #    # #     # #      #    # #    # #    # 
+//   #    # #    #  ####   #####  ###### #    #  ####   ####  
+//                                                            
+-->
+	<a name="hasClass"></a>
+	<h1>$js().hasClass</h1>
+	<h2>定义</h2>
+	<p>$js().hasClass(classname) : Boolean</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>classname</td>
+			<td>[必须]指定的CSS类名。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>判断当前匹配节点中是否存在指定的CSS类。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre>&lt;div id="a1">
+	&lt;div id="a2" class="css1">a2 text&lt;/div>
+	&lt;div id="a3" class="css2">a3 text&lt;/div>
+&lt;/div></pre>
+	</fieldset>
+	<fieldset>
+		<legend>JavaScript</legend>
+		<pre>$js('#a2').hasClass('css1');	//返回true
+$js('#a2').hasClass('css1');	//返回false</pre>
+	</fieldset>
+	<h2>关联</h2>
+	<p>
+		<a href="api.html#addClass">addClass</a> &nbsp;
+		<a href="api.html#removeClass">removeClass</a> &nbsp;
+	</p>
+	<h2>版本</h2>
+	<p>本方法自0.2.10版本开始支持。</p>
 
 
 <!--
@@ -3303,7 +3361,10 @@ true</pre>
 &lt;/div></pre>
 	</fieldset>
 	<h2>关联</h2>
-	<p><a href="api.html#addClass">addClass</a><br></p>
+	<p>
+		<a href="api.html#addClass">addClass</a> &nbsp;
+		<a href="api.html#hasClass">hasClass</a> &nbsp;
+	</p>
 	<h2>版本</h2>
 	<p>本方法自0.0.0版本开始支持。</p>
 
