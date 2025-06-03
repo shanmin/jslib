@@ -231,8 +231,11 @@
 			<td>[可选]周期性请求的时间间隔，单位：ms。注意：这个时间间隔是按照上次访问并处理后开始计时的。</td>
 		</tr>
 		<tr>
-			<td>opts.success</td>
-			<td>[可选]请求成功后的回调的函数。函数定义function(data,status,xhr)，data为返回的数据，status为HTTP请求状态码，xhr为访问组件。</td>
+			<td>opts.success=function()|String</td>
+			<td>[可选]请求成功后的回调的函数或后续操作符。<br>
+			回调函数定义：function(data,status,xhr)，data为返回的数据，status为HTTP请求状态码，xhr为访问组件。<br>
+			如果设置字符串"reload"，则成功访问后会自动重新加载当前页。
+			</td>
 		</tr>
 		<tr>
 			<td>opts.error</td>
@@ -252,6 +255,7 @@
 	</fieldset>
 	<h2>版本</h2>
 	<p>本方法自0.1.0版本开始支持。</p>
+	<p>本方法自0.2.11版本开始支持success=reload参数。</p>
 
 
 
