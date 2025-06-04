@@ -3153,6 +3153,7 @@ true</pre>
 		points_miny(),		//获取points中最小y
 		calc:function(x){},	//内部调用了$js.regressionCalc，并且此计算点也会自动增加到points展示点列表中
 		calcY:function(y){},	//内部调用了$js.regressionCalcY，并且此计算点也会自动增加到points展示点列表中
+		calcMaxY:function(){},	//在当前数值中x范围内，求最大y值并返回[x,y]结果。
 	}</pre>
 	<p>这个方法可以独立使用，也可以配合echarts使用。像points就是专门为echarts显示准备的。</p>
 	<h2>示例</h2>
@@ -3188,7 +3189,9 @@ true</pre>
 					txt+="    points:[\n";
 					for(let p of result['points'])
 						txt+='               '+JSON.stringify(p)+"\n";
-					txt+="           ]";
+					txt+="           ]\n";
+					let rr=result.calcMaxY();
+					txt+=`  calcMaxY:[ ${rr.x} , ${rr.y} ]\n`;
 					$js('#regressionPolynomial_result').text(txt);
 
 					//CHARTS
@@ -3219,6 +3222,7 @@ true</pre>
 	<p>本方法自0.1.3版本开始支持。</p>
 	<p>自0.1.4版本开始，调用calc或calcY时，此计算点会自动添加到points数组中。这个计算点自动增加到points中，是因为在echarts展示时，本身points是一些关键点数据，而指定点可能会因为误差造成展示点显示与实际值出现错位，造成计算的点不能和points连线重合。</p>
 	<p>自0.1.5版本开始，返回值新增points_minx()和points_miny()方法。</li>
+	<p>自0.2.12版本开始，返回值新增calcMaxY方法。</li>
 	<script>
 		$js('#regressionPolynomial_show_html').text($js('#regressionPolynomial_demo_html').outerHTML()).unindent({ignore:1});
 
