@@ -17,6 +17,14 @@
 <body>
 	<h1>修改记录</h1>
 	<ul>
+		<li>0.2.13</li>
+		<ol>
+			<li>修复$js.tselect在设置了参数opts.selected=true时，调用setvalue设置不存在值时的操作方式。原操作会写入设置的值，现改为不设置。因为opts.selected=true时只能接受存在的值。</li>
+			<li>$js.gb2260select3新增setcode方法。</li>
+			<li>$js.gb2260参数新增支持2、4、6位代码。</li>
+			<li>新增$js.gb2260new方法。</li>
+		</ol>
+
 		<li>0.2.12</li>
 		<ol>
 			<li>修复$js.regressionPolynomial.calc中calcY的一个BUG。</li>

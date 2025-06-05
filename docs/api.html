@@ -1391,12 +1391,12 @@
 	<a name="gb2260"></a>
 	<h1>$js.gb2260</h1>
 	<h2>定义</h2>
-	<p>$js.gb2260(n6) : String</p>
+	<p>$js.gb2260(code) : String</p>
 	<h2>参数</h2>
 	<table>
 		<tr>
-			<td>n6</td>
-			<td>[必须]需要转换的GB2260代码。</td>
+			<td>code</td>
+			<td>[必须]需要转换的GB2260代码。支持2位、4位、6位代码。</td>
 		</tr>
 	</table>
 	<h2>说明</h2>
@@ -1414,16 +1414,90 @@
 					<tr>
 						<td>130123</td>
 						<td id="gb2260_demo_1"></td>
+						<td id="gb2260_demo_2"></td>
+						<td id="gb2260_demo_3"></td>
+						<td id="gb2260_demo_4"></td>
+						<td id="gb2260_demo_5"></td>
+						<td id="gb2260_demo_6"></td>
 					</tr>
 				</table>
 				<script>
-					$js('#gb2260_demo_1').text($js.gb2260('130123'));
+					$js('#gb2260_demo_1').text($js.gb2260('13'));
+					$js('#gb2260_demo_2').text($js.gb2260('1300'));
+					$js('#gb2260_demo_3').text($js.gb2260('130000'));
+					$js('#gb2260_demo_4').text($js.gb2260('1301'));
+					$js('#gb2260_demo_5').text($js.gb2260('130100'));
+					$js('#gb2260_demo_6').text($js.gb2260('130123'));
 				</script>
 			</div>
 	</fieldset>
 	<h2>版本</h2>
 	<p>本方法自0.1.18版本开始支持。本方法需要jslib.gb.min.js文件支持。</p>
+	<p>本方法自0.2.13版本开始参数支持2、4、6位代码。</p>
 	<script>$js('#gb2260_demo_html').text($js('#gb2260_demo').outerHTML()).unindent({ignore:1});</script>
+
+
+
+<!--
+//                  #####   #####   #####    ###                        
+//    ####  #####  #     # #     # #     #  #   #  #    # ###### #    # 
+//   #    # #    #       #       # #       #     # ##   # #      #    # 
+//   #      #####   #####   #####  ######  #     # # #  # #####  #    # 
+//   #  ### #    # #       #       #     # #     # #  # # #      # ## # 
+//   #    # #    # #       #       #     #  #   #  #   ## #      ##  ## 
+//    ####  #####  ####### #######  #####    ###   #    # ###### #    # 
+// 
+-->
+	<a name="gb2260new"></a>
+	<h1>$js.gb2260new</h1>
+	<h2>定义</h2>
+	<p>$js.gb2260new(code) : String</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>code</td>
+			<td>[必须]需要查找的GB2260代码。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>这个方法用于判断GB2260地区是否已撤销，如果已撤销则返回新的代码。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre id="gb2260new_demo_html"></pre>
+	</fieldset>
+	<h2>演示</h2>
+	<fieldset>
+		<legend>演示区域</legend>
+			<div id="gb2260new_demo">
+				<table border="1">
+					<tr>
+						<td></td>
+						<td>110104</td>
+						<td>110105</td>
+					</tr>
+					<tr>
+						<td>原始地区名称</td>
+						<td id="gb2260new_demo_a1"></td>
+						<td id="gb2260new_demo_a2"></td>
+					</tr>
+					<tr>
+						<td>查新地区名称</td>
+						<td id="gb2260new_demo_b1"></td>
+						<td id="gb2260new_demo_b2"></td>
+					</tr>
+				</table>
+				<script>
+					$js('#gb2260new_demo_a1').text($js.gb2260('110104'));
+					$js('#gb2260new_demo_a2').text($js.gb2260('110105'));
+					$js('#gb2260new_demo_b1').text($js.gb2260($js.gb2260new('110104')));
+					$js('#gb2260new_demo_b2').text($js.gb2260($js.gb2260new('110105')));
+				</script>
+			</div>
+	</fieldset>
+	<h2>版本</h2>
+	<p>本方法自0.2.13版本开始支持。本方法需要jslib.gb.min.js文件支持。</p>
+	<script>$js('#gb2260new_demo_html').text($js('#gb2260new_demo').outerHTML()).unindent({ignore:1});</script>
 
 
 
@@ -1457,6 +1531,7 @@
 		<pre>{
 	show:function(){},	//显示选择区域
 	hide:function(){},	//隐藏显示区域
+	setcode(code),	//设置地区代码
 }</pre>
 	</div>
 	<h2>说明</h2>
@@ -1469,21 +1544,25 @@
 	<h2>演示</h2>
 	<fieldset>
 		<legend>演示区域</legend>
-			<div id="gb2260select3_demo">
-				<table border="1">
-					<tr>
-						<td>130123</td>
-						<td>
-							<script>
-								$js.gb2260select3({value:'130123'});
-							</script>
-						</td>
-					</tr>
-				</table>
-			</div>
+		<div id="gb2260select3_demo">
+			<table border="1">
+				<tr>
+					<td>默认130123</td>
+					<td>
+						<script>
+							let gb2260select3_obj=$js.gb2260select3({value:'130123'});
+						</script>
+					</td>
+				</tr>
+			</table>
+			<button onclick="gb2260select3_obj.setcode('110105');">设置为110105</button>
+			<button onclick="gb2260select3_obj.setcode('140502');">设置为140502</button>
+			<button onclick="gb2260select3_obj.setcode('123456');">设置为123456（这个是不存在的）</button>
+		</div>
 	</fieldset>
 	<h2>版本</h2>
 	<p>本方法自0.2.8版本开始支持。本方法需要jslib.gb.min.js文件支持。</p>
+	<p>本方法自0.2.13版本开始支持setcode方法。</p>
 	<script>$js('#gb2260select3_demo_html').text($js('#gb2260select3_demo').outerHTML()).unindent({ignore:1});</script>
 
 
@@ -4311,6 +4390,7 @@ a3 text</pre>
 	<h2>返回</h2>
 	<div>本方法返回opts.el_value节点。节点上附加方法：
 <pre>{
+	setdate(new_data),			//设置新的显示数据。注意，设置后会覆盖之前的数据
 	setvalue:function(value),	//设置值，示例：obj.setvalue(10);
 	setvalue2:function(value),	//设置显示值，示例：obj.setvalue2({id:12,text:'显示文本'});
 	el_value:HtmlElement,		//值节点
