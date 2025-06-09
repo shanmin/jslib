@@ -4962,6 +4962,18 @@ a3 text</pre>
 			<td>[可选]当onclose事件发生时触发。如果处理函数返回true，则不关闭当前窗口。</td>
 		</tr>
 		<tr>
+			<td>opts.onmove=function(x,y){..}</td>
+			<td>[可选]窗口移动时触发。</td>
+		</tr>
+		<tr>
+			<td>opts.onresize=function(w,h){..}</td>
+			<td>[可选]窗口改变大小时触发。</td>
+		</tr>
+		<tr>
+			<td>opts.onshow=function(win){..}</td>
+			<td>[可选]窗口显示时触发。</td>
+		</tr>
+		<tr>
 			<td>opts.data=object</td>
 			<td>[可选]用户自定义数据。</td>
 		</tr>
@@ -4991,10 +5003,14 @@ a3 text</pre>
 	</table>
 	<h2>说明</h2>
 	<p>本方法执行后，返回一个HtmlElement元素，内置扩展方法：</p>
-	<p>win.setZIndex(z)	//设置窗口z-index次序</p>
-	<p>win.show()			//显示窗口</p>
-	<p>win.showtop(w)		//显示指定窗口为前置窗口，如果传递null则显示当前zindex最大的窗口为前置窗口。</p>
-	<p></p>
+	<pre>
+	{
+		setZIndex(z),	//设置窗口z-index次序
+		show(),			//显示窗口
+		showtop(w),		//显示指定窗口为前置窗口，如果传递null则显示当前zindex最大的窗口为前置窗口。
+		body,	//如果参数设置了html，则返回这个body是包含html信息的节点。未使用html参数时，无此值。
+	}
+	</pre>
 	<p>当前$js.window生成的是一个类似Windows 11的窗口。	默认情况下，窗口的最小大小为240px*160px，最大显示尺寸为95%*95%。</p>
 	<p>在窗口内，调用 window.frameElement.close(); 来关闭窗口。如果调用时增加参数true则关闭窗口时不调用onclose事件，例如：</p>
 	<pre>
@@ -5038,12 +5054,26 @@ a3 text</pre>
 			<input type="button" value="宽800高600窗口显示" onclick="$js.window({url:'api.html',width:800,height:600})">
 			<input type="button" value="显示一个非模式窗口" onclick="$js.window({url:'api.html',modal:false})">
 			<input type="button" value="显示一个非模式窗口(居中)" onclick="$js.window({url:'api.html',modal:false,center:true})">
-			<input type="button" value="在顶层显示一个模式窗口(居中)" onclick="$js.window({url:'home.html',parent:top})">
-			<input type="button" value="在顶层显示一个非内模式窗口(居中)" onclick="$js.window({url:'home.html',modal:false,center:true,parent:top})">
+			<input type="button" value="在顶层显示一个模式窗口(居中)" onclick="$js.window({url:'api.html',parent:top})">
+			<input type="button" value="在顶层显示一个非内模式窗口(居中)" onclick="$js.window({url:'api.html',modal:false,center:true,parent:top})">
+			<input type="button" value="onmove测试)" onclick="window_demo_js()">
+			<script>
+				function window_demo_js()
+				{
+					$js.window({url:'home.html',
+						onmove:function(x,y)
+						{
+							window_demo_result.innerHTML=`onmove(${x},${y})`;
+						}
+					});
+				}
+			</script>
 		</div>
+		<div id="window_demo_result"></div>
 	</fieldset>
 	<h2>版本</h2>
 	<p>本方法自0.1.10版本开始支持。</p>
+	<p>本方法自0.2.14版本开始支持参数onmove。</p>
 	<script>$js('#window_show_html').text($js('#window_demo_html').outerHTML()).unindent({ignore:1});</script>
 
 

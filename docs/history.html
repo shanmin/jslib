@@ -17,6 +17,14 @@
 <body>
 	<h1>修改记录</h1>
 	<ul>
+		<li>0.2.14</li>
+		<ol>
+			<li>修复$js.window中使用html参数时，显示区域高度超出窗口的BUG。</li>
+			<li>修复$js.window中使用html参数时，返回值增加body。</li>
+			<li>$js.window新增参数onmove。</li>
+			<li>$js.window新增参数onshow。</li>
+		</ol>
+
 		<li>0.2.13</li>
 		<ol>
 			<li>修复$js.tselect在设置了参数opts.selected=true时，调用setvalue设置不存在值时的操作方式。原操作会写入设置的值，现改为不设置。因为opts.selected=true时只能接受存在的值。</li>
