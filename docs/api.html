@@ -224,7 +224,14 @@
 		</tr>
 		<tr>
 			<td>opts.dataType</td>
-			<td>[可选]返回数据类型，可选参数：json。设置了json类型，则回调函数success中的data数据类型会变为解析json后的对象，如果解析失败则会调用error回调函数。</td>
+			<td>[可选]返回数据类型，可选参数：json。<br>
+				设置“json”类型，则回调函数success中的data数据类型会变为解析json后的对象，如果解析失败则会调用error回调函数。<br>
+				设置“arraybuffer”类型，则回调中的data为ArrayBuffer类型。
+			</td>
+		</tr>
+		<tr>
+			<td>opts.post</td>
+			<td>[可选]发送的POST信息。如果传递的是一个Object类型，则会自动转换为字符串。</td>
 		</tr>
 		<tr>
 			<td>opts.interval</td>
@@ -4974,6 +4981,10 @@ a3 text</pre>
 			<td>[可选]窗口显示时触发。</td>
 		</tr>
 		<tr>
+			<td>opts.onxywh=function(x,y,w,h){..}</td>
+			<td>[可选]窗口调整后触发（注：一旦进入移动或resize状态，即使数据没有改变也会触发）。</td>
+		</tr>
+		<tr>
 			<td>opts.data=object</td>
 			<td>[可选]用户自定义数据。</td>
 		</tr>
@@ -5073,7 +5084,8 @@ a3 text</pre>
 	</fieldset>
 	<h2>版本</h2>
 	<p>本方法自0.1.10版本开始支持。</p>
-	<p>本方法自0.2.14版本开始支持参数onmove。</p>
+	<p>本方法自0.2.14版本开始支持参数onmove、onresize。</p>
+	<p>本方法自0.2.16版本开始支持参数onxywh。</p>
 	<script>$js('#window_show_html').text($js('#window_demo_html').outerHTML()).unindent({ignore:1});</script>
 
 
