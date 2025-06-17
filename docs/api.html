@@ -5017,7 +5017,7 @@ a3 text</pre>
 	<pre>
 	{
 		setZIndex(z),	//设置窗口z-index次序
-		show(),			//显示窗口
+		show(url),			//显示窗口。url未传递则显示当前页面内容，传递则显示新传递的url页面。
 		showtop(w),		//显示指定窗口为前置窗口，如果传递null则显示当前zindex最大的窗口为前置窗口。
 		body,	//如果参数设置了html，则返回这个body是包含html信息的节点。未使用html参数时，无此值。
 	}
@@ -5086,6 +5086,7 @@ a3 text</pre>
 	<p>本方法自0.1.10版本开始支持。</p>
 	<p>本方法自0.2.14版本开始支持参数onmove、onresize。</p>
 	<p>本方法自0.2.16版本开始支持参数onxywh。</p>
+	<p>本方法自0.2.17版本开始支持show方法的url参数。</p>
 	<script>$js('#window_show_html').text($js('#window_demo_html').outerHTML()).unindent({ignore:1});</script>
 
 
