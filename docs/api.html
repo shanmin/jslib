@@ -2431,6 +2431,54 @@ true</pre>
 
 
 <!--
+//                                  #####                                           
+//   #    # ###### #####  #   ##   #     #   ##   #####  ##### #    # #####  ###### 
+//   ##  ## #      #    # #  #  #  #        #  #  #    #   #   #    # #    # #      
+//   # ## # #####  #    # # #    # #       #    # #    #   #   #    # #    # #####  
+//   #    # #      #    # # ###### #       ###### #####    #   #    # #####  #      
+//   #    # #      #    # # #    # #     # #    # #        #   #    # #   #  #      
+//   #    # ###### #####  # #    #  #####  #    # #        #    ####  #    # ###### 
+//                                                                                  
+-->
+	<a name="mediaCapture"></a>
+	<h1>$js.mediaCapture</h1>
+	<h2>定义</h2>
+	<p>$js.mediaCapture(opts) : HtmlElement</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>opts.mode=image|video</td>
+			<td>[可选]捕捉类型。默认值：image。</td>
+		</tr>
+		<tr>
+			<td>opts.ondata=function(data){}</td>
+			<td>[可选]接收捕捉的图片或视频数据。这个data数据是Blob对象。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>启用媒体捕捉图片或视频。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>JavaScript</legend>
+		<pre>$js.mediaCapture({mode:'image'});</pre>
+		<button onclick="mediaCapture_btn1()">开始捕捉图片</button>
+		<button onclick="mediaCapture_btn2()">开始捕捉视频</button>
+		<script>
+			function mediaCapture_btn1()
+			{
+				$js.mediaCapture({mode:'image'});
+			}
+			function mediaCapture_btn2()
+			{
+				$js.mediaCapture({mode:'video'});
+			}
+		</script>
+	</fieldset>
+	<h2>版本</h2>
+	<p>本方法自0.2.18版本开始支持。</p>
+
+
+<!--
 //                   
 //   #    # # #    # 
 //   ##  ## # ##   # 
@@ -2936,7 +2984,53 @@ true</pre>
 
 
 
+<!--
+//                               
+//   #####  #####   ####  #####  
+//   #    # #    # #    # #    # 
+//   #    # #    # #    # #    # 
+//   #####  #####  #    # #####  
+//   #      #   #  #    # #      
+//   #      #    #  ####  #      
+//                               
+-->
+	<a name="prop"></a>
+	<h1>$js.prop</h1>
+	<h2>定义</h2>
+	<p>$js.prop(name,value) : JSLib</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>name</td>
+			<td>[必须]属性名称。</td>
+		</tr>
+		<tr>
+			<td>value</td>
+			<td>[可选]属性值。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>获取第一个或设置所有匹配节点的属性。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>JavaScript</legend>
+		<pre>$js('@name').prop('checked',true);</pre>
+	</fieldset>
+	<h2>版本</h2>
+	<p>本属性自0.2.18版本开始支持。</p>
 
+
+
+<!--
+//                                                #                       
+//   #####  ###### #    #  ####  #    # ######   # #   ##### ##### #####  
+//   #    # #      ##  ## #    # #    # #       #   #    #     #   #    # 
+//   #    # #####  # ## # #    # #    # #####  #     #   #     #   #    # 
+//   #####  #      #    # #    # #    # #      #######   #     #   #####  
+//   #   #  #      #    # #    #  #  #  #      #     #   #     #   #   #  
+//   #    # ###### #    #  ####    ##   ###### #     #   #     #   #    # 
+//                                                                        
+-->
 	<a name="removeAttr"></a>
 	<h1>$js().removeAttr</h1>
 	<h2>定义</h2>
