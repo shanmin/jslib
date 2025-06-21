@@ -337,9 +337,14 @@
 	<a name="appendTo"></a>
 	<h1>$js().appendTo</h1>
 	<h2>定义</h2>
+	<p>$js().appendTo(HtmlElement) : JSLib</p>
 	<p>$js().appendTo(HtmlElements) : JSLib</p>
 	<h2>参数</h2>
 	<table>
+		<tr>
+			<td>HtmlElement</td>
+			<td>[必须]指定的节点。</td>
+		</tr>
 		<tr>
 			<td>HtmlElements</td>
 			<td>[必须]指定的节点列表。</td>
@@ -369,6 +374,7 @@
 	</fieldset>
 	<h2>版本</h2>
 	<p>本方法自0.0.0版本开始支持。</p>
+	<p>本方法自0.2.19版本开始HtmlElement参数。</p>
 
 
 <!--
@@ -1294,8 +1300,16 @@
 			<td>[可选]参数。</td>
 		</tr>
 		<tr>
-			<td>opts.form:HtmlElement</td>
+			<td>opts.form : HtmlElement</td>
 			<td>[可选]指定的FORM节点。如果未指定，则首先查找当前标签所在的FORM，如果未找到则查找当前页面第一个FORM，如果还未找到，则直接返回。</td>
+		</tr>
+		<tr>
+			<td>opts.action : String</td>
+			<td>[可选]提交指定的URL。</td>
+		</tr>
+		<tr>
+			<td>opts.formData : FormData</td>
+			<td>[可选]直接提交指定FormData数据。如果同时设置了formData和form参数，则以formData参数为准。</td>
 		</tr>
 		<tr>
 			<td>opts.onsubmit:function(form){}</td>
@@ -1319,7 +1333,7 @@
 		</tr>
 		<tr>
 			<td>opts.prompt_timeout:0</td>
-			<td>[可选]设置提醒信息关闭时间，单位：ms。此参数仅针对正常信息，出错信息不自动关闭。</td>
+			<td>[可选]设置提醒信息关闭时间，单位：ms。此参数仅针对正常信息，出错信息不自动关闭。此值设置为0时需手工关闭,设置为-1时正常系统提示不再显示。</td>
 		</tr>
 	</table>
 	<h2>说明</h2>
@@ -1381,6 +1395,7 @@
 	</fieldset>
 	<h2>版本</h2>
 	<p>本方法自0.1.17版本开始支持。</p>
+	<p>本方法自0.2.19版本开始支持formData参数。</p>
 	<script>$js('#form_demo_html').text($js('#form_demo').outerHTML()).unindent({ignore:1});</script>
 
 
@@ -4046,6 +4061,69 @@ a3 text</pre>
 	<p><a href="api.html#html">html</a><br></p>
 	<h2>版本</h2>
 	<p>本方法自0.1.0版本开始支持。</p>
+
+
+
+	<a name="textarea"></a>
+	<h1>$js.textarea</h1>
+	<h2>定义</h2>
+	<p>$js().textarea(opts) : HtmlElement</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>opts.el : HtmlElement</td>
+			<td>[可选]对应的字段。</td>
+		</tr>
+		<tr>
+			<td>opts.name : String</td>
+			<td>[可选]字段名称。</td>
+		</tr>
+		<tr>
+			<td>opts.className : String</td>
+			<td>[可选]字段CSS样式名称。</td>
+		</tr>
+		<tr>
+			<td>opts.rows : Number</td>
+			<td>[可选]默认行高。</td>
+		</tr>
+		<tr>
+			<td>opts.maxLength : Number</td>
+			<td>[可选]最大字数。</td>
+		</tr>
+		<tr>
+			<td>opts.placeholder : String</td>
+			<td>[可选]提示文本。</td>
+		</tr>
+		<tr>
+			<td>opts.value : String</td>
+			<td>[可选]字段显示内容。</td>
+		</tr>
+		<tr>
+			<td>opts.prompt=false|true</td>
+			<td>[可选]是否提示字数。默认值：false。</td>
+		</tr>
+		<tr>
+			<td>opts.autoheight=false|true</td>
+			<td>[可选]是否启用自动高度。默认值：false。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>此方法增强或生成一个TEXTAREA。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre>&lt;div id="a1">
+	&lt;div id="a2">a2 text&lt;/div>
+	&lt;div id="a3">a3 text&lt;/div>
+&lt;/div></pre>
+	</fieldset>
+	<fieldset>
+		<legend>JavaScript</legend>
+		<script>$js.textarea({name:'test',value:'123',autoheight:true,prompt:true})</script>
+	</fieldset>
+	</fieldset>
+	<h2>版本</h2>
+	<p>本方法自0.2.19版本开始支持。</p>
 
 
 <!--
