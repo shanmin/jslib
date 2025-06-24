@@ -3345,10 +3345,13 @@ true</pre>
 		expresion:string	//显示使用的多项式字符串
 		points:[[x,y],...],	//数据节点x对应回归后的数据。如果需要增加此展示点，可以调用calc或calcY方法进行添加
 		points_minx(),		//获取points中最小x
+		points_maxx(),		//获取points中最大x
 		points_miny(),		//获取points中最小y
+		points_maxy(),		//获取points中最大y
 		calc:function(x){},	//内部调用了$js.regressionCalc，并且此计算点也会自动增加到points展示点列表中
 		calcY:function(y){},	//内部调用了$js.regressionCalcY，并且此计算点也会自动增加到points展示点列表中
-		calcMaxY:function(){},	//在当前数值中x范围内，求最大y值并返回[x,y]结果。
+		calcMaxY:function(){},	//在当前数值中x范围内，求最大y值并返回[x,y]结果。这个精度大约在1e-6。
+		full(num=100),			//自动填充数据，主要是用于echarts展示使用，不填充时可能由于points过少，出来的图像不好看。参数num是指填充数量。
 	}</pre>
 	<p>这个方法可以独立使用，也可以配合echarts使用。像points就是专门为echarts显示准备的。</p>
 	<h2>示例</h2>
@@ -3416,8 +3419,9 @@ true</pre>
 	<h2>版本</h2>
 	<p>本方法自0.1.3版本开始支持。</p>
 	<p>自0.1.4版本开始，调用calc或calcY时，此计算点会自动添加到points数组中。这个计算点自动增加到points中，是因为在echarts展示时，本身points是一些关键点数据，而指定点可能会因为误差造成展示点显示与实际值出现错位，造成计算的点不能和points连线重合。</p>
-	<p>自0.1.5版本开始，返回值新增points_minx()和points_miny()方法。</li>
-	<p>自0.2.12版本开始，返回值新增calcMaxY方法。</li>
+	<p>自0.1.5版本开始，返回值新增points_minx()和points_miny()方法。</p>
+	<p>自0.2.12版本开始，返回值新增calcMaxY方法。</p>
+	<p>自0.2.20版本开始，返回值新增maxx、maxy、full方法</p>
 	<script>
 		$js('#regressionPolynomial_show_html').text($js('#regressionPolynomial_demo_html').outerHTML()).unindent({ignore:1});
 
