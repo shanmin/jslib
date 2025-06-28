@@ -1413,12 +1413,16 @@
 	<a name="gb2260"></a>
 	<h1>$js.gb2260</h1>
 	<h2>定义</h2>
-	<p>$js.gb2260(code) : String</p>
+	<p>$js.gb2260(code,opts) : String</p>
 	<h2>参数</h2>
 	<table>
 		<tr>
 			<td>code</td>
 			<td>[必须]需要转换的GB2260代码。支持2位、4位、6位代码。</td>
+		</tr>
+		<tr>
+			<td>opts.show=false|true</td>
+			<td>[可选]是否直接显示。默认：false。</td>
 		</tr>
 	</table>
 	<h2>说明</h2>
@@ -1441,6 +1445,7 @@
 						<td id="gb2260_demo_4"></td>
 						<td id="gb2260_demo_5"></td>
 						<td id="gb2260_demo_6"></td>
+						<td><script>$js.gb2260('130124',{show:true})</script></td>
 					</tr>
 				</table>
 				<script>
@@ -1456,7 +1461,115 @@
 	<h2>版本</h2>
 	<p>本方法自0.1.18版本开始支持。本方法需要jslib.gb.min.js文件支持。</p>
 	<p>本方法自0.2.13版本开始参数支持2、4、6位代码。</p>
+	<p>本方法自0.2.21版本开始支持参数opts.show。</p>
 	<script>$js('#gb2260_demo_html').text($js('#gb2260_demo').outerHTML()).unindent({ignore:1});</script>
+
+
+
+	<a name="gb2260gb2659"></a>
+	<h1>$js.gb2260gb2659</h1>
+	<h2>定义</h2>
+	<p>$js.gb2260gb2659(code,opts) : String</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>code</td>
+			<td>[必须]需要转换的GB2260或GB2659代码。GB2260支持2位、4位、6位代码，GB2659支持两位字母。</td>
+		</tr>
+		<tr>
+			<td>opts.show=false|true</td>
+			<td>[可选]是否直接显示。默认：false。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>这个方法用于GB2260或GB2659的代码转地区文本。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre id="gb2260gb2659_demo_html"></pre>
+	</fieldset>
+	<h2>演示</h2>
+	<fieldset>
+		<legend>演示区域</legend>
+			<div id="gb2260gb2659_demo">
+				<table border="1">
+					<tr>
+						<td>130123</td>
+						<td id="gb2260gb2659_demo_1"></td>
+						<td id="gb2260gb2659_demo_2"></td>
+						<td id="gb2260gb2659_demo_3"></td>
+						<td id="gb2260gb2659_demo_4"></td>
+						<td id="gb2260gb2659_demo_5"></td>
+						<td id="gb2260gb2659_demo_6"></td>
+						<td><script>$js.gb2260gb2659('130124',{show:true})</script></td>
+						<td><script>$js.gb2260gb2659('CN',{show:true})</script></td>
+					</tr>
+				</table>
+				<script>
+					$js('#gb2260gb2659_demo_1').text($js.gb2260gb2659('13'));
+					$js('#gb2260gb2659_demo_2').text($js.gb2260gb2659('1300'));
+					$js('#gb2260gb2659_demo_3').text($js.gb2260gb2659('130000'));
+					$js('#gb2260gb2659_demo_4').text($js.gb2260gb2659('1301'));
+					$js('#gb2260gb2659_demo_5').text($js.gb2260gb2659('130100'));
+					$js('#gb2260gb2659_demo_6').text($js.gb2260gb2659('130123'));
+				</script>
+			</div>
+	</fieldset>
+	<h2>版本</h2>
+	<p>本方法自0.2.21版本开始支持。</p>
+	<script>$js('#gb2260gb2659_demo_html').text($js('#gb2260gb2659_demo').outerHTML()).unindent({ignore:1});</script>
+
+
+
+	<a name="gb2260gb2659match"></a>
+	<h1>$js.gb2260gb2659match</h1>
+	<h2>定义</h2>
+	<p>$js.gb2260gb2659match(name,opts) : Array</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>name</td>
+			<td>[必须]查询关键字。</td>
+		</tr>
+		<tr>
+			<td>opts.target=''|HtmlElement</td>
+			<td>[可选]数据填充节点。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>这个方法用于查询GB2260或GB2659的名称转代码。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre id="gb2260gb2659match_demo_html"></pre>
+	</fieldset>
+	<h2>演示</h2>
+	<fieldset>
+		<legend>演示区域</legend>
+			<div id="gb2260gb2659match_demo">
+				<table border="1">
+					<tr>
+						<td id="gb2260gb2659match_demo_1"></td>
+						<td id="gb2260gb2659match_demo_2"></td>
+						<td id="gb2260gb2659match_demo_3"></td>
+						<td id="gb2260gb2659match_demo_4"></td>
+						<td id="gb2260gb2659match_demo_5"></td>
+						<td><input type="text" id="gb2260gb2659match_demo_6"></td>
+					</tr>
+				</table>
+				<script>
+					$js('#gb2260gb2659match_demo_1').text($js.gb2260gb2659match('中国'));
+					$js('#gb2260gb2659match_demo_2').text($js.gb2260gb2659match('山东'));
+					$js('#gb2260gb2659match_demo_3').text($js.gb2260gb2659match('济南'));
+					$js('#gb2260gb2659match_demo_4').text($js.gb2260gb2659match('京'));
+					$js.gb2260gb2659match('河北',{target:'#gb2260gb2659match_demo_5'});
+					$js.gb2260gb2659match('北京',{target:gb2260gb2659match_demo_6});
+				</script>
+			</div>
+	</fieldset>
+	<h2>版本</h2>
+	<p>本方法自0.2.21版本开始支持。</p>
+	<script>$js('#gb2260gb2659match_demo_html').text($js('#gb2260gb2659match_demo').outerHTML()).unindent({ignore:1});</script>
 
 
 
@@ -4599,24 +4712,31 @@ a3 text</pre>
 		</style>
 		<script id="tselect_js">
 			{
-				let data=[{id:1,text:'AAA'},{id:2,text:'BBB'},{id:3,text:'CCC'}];
+				let data1=[{id:1,text:'AAA'},{id:2,text:'BBB'},{id:3,text:'CCC'}];
 
-				$js.tselect({class:'tselect_custom',data:data,
+				$js.tselect({class:'tselect_custom',data:data1,
 					onselected:function(v){$js.topmsg({msg:`onselected(${v})`})},
 					onselected2:function(v){$js.topmsg({msg:`onselected2(${JSON.stringify(v)})`})},
 					placeholder:'任意输入'});
 
-				$js.tselect({class:'tselect_custom',data:data,
+				$js.tselect({class:'tselect_custom',data:data1,
 					onselected:function(v){$js.topmsg({msg:`onselected(${v})`})},
 					onselected2:function(v){$js.topmsg({msg:`onselected2(${JSON.stringify(v)})`})},
 					selected:true,autoselect:true,
 					placeholder:'选择输入'});
+
+				let data2=[{id:1,text:'1'},{id:2,text:'2'},{id:3,text:'3'},{id:4,text:'4'},{id:5,text:'5'}];
+				$js.tselect({class:'tselect_custom',data:data2,
+					onselected:function(v){$js.topmsg({msg:`onselected(${v})`})},
+					onselected2:function(v){$js.topmsg({msg:`onselected2(${JSON.stringify(v)})`})},
+					placeholder:'任意输入',suffix:'MPa'});
 			}
 		</script>
 	</fieldset>
 	<h2>版本</h2>
 	<p>本方法自0.1.35版本开始支持。</p>
-	<p>本方法自0.2.8版本开始支持opts.name属性。</p>
+	<p>本方法自0.2.8版本开始支持opts.name参数。</p>
+	<p>本方法自0.2.21版本开始支持opts.suffix参数。</p>
 	<script>$js('#tselect_show1').text($js('#tselect_css').outerHTML()).unindent({ignore:1});</script>
 	<script>$js('#tselect_show2').text($js('#tselect_js').outerHTML()).unindent({ignore:1});</script>
 
