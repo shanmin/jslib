@@ -5220,16 +5220,20 @@ a3 text</pre>
 			<td>[可选]窗口居中显示。</td>
 		</tr>
 		<tr>
+			<td>opts.data=…</td>
+			<td>[可选]window.frameElement.data附加数据。</td>
+		</tr>
+		<tr>
+			<td>opts.icon=''</td>
+			<td>[可选]设置窗口图标。注意：如果图标文件不存在等原因加载出错时，系统会自动替换为默认图标。</td>
+		</tr>
+		<tr>
 			<td>opts.modal=true|false</td>
 			<td>[可选]是否为模式窗口，是的话为true,默认：true。</td>
 		</tr>
 		<tr>
 			<td>opts.url='...'</td>
 			<td>[可选]显示的页面路径。</td>
-		</tr>
-		<tr>
-			<td>opts.data=…</td>
-			<td>[可选]window.frameElement.data附加数据。</td>
 		</tr>
 		<tr>
 			<td>opts.html=HtmlElement|HtmlString</td>
@@ -5304,8 +5308,8 @@ a3 text</pre>
 	<h2>其他设置</h2>
 	<table>
 		<tr>
-			<td>$js.window.DEFAULT_ICON='icon path'</td>
-			<td>设置全局窗口默认图标。如果调用$js.window时未指定图标，则以这个设置为准。</td>
+			<td>$js.window.DEFAULT_ICON='icon path'|[]</td>
+			<td>设置全局窗口默认图标。如果调用$js.window时未指定图标，则以这个设置为准。此树型支持数组方式设置多个图标，当设置多个图标时，首先加载第一个图标，如果加载失败则会尝试加载第二个，如果还失败则继续加载下一个，直至全部加载失败后加载默认图标。</td>
 		</tr>
 	</table>
 	<h2>说明</h2>
@@ -5383,6 +5387,7 @@ a3 text</pre>
 	<p>本方法自0.2.14版本开始支持参数onmove、onresize。</p>
 	<p>本方法自0.2.16版本开始支持参数onxywh。</p>
 	<p>本方法自0.2.17版本开始支持show方法的url参数。</p>
+	<p>本方法自0.2.22版本开始$js.window.DEFAULT_ICON支持数组。</p>
 	<script>$js('#window_show_html').text($js('#window_demo_html').outerHTML()).unindent({ignore:1});</script>
 
 
