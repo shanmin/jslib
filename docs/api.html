@@ -1270,6 +1270,7 @@
 	</fieldset>
 	<h2>关联</h2>
 	<p>
+		<a href="api.html#int">int</a> &nbsp;
 		<a href="api.html#val">val</a> &nbsp;
 	</p>
 	<h2>版本</h2>
@@ -2097,6 +2098,57 @@ $js('#a2').hasClass('css1');	//返回false</pre>
 	<h2>版本</h2>
 	<p>本方法自0.0.0版本开始支持。</p>
 
+
+
+	<a name="int"></a>
+	<h1>$js().int</h1>
+	<h2>定义</h2>
+	<p>$js().int() : Number</p>
+	<p>$js().int(num,opts) : JSLib</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>num</td>
+			<td>[可选]需设置的值。</td>
+		</tr>
+		<tr>
+			<td>opts</td>
+			<td>[可选]附加选项。</td>
+		</tr>
+		<tr>
+			<td>opts.zero2empty=false|true</td>
+			<td>[可选]num=0时，显示为空字符串。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>注：如果JSLib匹配列表中包含checkbox/radio元素时，只有在选中状态才会返回有效数值。</p>
+	<p>传递num参数时，设置指定数字到当前符合元素上。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre id="int_demo_html"></pre>
+	</fieldset>
+	<h2>演示</h2>
+	<fieldset>
+		<legend>演示区域</legend>
+		<form id="int_demo">
+			<input type="text" name="int_demo_input1" value="12a3">
+			<label><input type="checkbox" name="int_demo_input2" value="234">checkbox</label>
+			<input type="button" value="TEST" onclick="$js('#int_demo_result').html('input1='+$js('@int_demo_input1').float()+'<br>input2='+$js('@int_demo_input2').float());">
+		</form>
+		<fieldset>
+			<legend>运行结果</legend>
+			<div id="int_demo_result"></div>
+		</fieldset>
+	</fieldset>
+	<h2>关联</h2>
+	<p>
+		<a href="api.html#float">float</a> &nbsp;
+		<a href="api.html#val">val</a> &nbsp;
+	</p>
+	<h2>版本</h2>
+	<p>本属性自0.2.25版本开始支持。</p>
+	<script>$js('#int_demo_html').text($js('#int_demo').outerHTML()).unindent({ignore:1});</script>
 
 
 <!--
@@ -5131,6 +5183,11 @@ a3 text</pre>
 			<div id="val_demo_result"></div>
 		</div>
 	</fieldset>
+	<h2>关联</h2>
+	<p>
+		<a href="api.php?#float">float</a> &nbsp;
+		<a href="api.php?#int">int</a> &nbsp;
+	</p>
 	<h2>版本</h2>
 	<p>本方法自0.1.7版本开始支持。</p>
 	<script>$js('#val_show_html').text($js('#val_demo_html').outerHTML()).unindent({ignore:1});</script>
