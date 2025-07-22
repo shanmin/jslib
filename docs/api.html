@@ -238,6 +238,10 @@
 			<td>[可选]周期性请求的时间间隔，单位：ms。注意：这个时间间隔是按照上次访问并处理后开始计时的。</td>
 		</tr>
 		<tr>
+			<td>opts.error_interval</td>
+			<td>[可选]周期性请求的时间间隔（出错时），单位：ms。注意：这个时间间隔是按照上次访问并处理后开始计时的。如果同时设置了interval，则访问出错时error_interval优先。是否访问出错以返回是否为200来界定。</td>
+		</tr>
+		<tr>
 			<td>opts.success=function()|String</td>
 			<td>[可选]请求成功后的回调的函数或后续操作符。<br>
 			回调函数定义：function(data,status,xhr)，data为返回的数据，status为HTTP请求状态码，xhr为访问组件。<br>
@@ -262,7 +266,10 @@
 	</fieldset>
 	<h2>版本</h2>
 	<p>本方法自0.1.0版本开始支持。</p>
+	<p>本方法自0.1.29版本开始支持interval参数。</p>
 	<p>本方法自0.2.11版本开始支持success=reload参数。</p>
+	<p>本方法自0.2.16版本开始支持dataType=arraybuffer参数。</p>
+	<p>本方法自0.2.26版本开始支持error_interval参数。</p>
 
 
 
@@ -5261,16 +5268,20 @@ a3 text</pre>
 			<td>[可选]窗口的上层节点。如果值为”parent”(字符串)则窗口会在上层窗口创建，“top”(字符串)则窗口在最上层窗口创建。</td>
 		</tr>
 		<tr>
-			<td>opts.btn_refresh=true|false</td>
-			<td>[可选]是否显示"刷新"按钮，默认：true。</td>
+			<td>opts.btn_close=true|false</td>
+			<td>[可选]是否显示“关闭”按钮，默认：true。</td>
+		</tr>
+		<tr>
+			<td>opts.btn_max=false|true</td>
+			<td>[可选]是否显示“最大化”按钮，默认：false。</td>
 		</tr>
 		<tr>
 			<td>opts.btn_min=false|true</td>
 			<td>[可选]是否显示“最小化”按钮，默认：false。</td>
 		</tr>
 		<tr>
-			<td>opts.btn_max=false|true</td>
-			<td>[可选]是否显示“最大化”按钮，默认：false。</td>
+			<td>opts.btn_refresh=true|false</td>
+			<td>[可选]是否显示"刷新"按钮，默认：true。</td>
 		</tr>
 		<tr>
 			<td>opts.center=true|false</td>
@@ -5445,6 +5456,7 @@ a3 text</pre>
 	<p>本方法自0.2.16版本开始支持参数onxywh。</p>
 	<p>本方法自0.2.17版本开始支持show方法的url参数。</p>
 	<p>本方法自0.2.22版本开始$js.window.DEFAULT_ICON支持数组。</p>
+	<p>本方法自0.2.26版本开始支持参数btn_close。</p>
 	<script>$js('#window_show_html').text($js('#window_demo_html').outerHTML()).unindent({ignore:1});</script>
 
 
