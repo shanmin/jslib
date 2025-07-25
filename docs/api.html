@@ -4726,12 +4726,16 @@ a3 text</pre>
 			<td>[可选]是否必须选择，默认：false。此值是true时，则输入的项目必须完全与数据相同才会选择，否则会自动清空。</td>
 		</tr>
 		<tr>
+			<td>opts.autoselect=false|true</td>
+			<td>[可选]是否自动选中，默认：false。此值是true时，则输入的项目与数据相同时，会自动响应选中。</td>
+		</tr>
+		<tr>
 			<td>opts.search=true|false</td>
 			<td>[可选]是否启用数据搜索功能，默认：true。</td>
 		</tr>
 		<tr>
-			<td>opts.size</td>
-			<td>[可选]单行文本框的长度。</td>
+			<td>opts.size=10</td>
+			<td>[可选]单行文本框的长度。默认值：10。</td>
 		</tr>
 		<tr>
 			<td>opts.value</td>
@@ -4796,6 +4800,7 @@ a3 text</pre>
 	<p>本方法自0.1.35版本开始支持。</p>
 	<p>本方法自0.2.8版本开始支持opts.name参数。</p>
 	<p>本方法自0.2.21版本开始支持opts.suffix参数。</p>
+	<p>本方法自0.2.27版本开始支持opts.autoselect参数。</p>
 	<script>$js('#tselect_show1').text($js('#tselect_css').outerHTML()).unindent({ignore:1});</script>
 	<script>$js('#tselect_show2').text($js('#tselect_js').outerHTML()).unindent({ignore:1});</script>
 
