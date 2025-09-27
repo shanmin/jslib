@@ -662,6 +662,10 @@
 			<td>opts.prefix=String</td>
 			<td>[可选]显示文本的前缀，默认：无。</td>
 		</tr>
+		<tr>
+			<td>opts.zero2empty=false|true</td>
+			<td>[可选]计算结果为0时按照空字符串处理，默认：false。</td>
+		</tr>
 	</table>
 	<h2>全局参数</h2>
 	<table>
@@ -723,6 +727,12 @@
 					<td><input type="text" name="calc_demo_4price"></td>
 					<td><input type="text" name="calc_demo_4amount"></td>
 				</tr>
+				<tr>
+					<td>5</td>
+					<td><input type="text" name="calc_demo_5num"></td>
+					<td><input type="text" name="calc_demo_5price"></td>
+					<td><input type="text" name="calc_demo_5amount"></td>
+				</tr>
 			</table>
 			<script>
 				$js('@calc_demo_1amount').calc('{@calc_demo_1num}*{@calc_demo_1price}');
@@ -732,6 +742,8 @@
 				$js('@calc_demo_3amount').calc('{@calc_demo_3num}*{@calc_demo_3price}','三位小数');
 
 				$js('@calc_demo_4amount').calc('{@calc_demo_4num}*{@calc_demo_4price}',0.01,{prefix:'≥'});
+
+				$js('@calc_demo_5amount').calc('{@calc_demo_5num}*{@calc_demo_5price}',0.01,{zero2empty:true});
 			</script>
 		</div>
 	</fieldset>
@@ -740,6 +752,7 @@
 	<p>0.1.14版本开始支持$js.calc.DEFAULT_DICT。</p>
 	<p>0.1.21版本开始支持opts.prefix参数。</p>
 	<p>0.1.28版本开始支持opts.NaN2empty参数。</p>
+	<p>0.1.30版本开始支持opts.zero2empty参数。</p>
 	<script>$js('#calc_demo_html').text($js('#calc_demo').outerHTML()).unindent({ignore:1});</script>
 
 
