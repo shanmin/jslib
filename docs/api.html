@@ -4879,6 +4879,167 @@ a3 text</pre>
 
 
 
+
+
+
+
+
+	<a name="upfile"></a>
+	<h1>$js.upfile</h1>
+	<h2>定义</h2>
+	<p>$js.upimage(opts) : Object</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>opts</td>
+			<td>[可选]参数。</td>
+		</tr>
+		<tr>
+			<td>opts.el</td>
+			<td>[可选]上传操作节点区域，默认：当前位置。</td>
+		</tr>
+		<tr>
+			<td>opts.el_dd</td>
+			<td>[可选]拖动操作节点，默认：args['el']。</td>
+		</tr>
+		<tr>
+			<td>opts.name='file'</td>
+			<td>[可选]上传文件的文件域名称，默认：file。需注意，因为此组件支持批量上传，所以这个指定的名称在实际上传时会自动增加[]变为file[]（即使是限制了只能上传一个图片）。</td>
+		</tr>
+		<tr>
+			<td>opts.url=$js.UPLOAD_FILE</td>
+			<td>[可选]异步文件上传的处理路径，默认：$js.UPLOAD_FILE。</td>
+		</tr>
+		<tr>
+			<td>opts.start=function(){...}</td>
+			<td>[可选]开始上传文件时触发。</td>
+		</tr>
+		<tr>
+			<td>opts.success=function(data){...}</td>
+			<td>[可选]上传完后的处理程序,如果不设置，则执行默认处理。</td>
+		</tr>
+		<tr>
+			<td>opts.success2=function(data){...}</td>
+			<td>[可选]上传完后的处理函数,直接传函数名即可,如果设置，则会执行对应的函数。原因是：上面的success函数无法满足实际需求，当传入success时，不会执行ddupfile2中的success代码，实际是需要执行的。</td>
+		</tr>
+		<tr>
+			<td>opts.success3=function(data){...}</td>
+			<td>[可选]回调参数为原始数据。</td>
+		</tr>
+		<tr>
+			<td>opts.dataType=function(){}</td>
+			<td>[可选]上传完成后的回调参数类型。如果是Json类型则需要设置dataType=‘json’</td>
+		</tr>
+		<tr>
+			<td>opts.text</td>
+			<td>[可选]显示的提示文本。默认值为“文件拖拽到这里，即可直接上传。”</td>
+		</tr>
+		<tr>
+			<td>opts.input</td>
+			<td>[可选]是否显示浏览式文件上传。默认：显示。</td>
+		</tr>
+		<tr>
+			<td>opts.count</td>
+			<td>[可选]限制上传文件数量限制，默认：无限制。</td>
+		</tr>
+		<tr>
+			<td>opts.files</td>
+			<td>[可选]已上传文件列表。如果设置，则自动显示已上传文件的列表项。</td>
+		</tr>
+		<tr>
+			<td>opts.addo</td>
+			<td>[可选]文件浏览上传附加信息，现在在最后面。</td>
+		</tr>
+		<tr>
+			<td>opts.addo2</td>
+			<td>[可选]已上传部分的附加信息。</td>
+		</tr>
+		<tr>
+			<td>opts.disabled=false</td>
+			<td>[可选]文件上传是否可以修改 默认可修改</td>
+		</tr>
+		<tr>
+			<td>opts.weixin=true|false</td>
+			<td>[可选]开启微信上传</td>
+		</tr>
+		<tr>
+			<td>opts.append=false|true</td>
+			<td>[可选]追加模式</td>
+		</tr>
+		<tr>
+			<td>opts.showfilesize=false|true</td>
+			<td>[可选]显示文件尺寸</td>
+		</tr>
+		<tr>
+			<td>opts.preview=false|true</td>
+			<td>[可选]显示文件预览按钮</td>
+		</tr>
+		<tr>
+			<td>opts.inparent=false|true</td>
+			<td>[可选]显示在上层节点内</td>
+		</tr>
+	</table>
+	<h2>返回</h2>
+	<p>$ddupfile2对象：</p>
+	<pre>	{
+		function add_file(fn),		//添加指定路径的上传文件
+	}</pre>
+	<h2>说明</h2>
+	<p>通过浏览器的文件拖拽或选择功能实现文件上传。</p>
+	<p>opts.url是图片上传的处理URL路径，这个返回的应该是一个JSON格式的字符串表示上传后的文件绝对位置或相对opts.basepath的相对位置，示例：{"file":"25010922/abc.png"}。</p>
+	<p>opts.success回调函数说明：</p>
+	<pre>
+	opts.success=function(data,last)
+	{
+		alert('回调数据:'+data);
+		alert('是否最后一个数据:'+last);
+	}
+	</pre>
+	<p>data参数为回调返回的数据，具体数据由args.url路径指定的文件为准；last字段返回当前回调的数据是否为最后一个上传的文件，如果是则返回true，否则返回false。</p>
+</p>
+	<p>此方法的返回值是一个upfile对象，对象内容包括：</p>
+	<pre>
+	obj.add_file(filepath);	//增加上传文件,返回显示区域节点。
+</pre>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre id="upfile_show_html"></pre>
+	</fieldset>
+	<h2>演示</h2>
+	<fieldset>
+		<legend>演示区域</legend>
+		<div id="upfile_demo_html" style="display: flex;">
+			<form method="post" enctype="multipart/form-data">
+				<script>
+					let files=
+					[
+						'demo1.png',
+						'demo2.png',
+					];
+				</script>
+				<table border="1">
+					<tr>
+						<td>指定拖拽区域<br>指定显示文件</td>
+						<td><script>$js.upfile({files:files});</script></td>
+					</tr>
+				</table>
+				<input type="submit" value="SUBMIT">
+			</form>
+		</div>
+	</fieldset>
+	<h2>关联</h2>
+	<p>
+		<a href="api.php?#UPLOAD_FILE">UPLOAD_FILE</a> &nbsp;
+		<a href="api.php?#UPLOAD_PATH">UPLOAD_PATH</a> &nbsp;
+	</p>
+	<h2>版本</h2>
+	<p>本方法自0.2.31版本开始支持。</p>
+	<script>$js('#upfile_show_html').text($js('#upfile_demo_html').outerHTML()).unindent({ignore:1});</script>
+
+
+
+
 <!--
 //                                               
 //   #    # #####  # #    #   ##    ####  ###### 
@@ -5078,6 +5239,10 @@ a3 text</pre>
 									geo:true});
 							</script>
 						</td>
+					</tr>
+					<tr>
+						<td>指定显示文件<br>显示上传按钮<br>设置显示区域大小</td>
+						<td><script>$js.upimage({files:files,input:true,preview_width:'48px',preview_height:'48px'});</script></td>
 					</tr>
 				</table>
 				<input type="submit" value="SUBMIT">
