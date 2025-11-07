@@ -869,7 +869,7 @@
 	</fieldset>
 	<script id="count_js">
 		let count_arr=[123,234,'a',NaN,345];
-		let count_result=$js.min(count_arr);
+		let count_result=$js.count(count_arr);
 		$js('#count_result').text(count_result);
 	</script>
 	<h2>版本</h2>
@@ -1265,6 +1265,10 @@
 			<td>opts.zero2empty=false|true</td>
 			<td>[可选]num=0时，显示为空字符串。</td>
 		</tr>
+		<tr>
+			<td>opts.nan2empty=false|true</td>
+			<td>[可选]num=NaN时，显示为空字符串。</td>
+		</tr>
 	</table>
 	<h2>说明</h2>
 	<p>没有参数或只传递nan0参数时，返回元素中第一个符合条件的数值，如果当前未包含任何元素则返回NaN。</p>
@@ -1295,6 +1299,7 @@
 	</p>
 	<h2>版本</h2>
 	<p>本属性自0.1.13版本开始支持。</p>
+	<p>自1.0.2版本开始支持opts.nan2empty参数。</p>
 	<script>$js('#float_demo_html').text($js('#float_demo').outerHTML()).unindent({ignore:1});</script>
 
 
@@ -2676,6 +2681,39 @@ true</pre>
 	</fieldset>
 	<h2>版本</h2>
 	<p>本方法自0.2.18版本开始支持。</p>
+
+
+
+	<a name="max"></a>
+	<h1>$js.max</h1>
+	<h2>定义</h2>
+	<p>$js.max(arr) : Number</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>arr</td>
+			<td>[必须]包含需要统计的数值数组。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>返回数组中的最大数值。本方法会自动去除非数字的数据。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>JavaScript</legend>
+		<pre id="max_src"></pre>
+	</fieldset>
+	<fieldset>
+		<legend>输出结果</legend>
+		<div id="max_result"></div>
+	</fieldset>
+	<script id="max_js">
+		let max_arr=[123,234,'a',NaN,345];
+		let max_result=$js.max(max_arr);
+		$js('#max_result').text(max_result);
+	</script>
+	<h2>版本</h2>
+	<p>本方法自1.0.2版本开始支持。</p>
+	<script>$js('#max_src').text($js('#max_js').outerHTML()).unindent({ignore:1});</script>
 
 
 <!--
@@ -5189,7 +5227,7 @@ a3 text</pre>
 		<div id="upimage_demo_html" style="display: flex;">
 			<form method="post" enctype="multipart/form-data">
 				<script>
-					let files=
+					let upimage_files=
 					[
 						'demo1.png',
 						'demo2.png',
@@ -5199,50 +5237,50 @@ a3 text</pre>
 					<tr>
 						<td>指定拖拽区域<br>指定显示文件</td>
 						<td><div style="position:relative;background-color:red;width:300px;height:200px;">
-							<script>$js.upimage({files:files});</script></div></td>
+							<script>$js.upimage({files:upimage_files});</script></div></td>
 					</tr>
 					<tr>
 						<td>指定显示文件<br>显示上传按钮</td>
-						<td><script>$js.upimage({files:files,input:true});</script></td>
+						<td><script>$js.upimage({files:upimage_files,input:true});</script></td>
 					</tr>
 					<tr>
 						<td>只读模式</td>
-						<td><script>$js.upimage({files:files,disabled:true});</script></td>
+						<td><script>$js.upimage({files:upimage_files,disabled:true});</script></td>
 					</tr>
 					<tr>
 						<td>仅“预览”按钮时直接最大化预览</td>
 						<td>
-							<script>$js.upimage({files:files,disabled:true,preview_clickshow:true});</script>
+							<script>$js.upimage({files:upimage_files,disabled:true,preview_clickshow:true});</script>
 						</td>
 					</tr>
 					<tr>
 						<td>仅“预览”按钮时直接最大化预览<br>全屏预览</td>
 						<td>
-							<script>$js.upimage({files:files,disabled:true,preview_clickshow:true,preview_fullscreen:true});</script>
+							<script>$js.upimage({files:upimage_files,disabled:true,preview_clickshow:true,preview_fullscreen:true});</script>
 						</td>
 					</tr>
 					<tr>
 						<td>本地模式</td>
-						<td><script>$js.upimage({files:files,input:true,localmode:true});</script></td>
+						<td><script>$js.upimage({files:upimage_files,input:true,localmode:true});</script></td>
 					</tr>
 					<tr>
 						<td>文件上传时优先调用摄像头<br>(手机上使用)</td>
 						<td>
-							<script>$js.upimage({files:files,input:true,localmode:true,capture:'camera'});</script>
+							<script>$js.upimage({files:upimage_files,input:true,localmode:true,capture:'camera'});</script>
 						</td>
 					</tr>
 					<tr>
 						<td>摄像头直接调用<br>开启坐标<br>开启水印</td>
 						<td>
 							<script>
-								$js.upimage({files:files,input:true,localmode:true,capture:'camera',usermedia:true,watermark:'拍摄时间: {:datetime}\n拍摄日期: {:date}\n位置坐标: {:lng},{:lat}',
+								$js.upimage({files:upimage_files,input:true,localmode:true,capture:'camera',usermedia:true,watermark:'拍摄时间: {:datetime}\n拍摄日期: {:date}\n位置坐标: {:lng},{:lat}',
 									geo:true});
 							</script>
 						</td>
 					</tr>
 					<tr>
 						<td>指定显示文件<br>显示上传按钮<br>设置显示区域大小</td>
-						<td><script>$js.upimage({files:files,input:true,preview_width:'48px',preview_height:'48px'});</script></td>
+						<td><script>$js.upimage({files:upimage_files,input:true,preview_width:'48px',preview_height:'48px'});</script></td>
 					</tr>
 				</table>
 				<input type="submit" value="SUBMIT">
