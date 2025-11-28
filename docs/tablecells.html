@@ -19,6 +19,10 @@
 			<td>opts</td>
 			<td>[可选]附加参数。</td>
 		</tr>
+		<tr>
+			<td>opts.only_td=false|true</td>
+			<td>[可选]仅响应td元素的操作。加上这个以后，选择单元格时如果点选的是非TD元素，则不立即进行响应。</td>
+		</tr>
 	</table>
 	<h2>说明</h2>
 	<p>对匹配的TABLE节点，增加区域选择、复制、粘贴功能。</p>
@@ -80,6 +84,7 @@
 	</fieldset>
 	<h2>版本</h2>
 	<p>本属性自0.0.0版本开始支持。</p>
+	<p>本属性自1.0.3版本开始支持opts.only_td参数。</p>
 	<script>
 		$js('table').tableCells();
 	</script>
