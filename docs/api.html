@@ -3573,8 +3573,9 @@ true</pre>
 		points_maxy(),		//获取points中最大y
 		calc:function(x){},	//内部调用了$js.regressionCalc，并且此计算点也会自动增加到points展示点列表中
 		calcY:function(y){},	//内部调用了$js.regressionCalcY，并且此计算点也会自动增加到points展示点列表中
+		calcY2:function(y){},	//当前数据x范围内，使用二分法逼近Y值。
 		calcMaxY:function(){},	//在当前数值中x范围内，求最大y值并返回[x,y]结果。这个精度大约在1e-6。
-		full(num=100),			//自动填充数据，主要是用于echarts展示使用，不填充时可能由于points过少，出来的图像不好看。参数num是指填充数量。
+		fill(num=100),			//自动填充数据，主要是用于echarts展示使用，不填充时可能由于points过少，出来的图像不好看。参数num是指填充数量。
 	}</pre>
 	<p>这个方法可以独立使用，也可以配合echarts使用。像points就是专门为echarts显示准备的。</p>
 	<h2>示例</h2>
