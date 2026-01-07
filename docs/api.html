@@ -331,6 +331,56 @@
 	<script>$js('#avg_demo_html').text($js('#avg_demo').outerHTML()).unindent({ignore:1});</script>
 
 
+
+<!--
+//                                            
+//     ##   #####  #####  ###### #    # ##### 
+//    #  #  #    # #    # #      ##   # #    #
+//   #    # #    # #    # #####  # #  # #    #
+//   ###### #####  #####  #      #  # # #    #
+//   #    # #      #      #      #   ## #    #
+//   #    # #      #      ###### #    # ##### 
+//                                                            
+-->
+	<a name="append"></a>
+	<h1>$js().append</h1>
+	<h2>定义</h2>
+	<p>$js().append(selector) : JSLib</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>selector</td>
+			<td>[必须]指定的节点。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>当前匹配节点内添加指定节点。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre>&lt;div id="a2">a2 text&lt;/div>
+&lt;div id="a1">
+	&lt;div id="a3">a3 text&lt;/div>
+&lt;/div></pre>
+	</fieldset>
+	<fieldset>
+		<legend>JavaScript</legend>
+		<pre>$js('#a1').append('&lt;div>AAA&lt;/div>');</pre>
+	</fieldset>
+	<fieldset>
+		<legend>执行后原HTML信息变为</legend>
+		<pre>&lt;div id="a1">
+	&lt;div id="a2">a2 text&lt;/div>
+	&lt;div id="a3">a3 text&lt;/div>
+	&lt;div>AAA&lt;/div>
+&lt;/div></pre>
+	</fieldset>
+	<h2>版本</h2>
+	<p>本方法自1.0.6版本开始支持。</p>
+
+
+
+
 <!--
 //                                             #######        
 //     ##   #####  #####  ###### #    # #####     #     ####  
