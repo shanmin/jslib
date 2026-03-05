@@ -4627,6 +4627,10 @@ a3 text</pre>
 			<td>opts.selectleaf=false|true</td>
 			<td>[可选]只能选择叶节点。默认值：false。</td>
 		</tr>
+		<tr>
+			<td>opts.svg=''</td>
+			<td>[可选]设置tree中自定义svg图片。</td>
+		</tr>
 	</table>
 	<h2>说明</h2>
 	<p>此方法生成可展开的树型HTML选择代码。</p>
@@ -4703,6 +4707,7 @@ a3 text</pre>
 	<p>本方法自0.1.5版本开始支持。</p>
 	<p>本方法自0.2.5版本开始支持参数radio、selected_class。</p>
 	<p>本方法自0.2.6版本开始支持返回对象selected_clear方法。</p>
+	<p>本方法自1.0.8版本开始支持参数args.svg。</p>
 	<script>
 		$js('#tree_show_js').text($js('#tree_demo_js').outerHTML()).unindent({ignore:1});
 	</script>
