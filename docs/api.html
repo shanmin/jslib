@@ -1196,6 +1196,49 @@
 	<p>本方法自0.0.0版本开始支持。</p>
 
 
+<!--
+//                                         
+//     ###### # #      ##### ###### #####  
+//     #      # #        #   #      #    # 
+//     #####  # #        #   #####  #    # 
+//     #      # #        #   #      #####  
+//     #      # #        #   #      #   #  
+//     #      # ######   #   ###### #    # 
+//                                         
+-->
+	<a name="filter"></a>
+	<h1>$js().filter</h1>
+	<h2>定义</h2>
+	<p>$js().filter(selector) : JSLib</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>selector</td>
+			<td>[必须]选择器字符串。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>在当前匹配的节点中查找符合selector的节点。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre>&lt;div id="a1">
+	&lt;div id="a2">a2 text&lt;/div>
+	&lt;div id="a3">a3 text&lt;/div>
+&lt;/div></pre>
+	</fieldset>
+	<fieldset>
+		<legend>JavaScript</legend>
+		<pre>console.log($js('div').filter('#a2').html());</pre>
+	</fieldset>
+	<fieldset>
+		<legend>输出示例</legend>
+		<pre>&lt;div id="a2">a2 text&lt;/div></pre>
+	</fieldset>
+	<h2>版本</h2>
+	<p>本方法自1.0.9版本开始支持。</p>
+
+
 
 <!--
 //                                
@@ -4280,6 +4323,62 @@ true</pre>
 	<p>本方法自0.1.8版本开始支持。</p>
 	<script>
 		$js('#showimage_show_html').text($js('#showimage_demo_html').outerHTML()).unindent({ignore:1});
+	</script>
+
+
+<!--
+//                                
+//     #####   ##   #####   ####  
+//       #    #  #  #    # #      
+//       #   #    # #####   ####  
+//       #   ###### #    #      # 
+//       #   #    # #    # #    # 
+//       #   #    # #####   ####  
+//                                
+-->
+	<a name="tabs"></a>
+	<h1>$js.tabs</h1>
+	<h2>定义</h2>
+	<p>$js.tabs(opts)</p>
+	<h2>参数</h2>
+	<table>
+		<tr>
+			<td>opts.el</td>
+			<td>[必填]指定的节点。</td>
+		</tr>
+	</table>
+	<h2>说明</h2>
+	<p>对指定格式的HTML转为Tabs显示样式。</p>
+	<p>具体布局格式，请参照示例。主要是标签a中的data-i与div.id之间的对应。</p>
+	<h2>示例</h2>
+	<fieldset>
+		<legend>HTML</legend>
+		<pre id="tabs_showhtml"></pre>
+	</fieldset>
+	<fieldset>
+		<legend>JavaScript</legend>
+		<pre>$js.tabs({el:tabs1});</pre>
+	</fieldset>
+	<fieldset>
+		<legend>示例</legend>
+		<div id="tabs1">
+			<div class="tab">
+				<a data-i="#t1">TAB1</a>
+				<a data-i="#t2">TAB2</a>
+				<a data-i="#t3">TAB3</a>
+			</div>
+			<div id="t1">TAB1 Content</div>
+			<div id="t2">TAB2 Content</div>
+			<div id="t3">TAB3 Content</div>
+		</div>
+	</fieldset>
+	<h2>版本</h2>
+	<p>本方法自1.0.9版本开始支持。</p>
+	<script>
+		$js('#tabs_showhtml').text($js('#tabs1').outerHTML()).unindent({ignore:1});
+	</script>
+	<script id="tabs1js">
+		$js.tabs({el:tabs1});
 	</script>
 
 

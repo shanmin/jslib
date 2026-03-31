@@ -14,6 +14,7 @@
 	<h2>定义</h2>
 	<p>$js(selector,context) : JSLib</p>
 	<p>$js() : JSLib</p>
+	<p>$js('') : JSLib</p>
 	<p>$js(HtmlObject) : JSLib</p>
 	<p>$js(HtmlString) : JSLib</p>
 	<p>$js(HtmlElement) : JSLib</p>
@@ -48,6 +49,16 @@
 			<th>选择器</th>
 			<th>示例</th>
 			<th>说明</th>
+		</tr>
+		<tr>
+			<td>无</td>
+			<td>$js()</td>
+			<td>获取当前脚本所在的script节点</td>
+		</tr>
+		<tr>
+			<td>空字符串</td>
+			<td>$js('')</td>
+			<td>返回空$js对象，无任何节点</td>
 		</tr>
 		<tr>
 			<td>element</td>
@@ -313,5 +324,6 @@ console.log($js('[name=&quot;c&quot;][value=c0]'));
 	<p>自0.0.1版本开始，$js()改为返回为当前脚本的父节点。之前的版本是返回一个空对象。</p>
 	<p>自0.1.0版本开始，@name选择器不再支持属性选择。$js()从返回当前脚本的父节点，改为返回当前节点。</p>
 	<p>自0.1.11版本开始，支持$js(HtmlObject)方法。</p>
+	<p>自1.0.9版本开始，支持$js('')方法。</p>
 </body>
 </html>
