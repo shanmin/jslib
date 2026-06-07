@@ -1410,7 +1410,7 @@
 	<a name="form"></a>
 	<h1>$js.form</h1>
 	<h2>定义</h2>
-	<p>$js.form(opts) : None</p>
+	<p>$js.form(opts) : Object</p>
 	<p>$js().form(opts) : JSLib</p>
 	<h2>参数</h2>
 	<table>
@@ -1455,6 +1455,8 @@
 			<td>[可选]设置提醒信息关闭时间，单位：ms。此参数仅针对正常信息，出错信息不自动关闭。此值设置为0时需手工关闭,设置为-1时正常系统提示不再显示。</td>
 		</tr>
 	</table>
+	<h2>返回值</h2>
+	<p>返回一个对象，包含提交表单的所有信息。（自1.0.10版本开始支持）(注：这个与传入的opts有所差异，因为此方法会自动添加部分参数)</p>
 	<h2>说明</h2>
 	<p>这个函数是使用AJAX方式模拟FORM提交，并显示提交进度及显示返回结果的方法。</p>
 	<p>如果参数opts.success=close，且返回数据ret[success]=true时默认直接关窗；返回数据ret[success]=false时显示错误信息。这个有一个前置条件，当前form必须是在$js.window创建的窗口中。</p>
@@ -1515,6 +1517,7 @@
 	<h2>版本</h2>
 	<p>本方法自0.1.17版本开始支持。</p>
 	<p>本方法自0.2.19版本开始支持formData参数。</p>
+	<p>本方法自1.0.10版本开始支持返回对象。</p>
 	<script>$js('#form_demo_html').text($js('#form_demo').outerHTML()).unindent({ignore:1});</script>
 
 
