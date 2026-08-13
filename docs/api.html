@@ -1367,6 +1367,7 @@
 	<p>没有参数或只传递nan0参数时，返回元素中第一个符合条件的数值，如果当前未包含任何元素则返回NaN。</p>
 	<p>注：如果JSLib匹配列表中包含checkbox/radio元素时，只有在选中状态才会返回有效数值。</p>
 	<p>传递num参数时，设置指定数字到当前符合元素上。</p>
+	<p>全局设置： $js.float.DEFAULT_NaN2empty=false|true ，用于设置是否将NaN转换为空字符串。这个设置只有在未设置opts.nan2empty参数时才生效。</p>
 	<h2>示例</h2>
 	<fieldset>
 		<legend>HTML</legend>
@@ -1393,6 +1394,7 @@
 	<h2>版本</h2>
 	<p>本属性自0.1.13版本开始支持。</p>
 	<p>自1.0.2版本开始支持opts.nan2empty参数。</p>
+	<p>自1.0.13版本开始支持$js.float.DEFAULT_NaN2empty全局参数。</p>
 	<script>$js('#float_demo_html').text($js('#float_demo').outerHTML()).unindent({ignore:1});</script>
 
 
