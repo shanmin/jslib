@@ -4290,7 +4290,11 @@ true</pre>
 		</tr>
 		<tr>
 			<td>opts.file</td>
-			<td>[必填]需要显示的图片路径。</td>
+			<td>[可选]需要显示的图片路径。</td>
+		</tr>
+		<tr>
+			<td>opts.files</td>
+			<td>[可选]需要显示的图片路径列表（多图）。如果使用files参数，opts.file参数将被视为第一个显示图片的路径。</td>
 		</tr>
 		<tr>
 			<td>opts.basepath</td>
@@ -4315,7 +4319,9 @@ true</pre>
 		<legend>演示区域</legend>
 		<div id="showimage_demo_html">
 			<button onclick="runme(this)">$js.showimage({file:'demo1.png'})</button>
-			<button onclick="runme(this)">$js.showimage({file:'/upload/demo1.png',fullscreen:true})</button>
+			<button onclick="runme(this)">$js.showimage({files:['demo1.png','demo2.png']})</button>
+			<button onclick="runme(this)">$js.showimage({file:'demo2.png',files:['demo1.png','demo2.png']})</button>
+			<button onclick="runme(this)">$js.showimage({file:'demo1.png',fullscreen:true})</button>
 			<script>
 				function runme(e)
 				{
@@ -4326,6 +4332,7 @@ true</pre>
 	</fieldset>
 	<h2>版本</h2>
 	<p>本方法自0.1.8版本开始支持。</p>
+	<p>参数opts.files，自1.0.14版本开始支持。</p>
 	<script>
 		$js('#showimage_show_html').text($js('#showimage_demo_html').outerHTML()).unindent({ignore:1});
 	</script>
