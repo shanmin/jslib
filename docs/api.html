@@ -1021,6 +1021,10 @@
 			<td>opts.data</td>
 			<td>[可选]树型结构数据。数据结构请参考$js.tree中的opts.data部分。</td>
 		</tr>
+		<tr>
+			<td>opts.placeholder</td>
+			<td>[可选]没有选择数据时的提示文本。</td>
+		</tr>
 	</table>
 	<h2>说明</h2>
 	<p>此方法生成可展开的树型选择框以及对应的input元素，可直接在form中进行提交。成功执行后返回一个封装后的HtmlElement对象：</p>
@@ -1042,6 +1046,7 @@
 			<form target="ctree_demo_iframe" action="echo.html">
 				name：<input type="text" name="name" value="username"><br>
 				value：<div id="ctree_demo_1"></div><br>
+				value2：<div id="ctree_demo_2"></div><br>
 				<input type="submit" value="Submit">
 			</form>
 		</div>
@@ -1067,10 +1072,29 @@
 					]},
 				]
 			});
+			$js('#ctree_demo_2').ctree({
+				name:'ctree_input2',
+				el_replace:true,
+				selectleaf:true,
+				mode:2,
+				placeholder:'选择数据',
+				data:[
+					{i:1,t:'node 1',c:[
+						{i:11,t:'node 11'},
+						{i:12,t:'node 12'},
+					]},
+					{i:2,t:'node 2'},
+					{i:3,t:'node 3',c:[
+						{i:31,t:'node 31'},
+						{i:32,t:'node 32'},
+					]},
+				]
+			});
 		</script>
 	</fieldset>
 	<h2>版本</h2>
 	<p>本方法自0.1.6版本开始支持。</p>
+	<p>属性placeholder自1.0.15版本开始支持。</p>
 	<script>$js('#ctree_show_js').text($js('#ctree_demo_js').outerHTML()).unindent({ignore:1});</script>
 
 
